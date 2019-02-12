@@ -30,7 +30,7 @@ class Navbar extends Component {
     return (
       <div className={`navbar_wrapper ${this.state.isTop ? '': 'navbar_bgBlack'}`}>
         <div className="navbar_logo">
-          <NavLink to={"/"}><img src={require(`../../img/logo-t8.png`)} alt=""/></NavLink>
+          <NavLink to={"/"}><img src={require(`../../img/logoT8.png`)} alt=""/></NavLink>
         </div>
         <div className="navbar_links">
             <NavLink className="noMobile" activeClassName={'activeLink'} to={"/"} exact><p>Accueil</p></NavLink>
