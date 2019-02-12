@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Westeinde Caption';
+    src: url('WesteindeCaption-Light.eot');
+    src: url('WesteindeCaption-Light.eot?#iefix') format('embedded-opentype'),
+        url('WesteindeCaption-Light.woff2') format('woff2'),
+        url('WesteindeCaption-Light.woff') format('woff'),
+        url('WesteindeCaption-Light.ttf') format('truetype'),
+        url('WesteindeCaption-Light.svg#WesteindeCaption-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+

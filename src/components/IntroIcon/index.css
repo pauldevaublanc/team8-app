@@ -1,0 +1,69 @@
+.IntroIcon_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    
+}
+
+.IntroIcon_img-wrapper {
+    width: 115px;
+    height: 115px;
+    border: 2px solid var(--black);
+    border-radius: 50%;
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+
+.IntroIcon_text {
+    font-family: var(--fontText);
+    padding: 6px 30px 15px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.IntroIcon_number {
+    font-size: 80px;
+    position: absolute;
+    width: 80%;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--fontNumber);
+}
+
+@media (max-width: 960px){
+    .IntroIcon_wrapper {
+        width: 50%;
+    }
+
+    .IntroIcon_img-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+
+    .IntroIcon_number {
+        font-size: 65px;
+    }
+  }
+
+@media (max-width: 680px){
+    .IntroIcon_img-wrapper {
+        width: 80px;
+        height: 80px;
+    }
+
+    .IntroIcon_number {
+        font-size: 50px;
+    }
+
+    .IntroIcon_text {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+  }

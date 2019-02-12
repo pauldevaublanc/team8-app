@@ -1,0 +1,12 @@
+.pills_wrapper {
+    display:flex;
+    align-items: center;
+    font-family: var(--fontText);
+}
+
+.pills {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 8px;
+}

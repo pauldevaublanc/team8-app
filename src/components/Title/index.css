@@ -1,0 +1,29 @@
+.title {
+    font-family: var(--fontTitle);
+    font-size: 110px;
+    line-height: 110px;
+    color: var(--white);
+    text-shadow: 1px 1px 5px var(--black), 4px 4px 0px var(--orange);
+    letter-spacing: 1px;
+}
+
+.home-subtitle {
+    font-size: 80px;
+    font-family: var(--fontTitle);
+    line-height: 80px;
+    color: var(--white);
+    text-shadow: 1px 1px 5px var(--black), 4px 4px 0px var(--orange);
+    letter-spacing: 1px;
+}
+
+@media (max-width: 680px){
+    .title {
+        font-size: 60px;
+        line-height: 60px;
+    }
+
+    .home-subtitle {
+        font-size: 50px;
+        line-height: 50px;
+    }
+  }

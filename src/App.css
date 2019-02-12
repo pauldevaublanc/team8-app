@@ -1,32 +1,109 @@
-.App {
-  text-align: center;
+/****FONTS****/
+
+@font-face {
+  font-family: 'Kanit';
+  src: url('./fonts/Kanit/Kanit-Black.ttf') format('truetype');
+  font-weight: 800;
+  font-style: bolder;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+@font-face {
+  font-family: 'Westeinde';
+  src: url('./fonts/Westeinde/WesteindeCaption-Light.eot');
+  src: url('./fonts/Westeinde/WesteindeCaption-Light.eot?#iefix') format('embedded-opentype'),
+      url('./fonts/Westeinde/WesteindeCaption-Light.woff2') format('woff2'),
+      url('./fonts/Westeinde/WesteindeCaption-Light.woff') format('woff'),
+      url('./fonts/Westeinde/WesteindeCaption-Light.ttf') format('truetype'),
+      url('./fonts/Westeinde/WesteindeCaption-Light.svg#WesteindeCaption-Light') format('svg');
+  font-weight: 800;
+  font-style: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@font-face {
+  font-family: 'Old-sport';
+  src: url('./fonts/old-sport-athletic/OLD_SPORT_01_COLLEGE_NCV.ttf') format('truetype');
+  font-weight: 800;
+  font-style: bold;
 }
 
-.App-link {
-  color: #61dafb;
+/****COLORS****/
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --orange: #EF7E4D;
+  --gray: #A3A5A4;
+  --fontTitle: 'Kanit';
+  --fontText: 'Westeinde';
+  --fontNumber: 'Old-sport';
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Westeinde", "NotoSans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #232526; 
+  background: -webkit-linear-gradient(to right, #484a4d, #232526); 
+  background: linear-gradient(to right, #484a4d, #232526);
+  color: var(--white);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+div{
+  box-sizing: border-box;
+}
+
+input,
+textarea,
+button,
+select,
+a, 
+img {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+p {
+  font-size: 13px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img:focus {outline:0; background-color:transparent;}
+
+/**** TEXT SELECTION COLOR ****/
+::-moz-selection {
+  background-color: var(--white);
+  color: var(--white);
+}
+
+::selection {
+  background-color: var(--white);
+  color: var(--white);
+}
+
+
+
+@media (max-width: 680px){
+  .noMobile {
+    display: none !important;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+@media (max-width: 960px){
+
+}
+
+@media (max-width: 1260px){
+ 
 }
