@@ -1,0 +1,78 @@
+/* TAB MENU */
+
+.tabs-games-wrapper {
+    height: 250px
+}
+.tabs-games-menu {
+    display: flex;
+    padding: 15px 0px 0px;
+    font-family: var(--fontTitle);
+  }
+  .tabs-games-menu div {
+    color: var(--white);
+  }
+  .tabs-games-menu div:hover,  .tabs-games-menu div:hover .tab{
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid var(--white);
+    transition: 0.3s;
+    text-shadow:1px 1px 10px var(--white);
+  }
+  .tabs-games-menu h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  .tab {
+    border: 1px solid var(--gray);
+    flex: 0 0 25%;
+    text-align: center;
+    padding: 10px 0;
+    transition: 0.3s;
+  }
+  .tab:first-child {
+    border-radius: 2px 0 0 0;
+  }
+  .tab:last-child {
+    border-radius: 0 2px 0 0;
+  }
+  .tab.active {
+    background: var(--white);
+    color: var(--black);
+  }
+
+  /* Match a venir  */
+
+  .table_games-infos-wrapper {
+    height:241px;
+    overflow:scroll;
+  }
+
+  .table_next-game {
+    width: 100%;
+    border: 1px solid var(--gray);
+    border-collapse: collapse;
+    overflow: scroll;
+    max-height: 200px;
+  }
+
+  .table_next-game tr:first-child {
+    background: var(--gray);
+    color: var(--black);
+    font-weight: bold;
+  }
+
+  .table_next-game td {
+    width: 20%;
+    border: 1px solid var(--gray);
+    padding: 7px 10px;
+  }
+
+  @media (max-width: 900px){
+    .tab {
+      flex: 0 0 33.32%;
+    }
+
+    
+    
+  }

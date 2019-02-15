@@ -12,7 +12,7 @@
 }
 
 .navbar_bgBlack {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: var(--black);
     transition: 0.5s;
 }
 
@@ -80,9 +80,7 @@
     .navbar_links {
         width: 80%;
     }
-    .navbar_line {
-        width: 80%;
-    }
+    
     .navbar_links p {
         font-size: 16px;
     }
@@ -114,7 +112,7 @@
     .navbar_line {
         width: 100%;
         margin: 0 auto;
-        top: 120px;
+        top: 105px;
         transition: 0;
     }
     .navbar_links p {

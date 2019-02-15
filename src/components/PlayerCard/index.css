@@ -1,0 +1,91 @@
+.playerCard_wrapper {
+    border: 1px solid var(--gray);
+    width: 375px;
+    max-width: 375px;
+    min-width: 375px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    margin: 10px;
+    background: var(--gradientGray);
+}
+
+.playerCard_left-infos {
+    width: 30%;
+    background: var(--gray); 
+    padding: 0px 10px;
+    text-align: left;
+}
+
+.playerCard_grade {
+    height: 60px;
+    width: 60px;
+    margin: 20px auto 10px;
+    border: 1px solid var(--white);
+    box-shadow: 0px 0px 0px 8px var(--orange);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.playerCard_grade div {
+    font-size: 28px;
+    font-family: var(--fontTitle);
+    line-height: 14px;
+}
+
+.playerCard_grade div span {
+    font-size: 12px;
+    line-height: 8px;
+}
+
+.playerCard_left-infos h3{
+    font-family: var(--fontTitle);
+    font-size: 22px;
+    line-height: 24px;
+    padding: 10px 0px 5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.playerCard_right-infos {
+    width: 70%;
+    padding: 0px 10px;
+    margin: 15px auto;
+}
+
+.playerCard_name {
+    font-family: var(--fontTitle);
+    font-size: 16px;
+    text-transform: capitalize;
+    line-height: 22px;
+    padding: 10px 0px 15px;
+}
+
+.playerCard_list-stats li{
+    border: 1px solid var(--gray);
+}
+
+.playerCard_list-stats li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playerCard_list-stats li div{
+    height: 25px;
+    padding: 0px 4px;
+    line-height: 25px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.playerCard_list-stats li div:first-child{
+    background: var(--white);
+    color: var(--black);
+    width: 50%;
+    text-align: left;
+}
+

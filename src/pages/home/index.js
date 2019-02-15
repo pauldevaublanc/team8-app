@@ -2,19 +2,27 @@ import React, { Component } from 'react';
 import './index.css';
 
 import Typewriter from 'typewriter-effect';
-
 import config from '../../config/index';
 
+// Images
+import Background from '../../img/background-home.jpg';
+
+// Components
 import Navbar from '../../components/Navbar/index';
 import Title from '../../components/Title/index';
-
-import Background from '../../img/background-home.jpg';
 import IntroIcon from '../../components/IntroIcon';
 import GameCard from '../../components/GameCard';
 
 class Home extends Component {
   state ={
     users : []
+  }
+
+  scrollOnClick() {
+    window.scrollTo({
+      top: window.innerHeight - 70,
+      behavior: 'smooth'
+    });
   }
 
 
@@ -54,7 +62,7 @@ class Home extends Component {
                 }}
               />
             </div>
-            <div className="home_introduction-arrow">
+            <div className="home_introduction-arrow" onClick={this.scrollOnClick.bind(this)}>
               <img src={require(`../../img/icones/icon-arrow-down.png`)} alt="arrow-down"/>
             </div>
           </div>
@@ -79,18 +87,44 @@ class Home extends Component {
           </div>
 
           <div className="home_news-wrapper">
-            <h2>Les prochains matchs</h2>
-            <GameCard 
-              gameDay={'Lundi'} 
-              gameMonth={'23 septembre'} 
-              gameHour={'18:00'} 
-              userName={'Jean-Pierre'}
-              picture={'lebron.jpg'}
-              numberPlayers={'4'}
-              gameLocation={'Paris 16'}/>
+            <h2 style={{paddingBottom:30, fontSize:35}}>Les prochains matchs</h2>
+            <div className="home_news-container">
+              <GameCard 
+                gameDay={'Lundi'} 
+                gameMonth={'23 septembre'} 
+                gameHour={'18:00'} 
+                userName={'Jean-Pierre'}
+                picture={'lebron.jpg'}
+                numberPlayers={'4'}
+                gameLocation={'Paris 16'}
+                availablePlace={true}/>
+                <GameCard 
+                gameDay={'Mardi'} 
+                gameMonth={'12 juillet'} 
+                gameHour={'14:00'} 
+                userName={'Alfred'}
+                picture={'dunk.jpg'}
+                numberPlayers={'2'}
+                gameLocation={'Aubervilliers'}
+                availablePlace={false}/>
+                <GameCard 
+                gameDay={'Dimanche'} 
+                gameMonth={'12 avril'} 
+                gameHour={'12:55'} 
+                userName={'Didier'}
+                picture={'didier.jpg'}
+                numberPlayers={'1'}
+                gameLocation={'Sèvres'}
+                availablePlace={true}/>
+              </div>
           </div>
 
-          <h2>Liste des joueurs</h2>
+          <div className="home_counter">
+              <div><span>104</span> <br/>Teammates inscrits</div>
+              <div><span>344</span> <br/>matchs joués</div>
+          </div>
+
+          {/* <h2>Liste des joueurs</h2>
           <button onClick={this.getPlayers}>Récuperer liste des joueurs en ajax</button>
           <ul>
             {
@@ -100,7 +134,7 @@ class Home extends Component {
                 )
             })
             }
-          </ul>
+          </ul> */}
         </div>
       </div>
     );

@@ -25,7 +25,7 @@
 }
 
 .button-transparent:hover {
-    box-shadow: 0 0 10px 0 var(--orange) inset, 0 0 10px 2px var(--orange);
+    box-shadow: 0 0 0px 0 var(--orange) inset, 0 0 0px 0px var(--orange);
 }
 
 .button-orange {
@@ -45,7 +45,6 @@
 @media (max-width: 680px){
     .btn {
         font-size: 14px;
-        border-radius: 20px;
         line-height: 1;
         padding: 8px 15px;
     }

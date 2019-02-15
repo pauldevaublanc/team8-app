@@ -1,0 +1,19 @@
+.footerT8_wrapper {
+    width:100%;
+    padding-bottom: 20px;
+}
+
+.footerT8_wrapper hr{
+    width:86%;
+    position: absolute;
+    bottom: 34px;
+    opacity: 0.5;
+}
+
+.footerT8_wrapper img {
+    width: 12%;
+    position: absolute;
+    bottom: 23px;
+    right: -12px;
+    opacity: 0.5;
+}

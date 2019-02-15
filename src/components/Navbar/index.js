@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import './index.css';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types'
 
 import Button from './../Button/index';
 
 class Navbar extends Component {
+  
+  static propTypes = {
+    style2: PropTypes.object,
+    style: PropTypes.object,
+  }
 
     state = {
         isTop: true
@@ -28,18 +34,18 @@ class Navbar extends Component {
 
   render() {
     return (
-      <div className={`navbar_wrapper ${this.state.isTop ? '': 'navbar_bgBlack'}`}>
+      <div className={`navbar_wrapper ${this.state.isTop ? '': 'navbar_bgBlack'}`} style={this.props.style}>
         <div className="navbar_logo">
           <NavLink to={"/"}><img src={require(`../../img/logoT8.png`)} alt=""/></NavLink>
         </div>
         <div className="navbar_links">
             <NavLink className="noMobile" activeClassName={'activeLink'} to={"/"} exact><p>Accueil</p></NavLink>
-            <NavLink activeClassName={'activeLink'} to={"/profile"} exact><p>Mon joueur</p></NavLink>
-            <NavLink activeClassName={'activeLink'} to={"/games"} exact><p>Ma saison</p></NavLink>
-            <NavLink activeClassName={'activeLink'} to={"/teammates"} exact><p>Mes team8</p></NavLink>
+            <NavLink activeClassName={'activeLink'} to={"/profile"} exact><p>Profil</p></NavLink>
+            <NavLink activeClassName={'activeLink'} to={"/games"} exact><p>Saison</p></NavLink>
+            <NavLink activeClassName={'activeLink'} to={"/teammates"} exact><p>Teammates</p></NavLink>
             <Button text={'Organiser un match'} buttonStyle={'button-orange'}/>
         </div>
-        <div className={`navbar_line ${this.state.isTop ? '': 'navbar_full-line'}`}></div>
+        <div className={`navbar_line ${this.state.isTop ? '': 'navbar_full-line'}`} style={this.props.style2}></div>
       </div>
     );
   }

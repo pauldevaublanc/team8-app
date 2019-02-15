@@ -48,12 +48,13 @@
 
 /* Second part of the home page, with presentation icons */
  .home_presentation-wrapper {
-   padding: 20px 20px 5px;
-   width: 100%;
-   display: flex;
-   justify-content: center;
-  align-items: flex-start;
-  align-content: center;
+    padding: 45px 20px 35px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    border-bottom: 1px solid white;
  }
 
 @keyframes blinkTextCursor{
@@ -71,8 +72,35 @@
 /* Third part of the home page, news part with the next game coming up */
 
 .home_news-wrapper {
-  padding: 20px;
+  padding: 55px 20px 70px;
   background-color: var(--black);
+  border-bottom: 1px solid var(--white);
+}
+
+.home_news-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Fourth part, counter part  */
+.home_counter {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.home_counter div{
+  font-size: 22px;
+  line-height: 26px;
+  margin: 0px 20px;
+}
+
+.home_counter div span{
+  font-size: 34px;
+  letter-spacing: 3px;
+  color: var(--orange);
 }
 
 @media (max-width: 960px){
@@ -82,12 +110,26 @@
 }
 
 @media (max-width: 680px){
+  .home_presentation-wrapper {
+    padding: 20px 10px 15px;
+ }
+
+  .home_news-wrapper {
+    padding: 20px;
+  }
+
   .home_introduction-text {
     font-size: 16px;
   }
   
   .home_introduction-typing-text {
     font-size: 16px;
+  }
+
+  .home_counter div{
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0px;
   }
 
   

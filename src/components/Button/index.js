@@ -7,11 +7,12 @@ class Button extends Component {
   static propTypes = {
     text: PropTypes.string,
     buttonStyle: PropTypes.string,
+    style: PropTypes.object,
 }
 
   render() {
     return (
-      <div className={`btn ${ this.props.buttonStyle }`}>
+      <div className={`btn ${ this.props.buttonStyle }`} style={this.props.style}>
         {this.props.text}
       </div>
     );
