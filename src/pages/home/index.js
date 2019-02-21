@@ -37,6 +37,10 @@ class Home extends Component {
     });
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return (
       <div>
@@ -78,11 +82,11 @@ class Home extends Component {
               />
               <IntroIcon 
                 number={'3'} 
-                text={'Evalue tes teammates et fait toi évaluer après match, pour améliorer tes statistiques'}
+                text={'Reussis tes matchs pour obtenir les meilleures notes et te hisser vers le haut du classement'}
               />
               <IntroIcon 
                 number={'4'} 
-                text={'Reussi tes matchs pour obtenir les meilleures notes et te hisser vers le haut du classement'}
+                text={'Evalue tes teammates et fait toi évaluer après match, pour améliorer tes statistiques'}
               />
           </div>
 

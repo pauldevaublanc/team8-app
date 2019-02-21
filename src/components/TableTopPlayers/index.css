@@ -1,0 +1,59 @@
+.table-top-players_wrapper {
+    width: 95%;
+    margin: 10px auto;
+}
+
+.table-top-players_wrapper table{
+    width: 100%;
+    border: 1px solid var(--gray);
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.table-top-players_wrapper table tbody tr{
+    cursor: pointer;
+    border: 2px solid var(--gray);
+    transition: 0.3s;
+}
+
+.table-top-players_wrapper table tbody tr:hover{
+    border: 2px solid var(--white);
+    background: var(--orange);
+    transition: 0.3s;
+}
+
+.table-top-players_wrapper table td:first-child {
+    width: 10%;
+}
+
+.table-top-players_wrapper table td:nth-last-child(-n+2){
+    width: 15%;
+    font-weight: bold;
+}
+
+.table-top-players_wrapper table tr:nth-last-child(odd){
+    background: var(--black);
+}
+
+.table-top-players_wrapper table thead th{
+    font-family: var(--fontTitle);
+    background: var(--white);
+    color: var(--black);
+}
+
+.table-top-players_wrapper tr td, .table-top-players_wrapper tr th{
+    /* border: 2px solid var(--gray); */
+    padding: 5px;
+}
+
+
+  
+  @media (max-width: 960px){
+    .table-top-players_wrapper {
+        width: 100%;
+    }
+
+    .table-top-players_wrapper table td:nth-child(3), .table-top-players_wrapper table th:nth-child(3){
+        display: none;
+    }
+  }

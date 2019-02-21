@@ -17,3 +17,17 @@
     right: -12px;
     opacity: 0.5;
 }
+
+
+@media (max-width: 680px){
+    .footerT8_wrapper hr{
+        width:76%;
+        bottom: 26px;
+    }
+    
+    .footerT8_wrapper img {
+        width: 20%;
+        bottom: 15px;
+    }
+    
+}

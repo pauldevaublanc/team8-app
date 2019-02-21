@@ -15,8 +15,14 @@ import Title from '../../components/Title/index';
 import Button from '../../components/Button/index';
 import TableGames from '../../components/TableGames/index';
 import FooterT8 from '../../components/FooterT8/index';
+import ActionPlayerIcon from '../../components/ActionPlayerIcon/index';
 
 class Profile extends Component {
+
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
 
   // state= {
   //   rating: 3.4
@@ -34,6 +40,7 @@ class Profile extends Component {
         <Navbar/>
         <div className="main_wrapper" style={{backgroundImage: `url(${Background})`}}>
           <div className="main_container">
+          <ActionPlayerIcon icon={'edit.png'} style={{right:20, top:15}} styleImg={{width:30}}/>
             <Title text={'Mon Joueur'} style={{fontSize: 55, lineHeight:'60px', padding:'15px 0px 35px'}}/>
             
             <ProfilePicture size={100} picture={'lebron.jpg'} borderStyle={'border-small'}/>
@@ -43,8 +50,8 @@ class Profile extends Component {
               <h2>lebron james</h2>
               <p className="profile_description-text">Je suis plutot disponible les weekends, ready to win bitch!!!</p>
               <div className="profile_button-wrapper">
-              <Link to={"/teammates"}><Button text={'Ajouter des teammates'} buttonStyle={'button-transparent'} style={{width:233, margin:'10px 5px'}}/></Link>
-              <Link to={"/games"}><Button text={'Rechercher un match'} buttonStyle={'button-transparent'} style={{width:233, margin:'10px 5px'}}/></Link>
+              <Link to={"/teammates"}><Button text={'Ajouter des teammates'} buttonStyle={'button-transparent'} style={{width:'96%', margin:'10px 5px'}}/></Link>
+              <Link to={"/games"}><Button text={'Rechercher un match'} buttonStyle={'button-transparent'} style={{width:'96%', margin:'10px 5px'}}/></Link>
             </div>
               <div className="profile_results-wrapper">
                 <p><span>5</span><br/>Victoires</p>

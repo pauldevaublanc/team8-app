@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import './index.css';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+
+
+import StarRatings from 'react-star-ratings';
 
 // COMPONENTS
 import ProfilePicture from '../ProfilePicture';
 import Button from '../Button';
-import StarRatings from 'react-star-ratings';
+import ActionPlayerIcon from '../ActionPlayerIcon';
 
 class PlayerCard extends Component {
 
@@ -22,12 +25,14 @@ class PlayerCard extends Component {
     wins: PropTypes.number,
     mvp: PropTypes.number,
     stars: PropTypes.number,
+    icon: PropTypes.string,
     style: PropTypes.object,
 }
 
   render() {
     return (
       <div className="playerCard_wrapper" style={this.props.style}>
+        <ActionPlayerIcon icon={this.props.icon}/>
            
             <div className="playerCard_left-infos">
                 <div className="playerCard_grade">

@@ -8,6 +8,8 @@
     justify-content: space-between;
     margin: 10px;
     background: var(--gradientGray);
+    position: relative;
+    border-radius: 2px;
 }
 
 .playerCard_left-infos {
