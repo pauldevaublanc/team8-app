@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './index.css';
 
+import { Link } from 'react-router-dom';
+
+
+
 // Images
 import Background from '../../img/background-home.jpg';
 
@@ -18,17 +22,15 @@ class Teammates extends Component {
     active: 0
   }
 
+
   handleClick = (key) => {
       this.setState({ 
           active: key 
       });
   }
 
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
 
-  menuElements = ['Mes Teammates', 'Draft Zone', 'Top Players']
+  menuElements = ['Mes Teammates', 'Draft Zone', 'Top Players'];
 
   render() {
     return (
@@ -37,7 +39,7 @@ class Teammates extends Component {
         <div className="main_wrapper" style={{backgroundImage: `url(${Background})`}}>
           <div className="main_container">
             <Title 
-            text={'Teammates'} 
+            text={'Teammates Zone'} 
             style={{
               fontSize: 55, 
               lineHeight:'60px', 
@@ -47,13 +49,18 @@ class Teammates extends Component {
               {
                 this.menuElements.map((element, key) => {
                   return(
-                    <div 
+                    <Link 
+                    to={`/teammates/${element.replace(/\s+/, "").toLocaleLowerCase()}`} 
                     key={key} 
-                    className={`tab ${this.state.active === key ? 'active' : ''}`}  
-                    onClick={this.handleClick.bind(this, key)} 
-                    >
-                      <h3>{element}</h3>
-                    </div>
+                    style={{
+                      width:'100%'
+                    }}>
+                      <div 
+                      className={`tab ${this.state.active === key ? 'active' : ''}`}  
+                      onClick={this.handleClick.bind(this, key)}>
+                        <h3>{element}</h3>
+                      </div>
+                    </Link>
                   )
                 })
               }        

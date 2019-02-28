@@ -1,5 +1,5 @@
 export default {
-    urlApi: 'http://localhost:4001',
+    urlApi: 'http://localhost:1337',
 
     players: [
         {
@@ -75,21 +75,6 @@ export default {
         wins: 98,
         mvp: 0,
         stars:3,
-        icon: 'cross.png'
-        },
-        {
-        lastName: 'Albert',
-        firstName: 'michel',
-        picture: 'equipe.jpg',
-        grade: 52,
-        poste: 'P',
-        level: 'pro',
-        age: 38,
-        city: 'Issy-les-moulineaux',
-        matchPlayed: 25,
-        wins: 8,
-        mvp: 2,
-        stars: 5,
         icon: 'cross.png'
         }
     ]

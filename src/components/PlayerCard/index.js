@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './index.css';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 
 import StarRatings from 'react-star-ratings';
 
@@ -13,6 +13,7 @@ import ActionPlayerIcon from '../ActionPlayerIcon';
 class PlayerCard extends Component {
 
   static propTypes = {
+    id: PropTypes.string,
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     picture: PropTypes.string,
@@ -42,6 +43,7 @@ class PlayerCard extends Component {
                 <p style={{textTransform:'capitalize'}}>{this.props.level}</p>
                 <p>{this.props.age} ans</p>
                 <p style={{textTransform:'capitalize'}}>{this.props.city}</p>
+                <Link to={`/user/${this.props.id}`}>
                 <Button 
                     text={'Plus d\'infos'} 
                     buttonStyle={'button-transparent'} 
@@ -49,7 +51,7 @@ class PlayerCard extends Component {
                         padding: '10px 5px', 
                         margin:'10px auto', 
                         fontSize:12}}
-                />
+                /></Link>
             </div>
 
             <div className="playerCard_right-infos">

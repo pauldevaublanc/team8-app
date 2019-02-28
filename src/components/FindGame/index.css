@@ -1,15 +1,16 @@
-.draft_wrapper {
+.find-game_wrapper {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
     align-content: space-around;
-    width: 95%;
+    width: 97%;
     margin: 0 auto;
 }
 
 
 @media (max-width: 1434px){
-    .draft_wrapper{
+    .find-game_wrapper{
         justify-content: center;
+        width: 100%;
     }
   }

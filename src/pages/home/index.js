@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './index.css';
 
 import Typewriter from 'typewriter-effect';
-import config from '../../config/index';
+// import config from '../../config/index';
 
 // Images
 import Background from '../../img/background-home.jpg';
@@ -14,9 +14,9 @@ import IntroIcon from '../../components/IntroIcon';
 import GameCard from '../../components/GameCard';
 
 class Home extends Component {
-  state ={
-    users : []
-  }
+  // state ={
+  //   games : []
+  // }
 
   scrollOnClick() {
     window.scrollTo({
@@ -26,16 +26,16 @@ class Home extends Component {
   }
 
 
-  getPlayers = () => {
-    // requete ajax pour recuperer la listes des joueurs
-    fetch(`${config.urlApi}/users`)
-      .then((response) => {return response.json();})
-      .then((data) => {
-        this.setState({
-          users: data
-        })
-    });
-  }
+  // getPlayers = () => {
+  //   // requete ajax pour recuperer la listes des joueurs
+  //   fetch(`${config.urlApi}/games`)
+  //     .then((response) => {return response.json();})
+  //     .then((data) => {
+  //       this.setState({
+  //         games: data
+  //       })
+  //   });
+  // }
 
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -128,13 +128,13 @@ class Home extends Component {
               <div><span>344</span> <br/>matchs joués</div>
           </div>
 
-          {/* <h2>Liste des joueurs</h2>
-          <button onClick={this.getPlayers}>Récuperer liste des joueurs en ajax</button>
+          {/* <h2>Liste des games</h2>
+          <button onClick={this.getPlayers}>Récuperer liste des games en ajax</button>
           <ul>
             {
-              this.state.users.map((user, key) => {
+              this.state.games.map((game, key) => {
                 return (
-                  <li key={key}>{user.name} / {user.age}</li>
+                  <li key={key}>{game.city} / {game.description}</li>
                 )
             })
             }

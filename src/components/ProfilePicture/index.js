@@ -14,7 +14,7 @@ class ProfilePicture extends Component {
   render() {
     return (
       <div className={`profilePicture_wrapper ${this.props.borderStyle}`} style={{width:this.props.size, height:this.props.size}}>
-        <img src={require(`../../img/${this.props.picture}`)} alt=""/>
+        <img src={this.props.picture} alt=""/>
       </div>
     );
   }

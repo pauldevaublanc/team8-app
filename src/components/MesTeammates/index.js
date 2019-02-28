@@ -23,7 +23,7 @@ class MesTeammates extends Component {
                   <PlayerCard key={key}
                   lastName={element.lastName}
                   firstName={element.firstName}
-                  picture={element.picture}
+                  picture={require(`../../img/${element.picture}`)}
                   grade={element.grade}
                   poste={element.poste}
                   level={element.level}
