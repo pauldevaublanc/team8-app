@@ -8,6 +8,7 @@ import Home from './pages/home/index';
 import User from './pages/user/index';
 import Games from './pages/games/index';
 import Teammates from './pages/teammates/index';
+import CreateGame from './pages/createGame/index';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
             <Route exact path="/games" component={Games} />
             <Route exact path="/games/:list" component={Games} />
             <Route exact path="/teammates" component={Teammates} />
+            <Route exact path="/createGame" component={CreateGame} />
             <Route exact path="/teammates/:panel" component={Teammates} />
             
             <Route exact path="/user/:userId" component={User} />

@@ -28,6 +28,7 @@
     box-shadow: 0 0 0px 0 var(--orange) inset, 0 0 0px 0px var(--orange);
 }
 
+
 .button-orange {
     border-color: var(--orange);
     color: #fff;
@@ -40,6 +41,10 @@
 .button-orange:hover {
     background-position: 0;
 }
+
+.active-button {
+    background: var(--orange);
+} 
   
 
 @media (max-width: 680px){

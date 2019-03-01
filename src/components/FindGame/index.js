@@ -52,7 +52,7 @@ class FindGame extends Component {
                         gameHour={moment(game.date).format("H : mm")}
                         userName={game.OrganizerName}
                         picture={`${config.urlApi}${game.OrganizerPicture.url}`}
-                        numberPlayers={'3'}
+                        numberPlayers={game.JoueursEquipe}
                         gameLocation={game.court.city}
                         availablePlace={game.availablePlace}/>
                     )
