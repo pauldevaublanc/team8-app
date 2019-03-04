@@ -1,0 +1,88 @@
+.court-preview_wrapper {
+    width: 80%;
+    min-height: 450px;
+    border: 4px solid var(--gray);
+    margin: 0 auto;
+    border-radius: 2px;
+    position: relative;
+    background: var(--solidGray);
+    overflow: hidden;
+}
+
+.court-preview_line-middle-court {
+    position: absolute;
+    border: 2px solid var(--gray);
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.court-preview_half-circle {
+    position: absolute;
+    height: 100%;
+    width: 450px;
+    border: 4px solid var(--gray);
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.circle-right {
+    left: 100%;
+}
+
+
+.court-preview_round-middle-court {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 250px;
+    height: 250px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 4px solid var(--gray);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.court-preview_wrapper-players {
+    max-width: 100%;
+}
+
+@media (max-width: 1200px){
+    .court-preview_wrapper {
+        width: 90%;
+    }
+  }
+
+@media (max-width: 990px){
+    .court-preview_wrapper {
+        min-height: 350px;
+    }
+
+    .court-preview_half-circle {
+        width: 350px;
+    }
+
+    .court-preview_round-middle-court {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 700px){
+    .court-preview_wrapper {
+        width: 95%;
+        min-height: 300px;
+    }
+
+    .court-preview_half-circle {
+        width: 300px;
+    }
+
+    .court-preview_round-middle-court {
+        width: 160px;
+        height: 160px;
+    }
+
+  }

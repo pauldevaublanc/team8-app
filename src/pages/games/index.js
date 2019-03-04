@@ -28,28 +28,6 @@ class Games extends Component {
     });
   }
 
-  addGame = () => {
-    fetch(`${config.urlApi}/games`, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        description: this.refs['descriptionRef'].value, 
-        city: this.refs['cityRef'].value
-      })
-    })
-    .then((response) => { return response.json(); })
-    .then((data) => {
-      const newGames = this.state.games
-      newGames.push(data)
-      this.setState({
-        games: newGames
-      })
-      
-    });
-  }
 
   handleClick = (key) => {
     this.setState({ 
@@ -57,18 +35,6 @@ class Games extends Component {
     });
 }
 
-  handleChangeTitle = (e) => {
-    this.setState({
-      description: e.target.value
-    });
-  }
-
-  handleChangeDate = (e) => {
-    this.setState({
-      city: e.target.value
-    
-    });
-  }
 
   componentDidMount() {
     this.getGames()
@@ -109,24 +75,7 @@ class Games extends Component {
               this.state.active === 0 ? <FindGame/> : this.state.active === 1 ?<FindGame/> : <FindGame/>
             }
            
-           
-            <div className="games_wrapper">
-              <ul>
-                {
-                  this.state.games.map((game, key) => {
-                    return (
-                      <li key={key}>{game.description} / {game.city}</li>
-                    )
-                })
-                }
-              </ul>
-              <h2>Organiser un match</h2>
-              <form>
-                <input type="text" placeholder="description" name="description" ref={'descriptionRef'}/>
-                <input type="text" placeholder="city" name="city" ref={'cityRef'}/>
-                <button type="button" value="Submit" onClick={this.addGame}>Envoyer</button>
-              </form>
-            </div>
+      
 
 
 

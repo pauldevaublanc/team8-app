@@ -3,7 +3,6 @@ import './index.css';
 
 import config from '../../config/index';
 
-import { Link } from 'react-router-dom';
 
 import Background from '../../img/background-home.jpg';
 // Components
