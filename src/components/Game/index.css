@@ -1,0 +1,117 @@
+.game-infos-wrapper {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    border: 2px solid var(--gray);
+    padding: 15px;
+    border-top: 1px solid var(--white);
+}
+
+.game-infos-subtitle {
+    font-family: var(--fontTitle);
+    text-align: left;
+    width: 80%;
+    margin: 0 auto;
+    padding: 5px 20px;
+    font-size: 24px;
+    background: var(--gray);
+    color: var(--black);
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    display: flex;
+    align-items: center;
+}
+
+
+.game-organizer-infos {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    max-width: 70%;
+}
+
+.game-organizer-infos span{
+    color: var(--orange);
+}
+
+.game-organizer-infos div{
+    font-family: var(--fontTitle);
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.game-organizer-infos p{
+    font-family: var(--fontText);
+    font-size: 16px;
+    line-height: 18px;
+    padding-top: 8px;
+}
+
+.game-date-infos {
+    font-family: var(--fontTitle);
+    font-size: 24px;
+    line-height: 26px;
+    text-align: left;
+    border-left: 10px solid var(--orange);
+    padding-left: 15px;
+    width: 24%;
+}
+
+@media (max-width: 1200px){
+    .game-infos-wrapper{
+        width: 90%;
+    }
+
+    .game-infos-subtitle {
+        width: 90%;
+    }
+}
+
+@media (max-width: 920px){
+    .game-infos-wrapper  {
+        flex-direction: column;
+    }
+
+    .game-organizer-infos {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .game-date-infos {
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+}
+
+@media (max-width: 700px){
+    .game-infos-wrapper{
+        width: 95%;
+    }
+
+    .game-infos-subtitle {
+        width: 95%;
+        font-size: 22px;
+    }
+
+    .game-organizer-infos div{
+        font-size: 20px;
+        line-height: 22px;
+    }
+    
+    .game-organizer-infos p{
+        font-size: 12px;
+        line-height: 14px;
+    }
+    
+    .game-date-infos {
+        font-size: 20px;
+        line-height: 20px;
+    }
+}

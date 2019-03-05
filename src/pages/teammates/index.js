@@ -41,8 +41,6 @@ class Teammates extends Component {
             <Title 
             text={'Teammates Zone'} 
             style={{
-              fontSize: 55, 
-              lineHeight:'60px', 
               padding:'15px 0px 35px'
             }}/>
             <div className="tabs-games-menu" style={{justifyContent:'center', paddingBottom: 10}}>

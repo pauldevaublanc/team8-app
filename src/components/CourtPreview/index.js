@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './index.css';
 import PropTypes from 'prop-types';
-import ProfilePicture from '../ProfilePicture';
+
 
 
 // Images
-import Ball from '../../img/1v1.png';
+import ImgCenterCourt from '../../img/1v1.png';
 
 // Components
-
+import ProfilePicture from '../ProfilePicture';
 
 
 class CourtPreview extends Component {
@@ -87,7 +87,7 @@ class CourtPreview extends Component {
             <div className="court-preview_line-middle-court"></div>
             <div className="court-preview_half-circle" ></div>
             <div className="court-preview_half-circle circle-right"></div>
-            <div className="court-preview_round-middle-court" style={{backgroundImage: `url(${Ball})`}}></div>
+            <div className="court-preview_round-middle-court" style={{backgroundImage: `url(${ImgCenterCourt})`}}></div>
 
             <div className="court-preview_wrapper-players">  
                 {

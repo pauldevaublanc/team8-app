@@ -2,7 +2,7 @@
     border: 1px solid var(--gray);
     width: 375px;
     max-width: 375px;
-    min-width: 375px;
+    min-width: 340px;
     display: flex;
     align-items: stretch;
     justify-content: space-between;
@@ -78,7 +78,7 @@
 
 .playerCard_list-stats li div{
     height: 25px;
-    padding: 0px 4px;
+    padding-right: 4px;
     line-height: 25px;
     font-size: 13px;
     font-weight: bold;
@@ -89,5 +89,30 @@
     color: var(--black);
     width: 50%;
     text-align: left;
+    padding-left: 3px;
 }
 
+
+@media (max-width: 800px){
+    .playerCard_list-stats li div:first-child{
+        width: 45%;
+    }
+
+    .playerCard_left-infos, .playerCard_right-infos {
+        padding: 0px 8px;
+    }
+
+    .playerCard_left-infos p, .playerCard_right-infos p{
+        font-size: 12px;
+    }
+
+    .playerCard_grade {
+        height: 55px;
+        width: 55px;
+    }
+
+    .playerCard_name {
+        font-size: 14px;
+        line-height: 20px;
+    }
+  }

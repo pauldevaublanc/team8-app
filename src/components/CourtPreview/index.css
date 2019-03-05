@@ -3,10 +3,12 @@
     min-height: 450px;
     border: 4px solid var(--gray);
     margin: 0 auto;
-    border-radius: 2px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
     position: relative;
     background: var(--solidGray);
     overflow: hidden;
+    border-top: 1px solid var(--white);
 }
 
 .court-preview_line-middle-court {
@@ -19,11 +21,12 @@
 
 .court-preview_half-circle {
     position: absolute;
-    height: 100%;
-    width: 450px;
+    height: 90%;
+    width: 430px;
     border: 4px solid var(--gray);
     border-radius: 50%;
     transform: translateX(-50%);
+    top: 5%;
 }
 
 .circle-right {
@@ -61,7 +64,7 @@
     }
 
     .court-preview_half-circle {
-        width: 350px;
+        width: 300px;
     }
 
     .court-preview_round-middle-court {
@@ -77,7 +80,7 @@
     }
 
     .court-preview_half-circle {
-        width: 300px;
+        width: 280px;
     }
 
     .court-preview_round-middle-court {

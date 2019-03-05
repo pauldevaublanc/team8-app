@@ -49,7 +49,7 @@ class Games extends Component {
         <Navbar/>
         <div className="main_wrapper" style={{backgroundImage: `url(${Background})`}}>
           <div className="main_container">
-          <Title text={'Ma saison'} style={{fontSize: 55, lineHeight:'60px', padding:'15px 0px 35px'}}/>
+          <Title text={'Ma saison'} style={{padding:'15px 0px 35px'}}/>
            
           <div className="tabs-games-menu" style={{justifyContent:'center', paddingBottom: 10}}>
               {
