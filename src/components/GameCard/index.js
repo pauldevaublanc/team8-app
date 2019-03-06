@@ -42,7 +42,7 @@ class GameCard extends Component {
                 <div className="gameCard_hour">{this.props.gameHour}</div>
               </div>
               <div className="gameCard_user-detail-wrapper">
-                <ProfilePicture size={100} picture={this.props.picture} borderStyle={'border-small'}/>
+                <ProfilePicture size={85} picture={this.props.picture} borderStyle={'border-small'}/>
                 <p style={{paddingTop:5}}>Organisé par <br/>{this.props.userName}</p>
               </div>
             </div>
