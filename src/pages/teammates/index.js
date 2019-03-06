@@ -64,7 +64,7 @@ class Teammates extends Component {
               }        
             </div>
             {
-              this.state.active === 0 ? <MesTeammates/> : this.state.active === 1 ?<DraftZone/> : <TableTopPlayers/>
+              this.props.match.params.panel === 'mesteammates' ? <MesTeammates/> : this.props.match.params.panel === 'draftzone' ?<DraftZone/> : <TableTopPlayers/>
             }
             <FooterT8/>
           </div>

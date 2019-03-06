@@ -24,15 +24,6 @@ class UserComponent extends Component {
     static propTypes = {
         user: PropTypes.object,
     }
-  // state= {
-  //   rating: 3.4
-  // }
-
-  // changeRating = ( newRating, name ) => {
-  //   this.setState({
-  //     rating: newRating
-  //   });
-  // }
 
   render() {
     return (
@@ -42,7 +33,7 @@ class UserComponent extends Component {
             <div className="main_wrapper" style={{backgroundImage: `url(${Background})`}}>
                 <div className="main_container">
 
-                <ActionPlayerIcon icon={'edit.png'} style={{right:20, top:15}} styleImg={{width:30}}/>
+                <ActionPlayerIcon icon={'cross.png'} style={{right:20, top:15}} styleImg={{width:25}}/>
                 <Title text={'Mon Joueur'} style={{fontSize: 55, lineHeight:'60px', padding:'15px 0px 35px'}}/>
                 
                 <ProfilePicture size={180} picture={`${config.urlApi}${this.props.user.picture.url}`} borderStyle={'border-small'}/>
@@ -123,13 +114,10 @@ class UserComponent extends Component {
                         <div>Fair play</div>
                         {/*DOCS!!!-> https://www.npmjs.com/package/react-star-ratings */}
                         <StarRatings
-                            // rating={this.state.rating}
-                            // changeRating={this.changeRating}
                             rating={this.props.user.fairplayGrade}
                             starDimension="17px"
                             starSpacing="2px"
                             starEmptyColor="rgba(255, 255, 255, 0.5)"
-                            // starHoverColor= "#EF7E4D"
                             starRatedColor="#EF7E4D"
                         />
                         </li>

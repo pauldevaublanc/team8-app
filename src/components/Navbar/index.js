@@ -42,7 +42,7 @@ class Navbar extends Component {
             <NavLink className="noMobile" activeClassName={'activeLink'} to={"/"} exact><p>Accueil</p></NavLink>
             <NavLink activeClassName={'activeLink'} to={"/profile"} exact><p>Profil</p></NavLink>
             <NavLink activeClassName={'activeLink'} to={"/games"} exact><p>Saison</p></NavLink>
-            <NavLink activeClassName={'activeLink'} to={"/teammates"} exact><p>Teammates</p></NavLink>
+            <NavLink activeClassName={'activeLink'} to={"/teammates/mesteammates"} exact><p>Teammates</p></NavLink>
             <NavLink activeClassName={'active-button'} to={"/createGame"} exact><Button text={'Organiser un match'} buttonStyle={'button-orange'}/></NavLink>
         </div>
         <div className={`navbar_line ${this.state.isTop ? '': 'navbar_full-line'}`} style={this.props.style2}></div>

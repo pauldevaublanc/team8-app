@@ -61,7 +61,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -65%);
     font-family: var(--fontNumber);
     font-size: 30px;
     line-height: 30px;
@@ -128,7 +128,7 @@
 @media (max-width: 700px){
     .court-preview_wrapper {
         width: 95%;
-        min-height: 340px;
+        min-height: 315px;
     }
 
     .court-preview_table-players {

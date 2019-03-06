@@ -15,6 +15,7 @@ import Title from '../../components/Title/index';
 import CourtPreview from '../CourtPreview';
 import ProfilePicture from '../ProfilePicture';
 import CourtInfos from '../CourtInfos';
+import Button from '../Button';
 
 
 class GameComponent extends Component {
@@ -62,6 +63,14 @@ class GameComponent extends Component {
            />
            <div className="game-infos-subtitle"><img style={{width:24, paddingRight:6}} src={require(`../../img/icones/team.png`)} alt="adress court"/>Equipes</div>
            <CourtPreview numberTeamPlayer={this.props.game.JoueursEquipe}/>
+
+           <Button 
+            text={'Participer à ce match'} 
+            buttonStyle={'button-transparent'} 
+            style={{
+                width:'300px', 
+                margin:'20px auto'
+            }}/>
         </div>
     );
   }
