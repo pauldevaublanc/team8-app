@@ -17,6 +17,46 @@ class CourtPreview extends Component {
         numberTeamPlayer: PropTypes.string,
     }
 
+    state = {
+        isMobile: false
+    }
+
+    createTable = () => {
+    let table = []
+
+    // Outer loop to create parent
+    for (let i = 0; i < this.props.numberTeamPlayer; i++) {
+        table.push(
+            <div className="court-preview_line">
+            <div className="court-preview_column">
+                <p></p>
+                <p></p>
+            </div>
+            <div className="court-preview_column">
+                <p></p>
+                <p></p>
+            </div>
+        </div>)
+    }
+    return table
+  }
+
+    multiEvent = (element, eventNames, listener) => {
+        var events = eventNames.split(' ');
+        for (var i=0, iLen=events.length; i<iLen; i++) {
+            element.addEventListener(events[i], listener, false);
+        }
+    }
+
+    componentDidMount() {
+        this.multiEvent(window, 'load resize click', () => {
+            const isMobile = window.innerWidth < 680;
+            if (isMobile !== this.state.isMobile){
+                this.setState({isMobile})
+            }
+        }) 
+    }
+
     players = [
         {
             teamPlayer:1,
@@ -45,13 +85,13 @@ class CourtPreview extends Component {
         {
             teamPlayer:3,
             top: '35%',
-            left: '8%',
+            left: '12%',
             border: 'border-small-orange'        
         }, 
         {
             teamPlayer:3,
             top: '35%',
-            left: '92%',
+            left: '88%',
             border: 'border-small'
         }, 
         {
@@ -83,33 +123,44 @@ class CourtPreview extends Component {
 
   render() {
     return (  
-        <div className="court-preview_wrapper">
-            <div className="court-preview_line-middle-court"></div>
-            <div className="court-preview_half-circle" ></div>
-            <div className="court-preview_half-circle circle-right"></div>
-            <div className="court-preview_round-middle-court" style={{backgroundImage: `url(${ImgCenterCourt})`}}></div>
+        <div>
+            <div className="court-preview_wrapper">
+                <div className="court-preview_line-middle-court"></div>
+                <div className="court-preview_half-circle" ></div>
+                <div className="court-preview_half-circle circle-right"></div>
+                <div className="court-preview_round-middle-court" style={{backgroundImage: `url(${ImgCenterCourt})`}}></div>
 
-            <div className="court-preview_wrapper-players">  
-                {
-                    this.players.map((player, key) => {
-                        if (player.teamPlayer <= this.props.numberTeamPlayer){
-                            return(
-                                <ProfilePicture key={key}
-                                size={90} 
-                                borderStyle={player.border} 
-                                picture={require(`../../img/profile-default.jpg`)}
-                                style={{
-                                    position:'absolute',
-                                    transform: 'translate(-50%, -50%)',
-                                    left: player.left,
-                                    top: player.top,
-                                }}
-                            />
-                            )
-                        }
-                    })
-                }
-               
+                <div className="court-preview_wrapper-players">  
+                    {
+                        this.players.map((player, key) => {
+                            if (player.teamPlayer <= this.props.numberTeamPlayer){
+                                return(
+                                    <ProfilePicture key={key}
+                                    size={this.state.isMobile && this.props.numberTeamPlayer>3 ? 60 : this.state.isMobile ? 70 : 90} 
+                                    borderStyle={player.border} 
+                                    picture={require(`../../img/profile-default.jpg`)}
+                                    style={{
+                                        position:'absolute',
+                                        transform: 'translate(-50%, -50%)',
+                                        left: player.left,
+                                        top: player.top,
+                                    }}
+                                />
+                                )
+                            }
+                        })
+                    }
+                </div>
+                
+            </div>
+            <div className="court-preview_table-players">
+                                
+                <div className="court-preview_separator">vs</div>     
+                           
+                {this.createTable()}
+                            
+                       
+                
             </div>
         </div>
     );

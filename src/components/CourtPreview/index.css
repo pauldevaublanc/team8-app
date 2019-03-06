@@ -1,10 +1,8 @@
 .court-preview_wrapper {
     width: 80%;
     min-height: 450px;
-    border: 4px solid var(--gray);
+    /* border: 1px solid var(--white); */
     margin: 0 auto;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
     position: relative;
     background: var(--solidGray);
     overflow: hidden;
@@ -33,7 +31,6 @@
     left: 100%;
 }
 
-
 .court-preview_round-middle-court {
     position: absolute;
     left: 50%;
@@ -52,15 +49,70 @@
     max-width: 100%;
 }
 
+/* TABLE */
+.court-preview_table-players {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.court-preview_separator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--fontNumber);
+    font-size: 30px;
+    line-height: 30px;
+    height: 65px;
+    width: 65px;
+    border: 4px solid var(--orange);
+    box-shadow: inset 0px 0px 0px 2px white;
+    background: var(--solidGray);
+    padding-top: 6px;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-transform: uppercase;
+}
+
+.court-preview_line {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;  
+}
+
+.court-preview_column {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    border: 1px solid var(--gray);
+    padding: 10px 0px;
+    min-height: 40px;
+}
+
+.court-preview_column:first-child {
+    border: 1px solid var(--orange);
+}
+
+.court-preview_column p {
+    font-size: 16px;
+    line-height: 18px;
+}
+
+
 @media (max-width: 1200px){
-    .court-preview_wrapper {
+    .court-preview_wrapper, .court-preview_table-players {
         width: 90%;
     }
   }
 
 @media (max-width: 990px){
     .court-preview_wrapper {
-        min-height: 350px;
+        min-height: 380px;
     }
 
     .court-preview_half-circle {
@@ -76,7 +128,11 @@
 @media (max-width: 700px){
     .court-preview_wrapper {
         width: 95%;
-        min-height: 300px;
+        min-height: 340px;
+    }
+
+    .court-preview_table-players {
+        width: 95%;
     }
 
     .court-preview_half-circle {
@@ -86,6 +142,10 @@
     .court-preview_round-middle-court {
         width: 160px;
         height: 160px;
+    }
+
+    .court-preview_half-circle {
+        display: none;
     }
 
   }

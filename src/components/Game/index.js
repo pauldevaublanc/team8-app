@@ -47,7 +47,7 @@ class GameComponent extends Component {
             <div className="game-date-infos">
                 <div>{moment(this.props.game.date).locale('fr').format("dddd")}</div>
                 <div>{moment(this.props.game.date).format("Do MMMM")}</div>
-                <div>{moment(this.props.game.date).format("H : mm")}</div> 
+                <div><img style={{width:22, paddingRight:5}} src={require(`../../img/icones/clock.png`)} alt="hour"/>{moment(this.props.game.date).format("H : mm")}</div> 
             </div>
            </div>
            <div className="game-infos-subtitle"><img style={{width:25, paddingRight:6}} src={require(`../../img/icones/basketball-court.png`)} alt="adress court"/>Terrain</div>
