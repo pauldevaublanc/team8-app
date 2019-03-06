@@ -77,6 +77,12 @@
   border-bottom: 1px solid var(--white);
 }
 
+.home_news-wrapper h2{
+  padding-bottom: 30px; 
+  font-size: 38px;
+  line-height: 38px;
+}
+
 .home_news-container {
   display: flex;
   justify-content: space-around;
@@ -119,11 +125,17 @@
   }
 
   .home_introduction-text {
-    font-size: 16px;
+    font-size: 14px;
   }
   
   .home_introduction-typing-text {
-    font-size: 16px;
+    font-size: 14px;
+  }
+
+  .home_news-wrapper h2{
+    padding-bottom: 20px; 
+    font-size: 32px;
+    line-height: 36px;
   }
 
   .home_counter div{

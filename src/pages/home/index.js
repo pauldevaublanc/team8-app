@@ -77,26 +77,8 @@ class Home extends Component {
           </div>
 
           <div className="home_news-wrapper">
-            <h2 style={{paddingBottom:30, fontSize:35}}>Les prochains matchs</h2>
+            <h2>Les prochains matchs</h2>
             <div className="home_news-container">
-              <GameCard 
-                gameDay={'Lundi'} 
-                gameMonth={'23 septembre'} 
-                gameHour={'18:00'} 
-                userName={'Jean-Pierre'}
-                picture={'lebron.jpg'}
-                numberPlayers={'4'}
-                gameLocation={'Paris 16'}
-                availablePlace={true}/>
-                <GameCard 
-                gameDay={'Mardi'} 
-                gameMonth={'12 juillet'} 
-                gameHour={'14:00'} 
-                userName={'Alfred'}
-                picture={'dunk.jpg'}
-                numberPlayers={'2'}
-                gameLocation={'Aubervilliers'}
-                availablePlace={false}/>
                 <GameCard 
                 gameDay={'Dimanche'} 
                 gameMonth={'12 avril'} 

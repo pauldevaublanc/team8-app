@@ -5,18 +5,13 @@ import config from '../../config/index';
 
 import { Link } from 'react-router-dom';
 
-// Images
-import Background from '../../img/background-home.jpg';
-
 
 // Components
-import Navbar from '../../components/Navbar/index';
 import ProfilePicture from '../../components/ProfilePicture/index';
 import StarRatings from 'react-star-ratings';
 import Title from '../../components/Title/index';
 import Button from '../../components/Button/index';
 import TableGames from '../../components/TableGames/index';
-import FooterT8 from '../../components/FooterT8/index';
 import ActionPlayerIcon from '../../components/ActionPlayerIcon/index';
 
 class UserComponent extends Component {
@@ -29,20 +24,16 @@ class UserComponent extends Component {
     return (
         
     <div>
-        <Navbar/>
-            <div className="main_wrapper" style={{backgroundImage: `url(${Background})`}}>
-                <div className="main_container">
-
-                <ActionPlayerIcon icon={'cross.png'} style={{right:20, top:15}} styleImg={{width:25}}/>
-                <Title text={'Mon Joueur'} style={{fontSize: 55, lineHeight:'60px', padding:'15px 0px 35px'}}/>
-                
-                <ProfilePicture size={180} picture={`${config.urlApi}${this.props.user.picture.url}`} borderStyle={'border-small'}/>
-                
-                
-                <div className="user_description-wrapper">
-                    <h2>{this.props.user.username}</h2>
-                    <p className="user_description-text">{this.props.user.description}</p>
-                    <div className="user_button-wrapper">
+        <ActionPlayerIcon icon={'cross.png'} style={{right:20, top:15}} styleImg={{width:25}}/>
+        <Title text={'Mon Joueur'} style={{fontSize: 55, lineHeight:'60px', padding:'15px 0px 35px'}}/>
+        
+        <ProfilePicture size={180} picture={`${config.urlApi}${this.props.user.picture.url}`} borderStyle={'border-small'}/>
+            
+            
+            <div className="user_description-wrapper">
+                <h2>{this.props.user.username}</h2>
+                <p className="user_description-text">{this.props.user.description}</p>
+                <div className="user_button-wrapper">
                     <Link 
                     to={"/teammates"}>
                         <Button 
@@ -64,75 +55,72 @@ class UserComponent extends Component {
                         }}/>
                     </Link>
                 </div>
-                    <div className="user_results-wrapper">
-                    <p><span>5</span><br/>Victoires</p>
-                    <p><span>{this.props.user.mvp}</span><br/>MVP</p>
-                    <p><span>2</span><br/>Matchs annulés</p>
-                    </div>
+                <div className="user_results-wrapper">
+                <p><span>5</span><br/>Victoires</p>
+                <p><span>{this.props.user.mvp}</span><br/>MVP</p>
+                <p><span>2</span><br/>Matchs annulés</p>
                 </div>
-                
-                
-                <div className="user_infos-wrapper">
-                    <div className="user_infos-user">
+            </div>
+            
+            
+            <div className="user_infos-wrapper">
+                <div className="user_infos-user">
                     <ul>
                         <li>
-                        <div>Niveau</div>
-                        <div>{this.props.user.generalLevel}</div>
+                            <div>Niveau</div>
+                            <div>{this.props.user.generalLevel}</div>
                         </li>
                         <li>
-                        <div>Age</div>
-                        <div>{this.props.user.age} ans</div>
+                            <div>Age</div>
+                            <div>{this.props.user.age} ans</div>
                         </li>
                         <li>
-                        <div>Ville</div>
-                        <div>{this.props.user.city}</div>
+                            <div>Ville</div>
+                            <div>{this.props.user.city}</div>
                         </li>
                         <li>
-                        <div>Poste</div>
-                        <div style={{textTransform:'uppercase'}}>{this.props.user.position}</div>
+                            <div>Poste</div>
+                            <div style={{textTransform:'uppercase'}}>{this.props.user.position}</div>
                         </li>
                     </ul>
-                    </div>
-                    <div className="user_infos-grade">
+                </div>
+                <div className="user_infos-grade">
                     <div>{this.props.user.generalGrade}<br/><span>GEN</span></div>
-                    </div>
-                    <div className="user_infos-games">
+                </div>
+                <div className="user_infos-games">
                     <ul>
                         <li>
-                        <div>Matchs joués</div>
-                        <div>20</div>
+                            <div>Matchs joués</div>
+                            <div>20</div>
                         </li>
                         <li>
-                        <div>Matchs organisés</div>
-                        <div>5</div>
+                            <div>Matchs organisés</div>
+                            <div>5</div>
                         </li>
                         <li>
-                        <div>Teammates</div>
-                        <div>{this.props.user.friends.length}</div>
+                            <div>Teammates</div>
+                            <div>{this.props.user.friends.length}</div>
                         </li>
                         <li>
-                        <div>Fair play</div>
-                        {/*DOCS!!!-> https://www.npmjs.com/package/react-star-ratings */}
-                        <StarRatings
-                            rating={this.props.user.fairplayGrade}
-                            starDimension="17px"
-                            starSpacing="2px"
-                            starEmptyColor="rgba(255, 255, 255, 0.5)"
-                            starRatedColor="#EF7E4D"
-                        />
+                            <div>Fair play</div>
+                            {/*DOCS!!!-> https://www.npmjs.com/package/react-star-ratings */}
+                            <StarRatings
+                                rating={this.props.user.fairplayGrade}
+                                starDimension="17px"
+                                starSpacing="2px"
+                                starEmptyColor="rgba(255, 255, 255, 0.5)"
+                                starRatedColor="#EF7E4D"
+                            />
                         </li>
                     </ul>
-                    </div>
                 </div>
+            </div>
 
-                <div className="user_games-wrapper">
-                    <h2>Mes derniers matchs</h2>
-                    <TableGames/>
-                </div>
-                <FooterT8/>
+            <div className="user_games-wrapper">
+                <h2>Mes derniers matchs</h2>
+                <TableGames/>
             </div>
         </div>
-    </div>
     );
   }
 }
