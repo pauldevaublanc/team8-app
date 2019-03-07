@@ -103,6 +103,11 @@ img:focus {outline:0; background-color:transparent;}
   color: var(--white);
 }
 
+::placeholder {
+  color: var(--gray);
+  opacity: 1; 
+}
+
 /* BACKGROUND PAGE */
 .main_wrapper {
   padding-top: 120px;

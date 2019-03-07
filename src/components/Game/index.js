@@ -7,8 +7,6 @@ import 'moment/locale/fr';
 import config from '../../config/index';
 
 
-
-
 // Components
 
 import Title from '../../components/Title/index';
@@ -29,7 +27,7 @@ class GameComponent extends Component {
     const moment = require('moment');
     return (  
         <div>
-           <Title text={'Mon match'} style={{padding:'15px 0px 55px'}}/>
+           <Title text={'Feuille de match'} style={{padding:'15px 0px 55px'}}/>
            <div className="game-infos-subtitle"><img style={{width:24, paddingRight:6}} src={require(`../../img/icones/calendar.png`)} alt="match details"/>Details</div>
            <div className="game-infos-wrapper">
             <div className="game-organizer-infos">

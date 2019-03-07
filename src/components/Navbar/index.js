@@ -26,7 +26,7 @@ class Navbar extends Component {
   }
 
   handleScroll = () => {
-      const isTop = window.scrollY < 80;
+      const isTop = window.scrollY < 50;
       if (isTop !== this.state.isTop){
           this.setState({isTop})
       }
