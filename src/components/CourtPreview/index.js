@@ -27,16 +27,15 @@ class CourtPreview extends Component {
     // Outer loop to create parent
     for (let i = 0; i < this.props.numberTeamPlayer; i++) {
         table.push(
-            <div className="court-preview_line">
-            <div className="court-preview_column">
-                <p></p>
-                <p></p>
+            <div className="court-preview_line" key={ i }>
+                <div className="court-preview_column">
+                    
+                </div>
+                <div className="court-preview_column">
+                    
+                </div>
             </div>
-            <div className="court-preview_column">
-                <p></p>
-                <p></p>
-            </div>
-        </div>)
+        )
     }
     return table
   }
@@ -132,8 +131,9 @@ class CourtPreview extends Component {
 
                 <div className="court-preview_wrapper-players">  
                     {
-                        this.players.map((player, key) => {
-                            if (player.teamPlayer <= this.props.numberTeamPlayer){
+                        this.players
+                            .filter((player) => player.teamPlayer <= this.props.numberTeamPlayer)
+                            .map((player, key) => {
                                 return(
                                     <ProfilePicture key={key}
                                     size={this.state.isMobile && this.props.numberTeamPlayer>3 ? 60 : this.state.isMobile ? 70 : 90} 
@@ -147,7 +147,6 @@ class CourtPreview extends Component {
                                     }}
                                 />
                                 )
-                            }
                         })
                     }
                 </div>

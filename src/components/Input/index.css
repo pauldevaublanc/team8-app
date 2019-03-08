@@ -25,13 +25,13 @@
     border-bottom: 14px solid transparent;
     border-left: 14px solid var(--orange);
     position: absolute;
-    left: 95%;
+    left: 100%;
     top: 1px;
   }
 
 .input-wrapper input{
     background: transparent;
-    border: 2px solid var(--gray);
+    border: 1px solid var(--gray);
     border-left: none;
     border-bottom-right-radius: 2px;
     border-top-right-radius: 2px;

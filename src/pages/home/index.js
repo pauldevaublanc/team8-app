@@ -8,7 +8,6 @@ import Typewriter from 'typewriter-effect';
 import Background from '../../img/background-home.jpg';
 
 // Components
-import Navbar from '../../components/Navbar/index';
 import Title from '../../components/Title/index';
 import IntroIcon from '../../components/IntroIcon';
 import GameCard from '../../components/GameCard';
@@ -30,7 +29,6 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Navbar/>
         <div className="home_wrapper">
           <div className="home_introduction-wrapper" style={{backgroundImage: `url(${Background})`}}>
             <Title text={'Bienvenue sur'} addClass={'home-subtitle'}/>

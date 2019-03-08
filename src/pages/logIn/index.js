@@ -9,7 +9,6 @@ import Cookies from  'js-cookie';
 import Background from '../../img/background-home.jpg';
 
 // Components
-import Navbar from '../../components/Navbar/index';
 import Title from '../../components/Title/index';
 import FooterT8 from '../../components/FooterT8/index';
 import Input from '../../components/Input/index';
@@ -50,29 +49,26 @@ class LogIn extends Component {
         })
         .then((response) => { return response.json(); })
         .then((data) => {
-            if (data.statusCode !== 200 ){
+            if (data.statusCode === 400 ){
                 this.setState({
                     error: true,
                     errorMessage: data.message
                 });
-                setTimeout(
-                    function() {
-                        this.setState({
-                            error: false
-                        });
-                    }.bind(this), 5000
-                );
+            } else {
+                Cookies.set('token', data.jwt);
+                this.props.history.push('/');
+                this.setState({
+                    error: false,
+                    errorMessage: null
+                });
             } 
-            Cookies.set('token', data.jwt);
         });
-        
     }
 
 
     render() {
         return (
         <div>
-            <Navbar/>
             <div className="main_wrapper" style={{backgroundImage: `url(${Background})`}}>
                 <div className="main_container"> 
                     <Title text={'Let\'s play'} style={{padding:'15px 0px 35px'}}/>
@@ -84,7 +80,7 @@ class LogIn extends Component {
                     <div className="log-in_wrapper">
                         <div className="form_wrapper">
                            {
-                             this.state.error ? <div className="error-message" style={{display:`${this.state.error}`}}>{this.state.errorMessage}</div> : null
+                             this.state.error && <div className="error-message" style={{display:`${this.state.error}`}}>{this.state.errorMessage}</div>
                            } 
                             <p>Déjà inscrit ?<br/>Connecte-toi !</p>
                             <Input inputType={'text'} icon={'user.png'} placeholder={'Pseudo...'} inputName={'pseudo'} onChange={e => this.onChangeIdentifier(e.target.value)}/>

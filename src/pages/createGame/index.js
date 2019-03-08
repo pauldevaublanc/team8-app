@@ -8,7 +8,6 @@ import Cookies from  'js-cookie';
 
 import Background from '../../img/background-home.jpg';
 // Components
-import Navbar from '../../components/Navbar/index';
 import Title from '../../components/Title/index';
 import FooterT8 from '../../components/FooterT8/index';
 
@@ -72,7 +71,7 @@ class CreateGame extends Component {
   render() {
     return (
       <div>
-        <Navbar/>
+        
         <div className="main_wrapper" style={{backgroundImage: `url(${Background})`}}>
           <div className="main_container">
           <Title text={'Organiser un match'} style={{fontSize: 55, lineHeight:'60px', padding:'15px 0px 35px'}}/>

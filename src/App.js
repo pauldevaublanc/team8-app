@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import './index.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+
 
 
 import Home from './pages/home/index';
@@ -11,14 +13,18 @@ import Game from './pages/game/index';
 import Games from './pages/games/index';
 import Teammates from './pages/teammates/index';
 import CreateGame from './pages/createGame/index';
+import Navbar from './components/Navbar';
 
 class App extends Component {
   render() {
     return (
-      <Router>         
+      <Router history={ createBrowserHistory() }>   
+         
           <div>
+          <Navbar/>
             <Route exact path="/" component={Home} />
-            <Route exact path="/profile" component={LogIn} />
+            <Route exact path="/profile" component={User} />
+            <Route exact path="/authentification" component={LogIn} />
             <Route exact path="/games" component={Games} />
             <Route exact path="/games/:list" component={Games} />
             <Route exact path="/teammates" component={Teammates} />
@@ -30,6 +36,7 @@ class App extends Component {
             
             
           </div>
+         
       </Router>
     );
   }

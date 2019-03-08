@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 
 import Background from '../../img/background-home.jpg';
 // Components
-import Navbar from '../../components/Navbar/index';
 import Title from '../../components/Title/index';
 import FindGame from '../../components/FindGame/index';
 import FooterT8 from '../../components/FooterT8/index';
@@ -46,7 +45,6 @@ class Games extends Component {
   render() {
     return (
       <div>
-        <Navbar/>
         <div className="main_wrapper" style={{backgroundImage: `url(${Background})`}}>
           <div className="main_container">
           <Title text={'Ma saison'} style={{padding:'15px 0px 35px'}}/>

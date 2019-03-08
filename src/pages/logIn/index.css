@@ -57,16 +57,16 @@
 
 .form_wrapper {
     width: 40%;
-    border: 2px solid var(--gray);
-    padding: 30px 50px;
+    border: 1px solid var(--gray);
+    padding: 50px;
     margin: 15px -10px 0px;
-    min-height: 350px;
+    min-height: 390px;
     transition: 0.3s;
     position: relative;
 }
 
 .error-message {
-    background: var(--orange);
+    background: var(--red);
     position: absolute;
     top: 0;
     left: 0;
@@ -77,7 +77,7 @@
     font-size: 18px;
     line-height: 20px;
     width: 100%;
-    height: 40px;
+    height: 38px;
     border-bottom: 1px solid var(--gray);
     animation: dropdownError 0.3s linear;
 }
@@ -87,10 +87,9 @@
         height: 0px;
     }
     to {
-        height: 40px;
+        height: 38px;
     }
 }
-
 
 .form_wrapper p {
     text-align: left;
