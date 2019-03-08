@@ -16,6 +16,7 @@ class Input extends Component {
         inputType: PropTypes.string,
         inputName: PropTypes.string,
         placeholder: PropTypes.string,
+        onChange: PropTypes.func,
         style: PropTypes.object,
     }
 
@@ -27,7 +28,7 @@ class Input extends Component {
                 <div className="arrow-right"></div>
                 <img src={require(`../../img/icones/${this.props.icon}`)} alt=""/>
             </div>
-            <input type={this.props.inputType} name={this.props.inputName} placeholder={this.props.placeholder}></input>
+            <input type={this.props.inputType} name={this.props.inputName} placeholder={this.props.placeholder} onChange={this.props.onChange}></input>
         </div>
     );
   }

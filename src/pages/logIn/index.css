@@ -62,7 +62,35 @@
     margin: 15px -10px 0px;
     min-height: 350px;
     transition: 0.3s;
+    position: relative;
 }
+
+.error-message {
+    background: var(--orange);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--fontTitle);
+    font-size: 18px;
+    line-height: 20px;
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid var(--gray);
+    animation: dropdownError 0.3s linear;
+}
+
+@keyframes dropdownError {
+    from {
+        height: 0px;
+    }
+    to {
+        height: 40px;
+    }
+}
+
 
 .form_wrapper p {
     text-align: left;

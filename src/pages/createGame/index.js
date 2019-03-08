@@ -3,6 +3,8 @@ import './index.css';
 
 import config from '../../config/index';
 
+import Cookies from  'js-cookie';
+
 
 import Background from '../../img/background-home.jpg';
 // Components
@@ -30,11 +32,11 @@ class CreateGame extends Component {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${Cookies.get('token')}`,
       },
       body: JSON.stringify({
         description: this.refs['descriptionRef'].value, 
-        city: this.refs['cityRef'].value
       })
     })
     .then((response) => { return response.json(); })
@@ -60,12 +62,6 @@ class CreateGame extends Component {
     });
   }
 
-  handleChangeDate = (e) => {
-    this.setState({
-      city: e.target.value
-    
-    });
-  }
 
   componentDidMount() {
     this.getGames()
@@ -87,7 +83,7 @@ class CreateGame extends Component {
                 {
                   this.state.games.map((game, key) => {
                     return (
-                      <li key={key}>{game.description} / {game.city}</li>
+                      <li key={key}>{game.description}</li>
                     )
                 })
                 }
@@ -95,7 +91,6 @@ class CreateGame extends Component {
               <h2>Organiser un match</h2>
               <form>
                 <input type="text" placeholder="description" name="description" ref={'descriptionRef'}/>
-                <input type="text" placeholder="city" name="city" ref={'cityRef'}/>
                 <button type="button" value="Submit" onClick={this.addGame}>Envoyer</button>
               </form>
             </div>
