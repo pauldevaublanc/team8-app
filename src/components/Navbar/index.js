@@ -26,6 +26,12 @@ class Navbar extends Component {
     })
   }
 
+  closeNavbar = () => {
+    this.setState({
+        menuOpen: false
+    })
+  }
+
   handleScroll = () => {
       const isTop = window.scrollY < 50;
       if (isTop !== this.state.isTop){
@@ -46,7 +52,7 @@ class Navbar extends Component {
     return (
       <div className={`navbar_wrapper ${this.state.isTop ? '': 'navbar_bgBlack'}`} style={this.props.style}>
         <div className="navbar_logo">
-          <NavLink to={"/"}><img src={require(`../../img/logoT8.png`)} alt=""/></NavLink>
+          <NavLink onClick={this.closeNavbar} to={"/"}><img src={require(`../../img/logoT8.png`)} alt=""/></NavLink>
         </div>
         
           {
@@ -63,7 +69,6 @@ class Navbar extends Component {
               <NavLink activeClassName={'active-button'} to={"/createGame"} exact><Button text={'Organiser un match'} buttonStyle={'button-orange'}/></NavLink>
             </div>
           }
-        
         <div 
             onClick={this.handleClick} 
             data={this.state} 
@@ -75,12 +80,59 @@ class Navbar extends Component {
         <div className={`navbar_line ${this.state.isTop ? '': 'navbar_full-line'}`} style={this.props.style2}>
         </div>
         <div className={`navbar-dropdown_wrapper ${this.state.menuOpen ? 'dropdown-visible' : ''}`}>
-          <ul>
-            <NavLink activeClassName={'active-link_mobile'} to={"/profile"} exact><li style={{borderBottom: '1px solid var(--white)'}}>Profil</li></NavLink>
-            <NavLink activeClassName={'active-link_mobile'} to={"/games"} exact><li style={{borderBottom: '1px solid var(--white)'}}>Saison</li></NavLink>
-            <NavLink activeClassName={'active-link_mobile'} to={"/teammates/mesteammates"}><li style={{borderBottom: '1px solid var(--white)'}}>Teammates</li></NavLink>
-            <NavLink activeClassName={'active-link_mobile'} to={"/createGame"} exact><li>Organiser un match</li></NavLink>
-          </ul>
+         
+            {
+              !Cookies.get('token') ? 
+              <ul>
+                <NavLink activeClassName={'activeLink'} to={"/"} exact><li style={{borderBottom: '1px solid var(--white)'}} onClick={this.closeNavbar}>Accueil</li></NavLink>
+                <NavLink activeClassName={'activeLink'} to={"/authentification"} exact><li style={{borderBottom: '1px solid var(--white)'}} onClick={this.closeNavbar}>Se Connecter</li></NavLink>
+              </ul> :
+              <ul>
+                <NavLink 
+                  activeClassName={'activeLink'} 
+                  to={"/profile"} 
+                  exact>
+                    <li 
+                      style={{
+                        borderBottom: '1px solid var(--white)'
+                      }}
+                      onClick={this.closeNavbar}>Profil
+                    </li>
+                  </NavLink>
+                <NavLink 
+                  activeClassName={'activeLink'} 
+                  to={"/games"} 
+                  exact>
+                    <li 
+                      style={{
+                        borderBottom: '1px solid var(--white)'
+                      }} 
+                      onClick={this.closeNavbar}>Saison
+                    </li>
+                </NavLink>
+                <NavLink 
+                  activeClassName={'activeLink'} 
+                  to={"/teammates/mesteammates"}>
+                    <li 
+                      style={{
+                        borderBottom: '1px solid var(--white)'
+                      }}  
+                      onClick={this.closeNavbar}>
+                      Teammates
+                    </li>
+                </NavLink>
+                <NavLink 
+                  activeClassName={'activeLink'} 
+                  to={"/createGame"} 
+                  exact 
+                  onClick={this.closeNavbar}>
+                  <li>Organiser un match
+                  </li>
+                </NavLink>
+              </ul>
+            }
+            
+          
         </div>
       </div>
     );
