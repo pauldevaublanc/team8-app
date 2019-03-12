@@ -32,6 +32,7 @@ class Teammates extends Component {
   menuElements = ['Mes Teammates', 'Draft Zone', 'Top Players'];
 
   render() {
+
     return (
       <div>
         
@@ -42,29 +43,33 @@ class Teammates extends Component {
             style={{
               padding:'15px 0px 35px'
             }}/>
-            <div className="tabs-games-menu" style={{justifyContent:'center', paddingBottom: 10}}>
+            <div className="tabs-games-container">
+              <div className="tabs-games-menu" style={{justifyContent:'center', paddingBottom: 10}}>
+                {
+                  this.menuElements.map((element, key) => {
+                    return(
+                      <Link 
+                      to={`/teammates/${element.replace(/\s+/, "").toLocaleLowerCase()}`} 
+                      key={key} 
+                      style={{
+                        width:'100%'
+                      }}>
+                        <div 
+                        className={`tab ${this.props.match.params.panel === element.replace(/\s+/, "").toLocaleLowerCase() ? 'active' : ''}`}  
+                        onClick={this.handleClick.bind(this, key)}>
+                          <h3>{element}</h3>
+                        </div>
+                      </Link>
+                    )
+                  })
+                }     
+                
+              </div>
               {
-                this.menuElements.map((element, key) => {
-                  return(
-                    <Link 
-                    to={`/teammates/${element.replace(/\s+/, "").toLocaleLowerCase()}`} 
-                    key={key} 
-                    style={{
-                      width:'100%'
-                    }}>
-                      <div 
-                      className={`tab ${this.state.active === key ? 'active' : ''}`}  
-                      onClick={this.handleClick.bind(this, key)}>
-                        <h3>{element}</h3>
-                      </div>
-                    </Link>
-                  )
-                })
-              }        
+                this.props.match.params.panel === 'mesteammates' ? <MesTeammates/> : this.props.match.params.panel === 'draftzone' ?<DraftZone/> : <TableTopPlayers/>
+              }   
             </div>
-            {
-              this.props.match.params.panel === 'mesteammates' ? <MesTeammates/> : this.props.match.params.panel === 'draftzone' ?<DraftZone/> : <TableTopPlayers/>
-            }
+            
             <FooterT8/>
           </div>
         </div>

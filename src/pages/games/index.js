@@ -47,38 +47,34 @@ class Games extends Component {
       <div>
         <div className="main_wrapper" style={{backgroundImage: `url(${Background})`}}>
           <div className="main_container">
-          <Title text={'Ma saison'} style={{padding:'15px 0px 35px'}}/>
-           
-          <div className="tabs-games-menu" style={{justifyContent:'center', paddingBottom: 10}}>
-              {
-                this.menuElements.map((element, key) => {
-                  return(
-                    <Link 
-                    to={`/games/${element.replace(/\s+/, "").toLocaleLowerCase()}`} 
-                    key={key} 
-                    style={{
-                      width:'100%'
-                    }}>
-                      <div 
-                      className={`tab ${this.state.active === key ? 'active' : ''}`}  
-                      onClick={this.handleClick.bind(this, key)}>
-                        <h3>{element}</h3>
-                      </div>
-                    </Link>
-                  )
-                })
-              }        
-            </div>
-            {
-              this.state.active === 0 ? <FindGame/> : this.state.active === 1 ?<FindGame/> : <FindGame/>
-            }
-           
-      
+            <Title text={'Ma saison'} style={{padding:'15px 0px 35px'}}/>
 
-
-
-
-            <FooterT8/>
+            <div className="tabs-games-container">
+              <div className="tabs-games-menu" style={{justifyContent:'center', paddingBottom: 10}}>
+                  {
+                    this.menuElements.map((element, key) => {
+                      return(
+                        <Link 
+                        to={`/games/${element.replace(/\s+/, "").toLocaleLowerCase()}`} 
+                        key={key} 
+                        style={{
+                          width:'100%'
+                        }}>
+                          <div 
+                          className={`tab ${this.props.match.params.list === element.replace(/\s+/, "").toLocaleLowerCase() ? 'active' : ''}`}  
+                          onClick={this.handleClick.bind(this, key)}>
+                            <h3>{element}</h3>
+                          </div>
+                        </Link>
+                      )
+                    })
+                  }        
+                </div>
+                {
+                  this.props.match.params.list === 'mesmatchs' ? '' : this.props.match.params.list === 'recherchermatch' ? <FindGame/> : ''
+                }
+              </div>
+              <FooterT8/>
           </div>
         </div>
       </div>
