@@ -17,7 +17,6 @@ class Navbar extends Component {
     menuOpen: false,
     windowWidth: window.innerWidth,
     isTop: true,
-    isMobile: false
   }
 
   handleClick = () => {
@@ -32,6 +31,17 @@ class Navbar extends Component {
     })
   }
 
+  handleWindowWidth = () => {
+    this.setState({ 
+      windowWidth: window.innerWidth 
+    });
+    if (this.state.windowWidth >=680 ){
+      this.setState({
+        menuOpen: false
+      })
+    }
+  }
+
   handleScroll = () => {
       const isTop = window.scrollY < 50;
       if (isTop !== this.state.isTop){
@@ -40,11 +50,13 @@ class Navbar extends Component {
   }
 
   componentDidMount() {
-      document.addEventListener('scroll', this.handleScroll); 
+      document.addEventListener('scroll', this.handleScroll);
+      window.addEventListener('resize', this.handleWindowWidth);
   }
   
   componentWillUnmount() {
       document.removeEventListener('scroll', this.handleScroll);
+      document.removeEventListener('resize', this.handleWindowWidth);
   }
 
 
@@ -57,9 +69,7 @@ class Navbar extends Component {
         
           {
             !Cookies.get('token') ? 
-            <div className="navbar_links">
-              <NavLink className="noMobile" activeClassName={'activeLink'} to={"/"} exact><p>Accueil</p></NavLink>
-              <NavLink activeClassName={'active-button'} to={"/authentification"} exact><Button text={'Se connecter'} buttonStyle={'button-orange'}/></NavLink>
+            <div>
             </div> :
             <div className="navbar_links">
               <NavLink className="noMobile" activeClassName={'activeLink'} to={"/"} exact><p>Accueil</p></NavLink>
@@ -69,24 +79,25 @@ class Navbar extends Component {
               <NavLink activeClassName={'active-button'} to={"/createGame"} exact><Button text={'Organiser un match'} buttonStyle={'button-orange'}/></NavLink>
             </div>
           }
-        <div 
-            onClick={this.handleClick} 
-            data={this.state} 
-            className={`burgerMenuWrapper ${this.state.menuOpen ? 'open' : ''}`}>
-            <div className="bar1"></div>
-            <div className="bar2"></div>
-            <div className="bar3"></div>
-        </div>
-        <div className={`navbar_line ${this.state.isTop ? '': 'navbar_full-line'}`} style={this.props.style2}>
-        </div>
-        <div className={`navbar-dropdown_wrapper ${this.state.menuOpen ? 'dropdown-visible' : ''}`}>
-         
+        
+        
             {
               !Cookies.get('token') ? 
-              <ul>
-                <NavLink activeClassName={'activeLink'} to={"/"} exact><li style={{borderBottom: '1px solid var(--white)'}} onClick={this.closeNavbar}>Accueil</li></NavLink>
-                <NavLink activeClassName={'activeLink'} to={"/authentification"} exact><li style={{borderBottom: '1px solid var(--white)'}} onClick={this.closeNavbar}>Se Connecter</li></NavLink>
-              </ul> :
+              <div>
+              <NavLink activeClassName={'active-button'} to={"/authentification"} exact><Button text={'Se connecter'} buttonStyle={'button-orange margin-nav'}/></NavLink>
+              </div> :
+              <div>
+              <div 
+                  onClick={this.handleClick} 
+                  data={this.state} 
+                  className={`burgerMenuWrapper ${this.state.menuOpen ? 'open' : ''}`}>
+                  <div className="bar1"></div>
+                  <div className="bar2"></div>
+                  <div className="bar3"></div>
+              </div>
+              <div className={`navbar_line ${this.state.isTop ? '': 'navbar_full-line'}`} style={this.props.style2}>
+              </div>
+              <div className={`navbar-dropdown_wrapper ${this.state.menuOpen ? 'dropdown-visible' : ''}`}>
               <ul>
                 <NavLink 
                   activeClassName={'activeLink'} 
@@ -130,10 +141,12 @@ class Navbar extends Component {
                   </li>
                 </NavLink>
               </ul>
+              </div>
+              </div>
             }
             
           
-        </div>
+        
       </div>
     );
   }

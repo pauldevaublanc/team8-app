@@ -155,10 +155,14 @@
 .active-link_mobile li {
     background: var(--orange);
 }
+
+.margin-nav {
+    margin-bottom: 15px;
+  }
   
 @media (max-width: 1200px){
     .navbar_logo {
-        width: 20%;
+        width: 30%;
     }
     .navbar_links {
         width: 70%;
@@ -173,6 +177,9 @@
 }
 
 @media (max-width: 960px){
+    .navbar_logo {
+        width: 20%;
+    }
     .navbar_links {
         width: 80%;
     }
@@ -225,4 +232,8 @@
     .burgerMenuWrapper {
         display: inline-block;
     }
+
+    .margin-nav {
+        margin-bottom: 0;
+      }
 }

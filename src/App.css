@@ -133,6 +133,8 @@ img:focus {outline:0; background-color:transparent;}
   position: relative;
 }
 
+
+
 @media (max-width: 1280px){
   .main_container {
       width: 95%;
@@ -147,6 +149,10 @@ img:focus {outline:0; background-color:transparent;}
 @media (max-width: 680px){
   .noMobile {
     display: none !important;
+  }
+
+  .dpMobile {
+    display: block !important;
   }
 
   .main_container {
