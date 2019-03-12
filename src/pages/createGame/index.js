@@ -4,7 +4,11 @@ import './index.css';
 import config from '../../config/index';
 
 import Cookies from  'js-cookie';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
+import moment from 'moment';
+import 'moment/locale/fa';
 
 import Background from '../../img/background-home.jpg';
 // Components
@@ -12,9 +16,12 @@ import Title from '../../components/Title/index';
 import FooterT8 from '../../components/FooterT8/index';
 
 class CreateGame extends Component {
+  
   state ={
-    games : []
+    games : [],
+    startDate: new Date()
   }
+
 
   getGames = () => {
     fetch(`${config.urlApi}/games`)
@@ -61,6 +68,11 @@ class CreateGame extends Component {
     });
   }
 
+  handleChange(date) {
+    this.setState({
+      startDate: date
+    });
+  }
 
   componentDidMount() {
     this.getGames()
@@ -69,14 +81,83 @@ class CreateGame extends Component {
 
 
   render() {
+    moment.updateLocale('fa',null)
     return (
       <div>
         
         <div className="main_wrapper" style={{backgroundImage: `url(${Background})`}}>
           <div className="main_container">
           <Title text={'Organiser un match'} style={{fontSize: 55, lineHeight:'60px', padding:'15px 0px 35px'}}/>
+            <div className="create-game-wrapper">
+              <div>
+                <h3>Details</h3>
+              </div>
+              
+              <form className="create-game-detail-form">
+                <div className="select-date_wrapper">
+                  <label>Cliquez pour choisir la date et l'heure du match</label>
+                  <div className="select-date_input">
+                    <DatePicker
+                        selected={this.state.startDate}
+                        onChange={this.handleChange.bind(this)}
+                        timeCaption="Date"
+                        minDate={new Date()}
+                        showDisabledMonthNavigation
+                        dateFormat="dd/MM/yyyy"
+                        className="input-create-game"  
+                    />
+                    <DatePicker
+                      selected={this.state.startDate}
+                      onChange={this.handleChange.bind(this)}
+                      showTimeSelect
+                      showTimeSelectOnly
+                      timeIntervals={15}
+                      dateFormat="h:mm"
+                      timeCaption="Heure"
+                      className="input-create-game"
+                    />
+                  </div>
+                </div>
+                <div className="select-description_wrapper">
+                  <label>Ecrivez une courte description de votre match</label>
+                  <textarea placeholder="ex: durée du match, besoin d'equipement..." maxlength="155" rows="3" type="text" className="input-create-game"></textarea>
+                </div>
+                <div>
+                  <input type="radio" name="drone"></input>
+                  <label>Oui</label>
+                </div>
+                <div>
+                  <input type="radio" name="drone"></input>
+                  <label>Non</label>
+                </div>
+                <div>
+                  <label>Nombre de joueurs</label>
+                  <select name="places">
+                    <option value="1">1 vs 1</option>
+                    <option value="2">2 vs 2</option>
+                    <option value="3">3 vs 3</option>
+                    <option value="4">4 vs 4</option>
+                    <option value="5">5 vs 5</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Niveau de la rencontre</label>
+                  <select name="level">
+                    <option value="Rookie">Rookie</option>
+                    <option value="Pro">Pro</option>
+                    <option value="Expert">Expert</option>
+                    <option value="All Star">All Star</option>
+                    <option value="Hall of Fame">Hall of Fame</option>
+                  </select>
+                </div>
+              </form>
+            </div>
            
-           
+            
+            
+            
+            
+            
             <div className="games_wrapper">
               <ul>
                 {

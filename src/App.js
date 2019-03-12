@@ -8,7 +8,6 @@ import { createBrowserHistory } from 'history';
 
 import Home from './pages/home/index';
 import LogIn from './pages/logIn/index';
-import Profile from './pages/profile/index';
 import User from './pages/user/index';
 import Game from './pages/game/index';
 import Games from './pages/games/index';
@@ -24,7 +23,7 @@ class App extends Component {
           <div>
           <Navbar/>
             <Route exact path="/" component={Home} />
-            <Route exact path="/profile" component={Profile} />
+            {/* <Route exact path="/profile" component={User} /> */}
             <Route exact path="/authentification" component={LogIn} />
             <Route exact path="/games" component={Games} />
             <Route exact path="/games/:list" component={Games} />

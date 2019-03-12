@@ -1,0 +1,166 @@
+.create-game-wrapper {
+    text-align: left;
+    width: 80%;
+    margin: 0 auto;
+    border: 2px solid var(--gray);
+    border-radius: 2px;
+}
+
+.create-game-wrapper h3 {
+    font-family: var(--fontTitle);
+    padding: 5px 20px;
+    font-size: 24px;
+    background: var(--gray);
+    color: var(--black);
+}
+
+.create-game-wrapper label {
+    margin-right: 30px;
+    width: 50%;
+}
+
+.create-game-detail-form {
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    padding: 20px 15px;
+    border-top: 1px solid var(--white);
+}
+
+.select-date_wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.select-date_input {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.select-description_wrapper {
+    display: flex;
+    text-align: left;
+    align-items: baseline;
+}
+
+.create-game-detail-form textarea {
+    width: 50%;
+    margin:10px 0px;
+    resize: none;
+    text-align: left;
+    padding: 5px 10px;
+    overflow:auto;
+}
+
+.react-datepicker__input-container {
+    margin:10px 0px;
+}
+
+.react-datepicker {
+    background: var(--solidGray)!important;
+    font-family: var(--fontTitle)!important;
+    border-radius: 2px !important;
+}
+
+.react-datepicker__day-name{
+   color: var(--orange)!important;
+} 
+
+.react-datepicker__day {
+    color: var(--white)!important;
+}
+
+.react-datepicker__current-month, .react-datepicker__day:hover {
+    color: var(--black)!important;
+}
+
+.react-datepicker__day--disabled {
+    cursor: default;
+    color: var(--black)!important;
+}
+
+.react-datepicker__day--selected {
+    background-color: var(--orange)!important;
+}
+
+.react-datepicker__header {
+    background: var(--white)!important;
+    border-radius: 0px !important;
+}
+
+.react-datepicker__time {
+    background: var(--solidGray)!important;
+    border-radius: 0 !important;
+    color: var(--white)!important;
+}
+
+li.react-datepicker__time-list-item {
+ padding: 5px !important;
+}
+
+li.react-datepicker__time-list-item:hover {
+    color: var(--black);
+}
+
+li.react-datepicker__time-list-item--selected {
+    background: var(--orange) !important;
+}
+
+.input-create-game{
+    background: transparent;
+    border: 1px solid var(--gray);
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    color: var(--white);
+    font-family: var(--fontTitle);
+    font-size: 14px;
+    padding: 5px;
+    line-height: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.input-create-game:focus {
+    outline: none;
+    box-shadow: 0px 0px 10px 1px var(--orange);
+    border: 1px solid var(--orange);
+    transition: 0.3s;
+}
+
+@media (max-width: 1200px){
+    .create-game-wrapper{
+        width: 90%;
+    }
+
+}
+
+@media (max-width: 920px){
+    .create-game-wrapper label {
+        width: 100%;
+        margin-right: 0;
+    }
+    .select-date_input, .create-game-detail-form textarea {
+        width: 100%;
+    }
+
+    .select-date_wrapper, .select-description_wrapper {
+        flex-direction: column;
+    }
+
+}
+
+@media (max-width: 700px){
+    .create-game-wrapper{
+        width: 95%;
+    }
+
+    .create-game-wrapper h3 {
+        font-size: 22px;
+    }
+}
