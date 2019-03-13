@@ -56,6 +56,7 @@ class LogIn extends Component {
                 });
             } else {
                 Cookies.set('token', data.jwt);
+                Cookies.set('myId', data.user._id);
                 this.props.history.push('/');
                 this.setState({
                     error: false,

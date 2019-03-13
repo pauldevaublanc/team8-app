@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+
+import { Select } from 'antd';
+
+
 import './index.css';
 
 import config from '../../config/index';
@@ -6,6 +10,8 @@ import config from '../../config/index';
 import Cookies from  'js-cookie';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
+
 
 
 import Background from '../../img/background-home.jpg';
@@ -79,6 +85,7 @@ class CreateGame extends Component {
 
 
   render() {
+    const Option = Select.Option;
     return (
       <div>
         
@@ -91,8 +98,9 @@ class CreateGame extends Component {
               </div>
               
               <form className="create-game-detail-form">
-                <div className="select-date_wrapper">
-                  <label>Clique pour choisir la date et l'heure du match</label>
+               
+                <div className="left-form-wrapper">
+                  <label>Cliques pour choisir la date et l'heure du match</label>
                   <div className="select-date_input">
                     <DatePicker
                         selected={this.state.startDate}
@@ -114,49 +122,70 @@ class CreateGame extends Component {
                       className="input-create-game"
                     />
                   </div>
-                </div>
-                <div className="select-description_wrapper">
                   <label>Apportes des précisions sur ton match</label>
-                  <textarea placeholder="ex: durée du match, besoin d'equipement..." maxLength="155" rows="3" type="text" className="input-create-game"></textarea>
-                </div>
-                
-                
-                <div className="select-radio_wrapper">
-                  <label>Ramènes tu la balle pour le match</label>
-                  <div className="select-radio" style={{justifyContent:'center'}}>
-                    <div style={{position:'relative'}}>
-                      <input type="radio" name="drone"></input>
-                      <label>Oui</label>
+                  <textarea 
+                    placeholder="ex: durée du match, besoin d'equipement..." 
+                    maxLength="155" 
+                    rows="3" 
+                    type="text" 
+                    className="input-create-game">
+                  </textarea>
+
+                  <div className="select-option_container">
+                    <div>
+                      <label>Nombre de joueurs</label>
+                      <Select defaultValue="1 vs 1" style={{ width: 150, display:'block', margin:'10px auto 20px' }} dropdownClassName="styledrop">
+                        <Option value="1">1 vs 1</Option>
+                        <Option value="2">2 vs 2</Option>
+                        <Option value="3">3 vs 3</Option>
+                        <Option value="4">4 vs 4</Option>
+                        <Option value="5">5 vs 5</Option>
+                      </Select>
                     </div>
-                    <div style={{position:'relative'}}>
-                      <input type="radio" name="drone"></input>
-                      <label>Non</label>
+                    <div>
+                      <label>Niveau de la rencontre</label>
+                      <Select defaultValue="Rookie" style={{ width: 150, display:'block', margin:'10px auto 20px' }} dropdownClassName="styledrop">
+                        <Option value="Rookie">Rookie</Option>
+                        <Option value="Pro">Pro</Option>
+                        <Option value="Expert">Expert</Option>
+                        <Option value="All Star">All Star</Option>
+                        <Option value="Hall of Fame">Hall of Fame</Option>
+                      </Select>
                     </div>
                   </div>
+
+                  
+                  <div className="select-radio_container">
+                    <div className="select-radio_wrapper">
+                      <label>Je ramène une balle?</label>
+                      <div className="select-radio">
+                        <div style={{position:'relative'}}>
+                          <input type="radio" name="ball" value={true}></input>
+                          <label>Oui</label>
+                        </div>
+                        <div style={{position:'relative'}}>
+                          <input type="radio" name="ball" value={false}></input>
+                          <label>Non</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="select-radio_wrapper" >
+                      <label style={{float:'right'}}>C'est une match privé ?</label>
+                      <div className="select-radio" style={{float:'right'}}>
+                        <div style={{position:'relative'}}>
+                          <input type="radio" name="private" value={true}></input>
+                          <label>Oui</label>
+                        </div>
+                        <div style={{position:'relative'}}>
+                          <input type="radio" name="private" value={false}></input>
+                          <label>Non</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
                 </div>
 
-
-
-                <div>
-                  <label>Nombre de joueurs</label>
-                  <select name="places">
-                    <option value="1">1 vs 1</option>
-                    <option value="2">2 vs 2</option>
-                    <option value="3">3 vs 3</option>
-                    <option value="4">4 vs 4</option>
-                    <option value="5">5 vs 5</option>
-                  </select>
-                </div>
-                <div>
-                  <label>Niveau de la rencontre</label>
-                  <select name="level">
-                    <option value="Rookie">Rookie</option>
-                    <option value="Pro">Pro</option>
-                    <option value="Expert">Expert</option>
-                    <option value="All Star">All Star</option>
-                    <option value="Hall of Fame">Hall of Fame</option>
-                  </select>
-                </div>
               </form>
             </div>
            

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './index.css';
 import PropTypes from 'prop-types';
 import config from '../../config/index';
+import Cookies from 'js-cookie'
 
 
 // Components
@@ -40,7 +41,12 @@ class DraftZone extends Component {
         <div className="draft_wrapper" style={this.props.style}>
 
             {
-              this.state.teammates.map((user, key) => {
+              this.state.teammates
+                .filter((user, key) => {
+                  return (user._id !== Cookies.get('myId'))
+                })
+                .map((user, key) => {
+
                 return (
                   <PlayerCard key={key}
                   id={user._id}
