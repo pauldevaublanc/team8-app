@@ -7,8 +7,6 @@ import Cookies from  'js-cookie';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-import moment from 'moment';
-import 'moment/locale/fa';
 
 import Background from '../../img/background-home.jpg';
 // Components
@@ -81,7 +79,6 @@ class CreateGame extends Component {
 
 
   render() {
-    moment.updateLocale('fa',null)
     return (
       <div>
         
@@ -95,7 +92,7 @@ class CreateGame extends Component {
               
               <form className="create-game-detail-form">
                 <div className="select-date_wrapper">
-                  <label>Cliquez pour choisir la date et l'heure du match</label>
+                  <label>Clique pour choisir la date et l'heure du match</label>
                   <div className="select-date_input">
                     <DatePicker
                         selected={this.state.startDate}
@@ -119,17 +116,27 @@ class CreateGame extends Component {
                   </div>
                 </div>
                 <div className="select-description_wrapper">
-                  <label>Ecrivez une courte description de votre match</label>
-                  <textarea placeholder="ex: durée du match, besoin d'equipement..." maxlength="155" rows="3" type="text" className="input-create-game"></textarea>
+                  <label>Apportes des précisions sur ton match</label>
+                  <textarea placeholder="ex: durée du match, besoin d'equipement..." maxLength="155" rows="3" type="text" className="input-create-game"></textarea>
                 </div>
-                <div>
-                  <input type="radio" name="drone"></input>
-                  <label>Oui</label>
+                
+                
+                <div className="select-radio_wrapper">
+                  <label>Ramènes tu la balle pour le match</label>
+                  <div className="select-radio" style={{justifyContent:'center'}}>
+                    <div style={{position:'relative'}}>
+                      <input type="radio" name="drone"></input>
+                      <label>Oui</label>
+                    </div>
+                    <div style={{position:'relative'}}>
+                      <input type="radio" name="drone"></input>
+                      <label>Non</label>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <input type="radio" name="drone"></input>
-                  <label>Non</label>
-                </div>
+
+
+
                 <div>
                   <label>Nombre de joueurs</label>
                   <select name="places">
