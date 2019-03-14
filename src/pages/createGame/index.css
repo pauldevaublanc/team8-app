@@ -29,7 +29,7 @@
 }
 
 .right-form-wrapper {
-    width: 56%;
+    width: 58%;
     border: 1px solid var(--gray);
     border-radius: 2px;
 }
@@ -44,9 +44,9 @@
 }
 
 .courts_container {
-    max-height: 380px;
+    max-height: 386px;
     overflow: scroll;
-    padding: 15px 5px;
+    padding: 15px 10px;
 }
 
 .select-date_input{
@@ -56,7 +56,6 @@
 }
 
 .create-game-detail-form textarea {
-    
     margin:10px 0px 30px;
     resize: none;
     text-align: left;

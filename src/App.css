@@ -207,6 +207,10 @@ img:focus {outline:0; background-color:transparent;}
   font-weight: bold;
 }
 
+.ant-rate-star-second {
+  color: var(--gray);
+}
+
 /**** TEXT SELECTION COLOR ****/
 ::-moz-selection {
   background-color: var(--white);

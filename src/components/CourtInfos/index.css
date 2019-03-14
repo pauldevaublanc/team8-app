@@ -10,6 +10,53 @@
     text-align: left;
 }
 
+.court-infos_adress {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    max-width: 70%;
+}
+
+.court-infos_adress div{
+    font-family: var(--fontTitle);
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.court-infos_adress p{
+    font-family: var(--fontText);
+    font-size: 16px;
+    line-height: 18px;
+    padding-top: 8px;
+}
+
+.court-infos_detail {
+    font-family: var(--fontText);
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: bold;
+    border-left: 10px solid var(--orange);
+    padding-left: 15px;
+    width: 24%;
+}
+
+.court-infos_detail span{
+    color: var(--orange);
+    font-family: var(--fontTitle);
+    font-size: 22px;
+    padding-left: 4px;
+}
+
+.rating-antd {
+    color: var(--orange);
+    margin-left: 5px;
+}
+
+.rating-antd li {
+    font-size: 16px;
+    margin-right: 4px;
+}
+
 /* SMALL COURT PREVIEW */
 
 .small .court-infos_wrapper {
@@ -23,6 +70,7 @@
     border-color: var(--white);
     transition: 0.3s;
 }
+
 
 .small .court-infos_adress {
     width: 65%;
@@ -57,55 +105,6 @@
     margin-right: 4px;
 }
 /**********************************************/
-
-
-.court-infos_adress {
-    display: flex;
-    align-items: center;
-    text-align: left;
-    max-width: 70%;
-}
-
-.court-infos_adress div{
-    font-family: var(--fontTitle);
-    font-size: 24px;
-    line-height: 24px;
-}
-
-.court-infos_adress p{
-    font-family: var(--fontText);
-    font-size: 16px;
-    line-height: 18px;
-    padding-top: 8px;
-}
-
-.court-infos_detail {
-    font-family: var(--fontText);
-    font-size: 16px;
-    line-height: 22px;
-    font-weight: bold;
-    border-left: 10px solid var(--orange);
-    padding-left: 15px;
-    width: 24%;
-}
-
-
-.court-infos_detail span{
-    color: var(--orange);
-    font-family: var(--fontTitle);
-    font-size: 22px;
-    padding-left: 4px;
-}
-
-.rating-antd {
-    color: var(--orange);
-    margin-left: 5px;
-}
-
-.rating-antd li {
-    font-size: 16px;
-    margin-right: 4px;
-}
 
 @media (max-width: 1200px){
 

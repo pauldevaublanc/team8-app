@@ -25,6 +25,7 @@ class CreateGame extends Component {
   state ={
     games : [],
     courts : [],
+    active: null,
     startDate: new Date()
   }
 
@@ -43,50 +44,44 @@ class CreateGame extends Component {
   }
 
 
-  getGames = () => {
-    fetch(`${config.urlApi}/games`)
-      .then((response) => {return response.json();})
-      .then((data) => {
-        this.setState({
-          games: data
-        })
-    });
-  }
+  // getGames = () => {
+  //   fetch(`${config.urlApi}/games`)
+  //     .then((response) => {return response.json();})
+  //     .then((data) => {
+  //       this.setState({
+  //         games: data
+  //       })
+  //   });
+  // }
 
-  addGame = () => {
-    fetch(`${config.urlApi}/games`, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${Cookies.get('token')}`,
-      },
-      body: JSON.stringify({
-        description: this.refs['descriptionRef'].value, 
-      })
-    })
-    .then((response) => { return response.json(); })
-    .then((data) => {
-      const newGames = this.state.games
-      newGames.push(data)
-      this.setState({
-        games: newGames
-      })
+  // addGame = () => {
+  //   fetch(`${config.urlApi}/games`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Accept': 'application/json',
+  //       'Content-Type': 'application/json',
+  //       'Authorization': `Bearer ${Cookies.get('token')}`,
+  //     },
+  //     body: JSON.stringify({
+  //       description: this.refs['descriptionRef'].value, 
+  //     })
+  //   })
+  //   .then((response) => { return response.json(); })
+  //   .then((data) => {
+  //     const newGames = this.state.games
+  //     newGames.push(data)
+  //     this.setState({
+  //       games: newGames
+  //     })
       
-    });
-  }
+  //   });
+  // }
 
-  handleClick = (key) => {
-    this.setState({ 
-        active: key 
-    });
-}
-
-  handleChangeTitle = (e) => {
-    this.setState({
-      description: e.target.value
-    });
-  }
+  // handleChangeTitle = (e) => {
+  //   this.setState({
+  //     description: e.target.value
+  //   });
+  // }
 
   handleChange(date) {
     this.setState({
@@ -95,7 +90,7 @@ class CreateGame extends Component {
   }
 
   componentDidMount() {
-    this.getGames()
+    // this.getGames()
     this.getCourts()
   }
 
@@ -110,9 +105,9 @@ class CreateGame extends Component {
           <div className="main_container">
           <Title text={'Organiser un match'} style={{fontSize: 55, lineHeight:'60px', padding:'15px 0px 35px'}}/>
             <div className="create-game-wrapper">
-              <div>
-                <h3>Informations générales</h3>
-              </div>
+              
+              <h3>Informations générales</h3>
+              
               
               <form className="create-game-detail-form">
                
@@ -202,8 +197,9 @@ class CreateGame extends Component {
                       </div>
                     </div>
                   </div>
-                  
                 </div>
+
+
                 <div className="right-form-wrapper">
                   <h4>Choisis ton terrain</h4>
                   <div className="courts_container">
@@ -240,7 +236,7 @@ class CreateGame extends Component {
             
             
             
-            <div className="games_wrapper">
+            {/* <div className="games_wrapper">
               <ul>
                 {
                   this.state.games.map((game, key) => {
@@ -255,7 +251,7 @@ class CreateGame extends Component {
                 <input type="text" placeholder="description" name="description" ref={'descriptionRef'}/>
                 <button type="button" value="Submit" onClick={this.addGame}>Envoyer</button>
               </form>
-            </div>
+            </div> */}
 
 
 

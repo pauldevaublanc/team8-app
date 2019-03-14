@@ -26,13 +26,14 @@ class CourtInfos extends Component {
         gradeCourt: PropTypes.number,
         gradeCrowd: PropTypes.number,
         addClass: PropTypes.string,
+        onClick: PropTypes.func,
         style: PropTypes.object,
     }
 
 
   render() {
     return (  
-      <div className={this.props.addClass} style={this.props.style}>
+      <div className={this.props.addClass} style={this.props.style} onClick={this.props.onClick}>
         <div className="court-infos_wrapper">
           <div className="court-infos_adress">
             <ProfilePicture 
