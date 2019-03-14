@@ -51,6 +51,7 @@ class GameComponent extends Component {
            </div>
            <div className="game-infos-subtitle"><img style={{width:25, paddingRight:6}} src={require(`../../img/icones/basketball-court.png`)} alt="adress court"/>Terrain</div>
            <CourtInfos
+            pictureSize={120}
             address={this.props.game.court.address}
             city={this.props.game.court.city}
             postalCode={this.props.game.court.postalCode}

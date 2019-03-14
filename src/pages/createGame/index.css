@@ -16,7 +16,7 @@
 
 .create-game-detail-form {
     margin: 0 auto;
-    align-items: center;
+    display: flex;
     justify-content: space-between;
     align-content: center;
     padding: 30px 15px;
@@ -25,11 +25,33 @@
 
 .left-form-wrapper {
     width:40%;
+    max-width: 430px;
+}
+
+.right-form-wrapper {
+    width: 56%;
+    border: 1px solid var(--gray);
+    border-radius: 2px;
+}
+
+.right-form-wrapper h4 {
+    background: var(--gray);
+    color: var(--black);
+    font-family: var(--fontTitle);
+    padding: 5px 10px;
+    font-size: 16px;
+    border-bottom: 1px solid var(--white);
+}
+
+.courts_container {
+    max-height: 380px;
+    overflow: scroll;
+    padding: 15px 5px;
 }
 
 .select-date_input{
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     
 }
 
@@ -138,7 +160,7 @@ input[type="radio"]:checked + label {
 /***************** STYLE DATE PICKER *****************/
 
 .react-datepicker__input-container {
-    margin:10px 0px 30px;
+    margin-top:10px;
 }
 
 .react-datepicker {
@@ -196,11 +218,7 @@ li.react-datepicker__time-list-item--selected {
 
 @media (max-width: 1200px){
     .create-game-wrapper{
-        width: 90%;
-    }
-
-    .left-form-wrapper {
-        width:50%;
+        width: 100%;
     }
 }
 
@@ -213,11 +231,15 @@ li.react-datepicker__time-list-item--selected {
         width: 100%;
     }
 
-    .left-form-wrapper {
+    .left-form-wrapper,  .right-form-wrapper {
         width:100%;
     }
 
-    .select-date_wrapper {
+    .left-form-wrapper {
+        margin: 0 auto;
+    }
+
+    .select-date_wrapper, .create-game-detail-form  {
         flex-direction: column;
     }
 
@@ -232,13 +254,17 @@ li.react-datepicker__time-list-item--selected {
     
     .select-radio {
         width: 100%;
+        justify-content: center;
     }
 
     .select-option_container, .select-radio_container {
-        width: 70%;
-        flex-direction: column;
+        width: 100%;
         margin: 0 auto;
         text-align: center;
+    }
+
+    .courts_container {
+        max-height: 425px;
     }
 
 }

@@ -8,8 +8,56 @@
     border: 2px solid var(--gray);
     padding: 20px 15px;
     text-align: left;
-    border-top: 1px solid var(--white);
 }
+
+/* SMALL COURT PREVIEW */
+
+.small .court-infos_wrapper {
+    padding: 10px;
+    background: var(--solidGray);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.small .court-infos_wrapper:hover {
+    border-color: var(--white);
+    transition: 0.3s;
+}
+
+.small .court-infos_adress {
+    width: 65%;
+}
+
+.small .court-infos_adress div{
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.small .court-infos_adress p{
+    font-size: 14px;
+    line-height: 18px;
+    padding-top: 6px;
+}
+
+.small .court-infos_detail {
+    font-size: 14px;
+    line-height: 20px;
+    border-left: 8px solid var(--orange);
+    padding-left: 12px;
+    width: 35%;
+}
+
+.small .court-infos_detail span{
+    font-size: 18px;
+    padding-left: 2px;
+}
+
+.small .rating-antd li {
+    font-size: 14px;
+    margin-right: 4px;
+}
+/**********************************************/
+
 
 .court-infos_adress {
     display: flex;
@@ -60,9 +108,6 @@
 }
 
 @media (max-width: 1200px){
-    .court-infos_wrapper {
-        width: 90%;
-    }
 
     .court-infos_detail div:first-child {
         padding-bottom: 8px;
@@ -74,9 +119,21 @@
         flex-direction: column;
     }
 
+    .small .court-infos_adress {
+        width: 100%;
+    }
+    
+    .small .court-infos_detail {
+        width: 100%;
+    }
+
     .court-infos_adress {
         max-width: 100%;
         width: 100%;
+    }
+
+    .small .court-infos_detail {
+        margin-top: 10px;
     }
 
     .court-infos_detail {
@@ -98,6 +155,14 @@
 @media (max-width: 700px){
     .court-infos_wrapper {
         width: 95%;
+    }
+
+    .small .court-infos_wrapper {
+        width: 100%;
+    }
+
+    .small .rating {
+        line-height: 0;
     }
 
     .court-infos_adress div{

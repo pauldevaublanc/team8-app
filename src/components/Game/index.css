@@ -61,13 +61,7 @@
 }
 
 @media (max-width: 1200px){
-    .game-infos-wrapper{
-        width: 90%;
-    }
 
-    .game-infos-subtitle {
-        width: 90%;
-    }
 }
 
 @media (max-width: 920px){

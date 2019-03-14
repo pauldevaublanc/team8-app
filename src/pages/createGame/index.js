@@ -18,12 +18,28 @@ import Background from '../../img/background-home.jpg';
 // Components
 import Title from '../../components/Title/index';
 import FooterT8 from '../../components/FooterT8/index';
+import CourtInfos from '../../components/CourtInfos/index';
 
 class CreateGame extends Component {
   
   state ={
     games : [],
+    courts : [],
     startDate: new Date()
+  }
+
+  getCourts = () => {
+    fetch(`${config.urlApi}/courts`, {
+      headers: {
+        'Authorization': `Bearer ${Cookies.get('token')}`
+      }
+    })
+      .then((response) => {return response.json();})
+      .then((data) => {
+        this.setState({
+          courts: data
+        })
+    });
   }
 
 
@@ -80,6 +96,7 @@ class CreateGame extends Component {
 
   componentDidMount() {
     this.getGames()
+    this.getCourts()
   }
 
 
@@ -94,37 +111,39 @@ class CreateGame extends Component {
           <Title text={'Organiser un match'} style={{fontSize: 55, lineHeight:'60px', padding:'15px 0px 35px'}}/>
             <div className="create-game-wrapper">
               <div>
-                <h3>Details</h3>
+                <h3>Informations générales</h3>
               </div>
               
               <form className="create-game-detail-form">
                
                 <div className="left-form-wrapper">
-                  <label>Cliques pour choisir la date et l'heure du match</label>
-                  <div className="select-date_input">
-                    <DatePicker
+                  <div style={{marginBottom: 30}}>
+                    <label>Cliques pour choisir la date et l'heure du match</label>
+                    <div className="select-date_input">
+                      <DatePicker
+                          selected={this.state.startDate}
+                          onChange={this.handleChange.bind(this)}
+                          timeCaption="Date"
+                          minDate={new Date()}
+                          showDisabledMonthNavigation
+                          dateFormat="dd/MM/yyyy"
+                          className="input-create-game"  
+                      />
+                      <DatePicker
                         selected={this.state.startDate}
                         onChange={this.handleChange.bind(this)}
-                        timeCaption="Date"
-                        minDate={new Date()}
-                        showDisabledMonthNavigation
-                        dateFormat="dd/MM/yyyy"
-                        className="input-create-game"  
-                    />
-                    <DatePicker
-                      selected={this.state.startDate}
-                      onChange={this.handleChange.bind(this)}
-                      showTimeSelect
-                      showTimeSelectOnly
-                      timeIntervals={15}
-                      dateFormat="h:mm"
-                      timeCaption="Heure"
-                      className="input-create-game"
-                    />
+                        showTimeSelect
+                        showTimeSelectOnly
+                        timeIntervals={15}
+                        dateFormat="h:mm"
+                        timeCaption="Heure"
+                        className="input-create-game"
+                      />
+                    </div>
                   </div>
                   <label>Apportes des précisions sur ton match</label>
                   <textarea 
-                    placeholder="ex: durée du match, besoin d'equipement..." 
+                    placeholder="ex: objectif de la rencontre, durée du match, besoin d'equipement..." 
                     maxLength="155" 
                     rows="3" 
                     type="text" 
@@ -170,7 +189,7 @@ class CreateGame extends Component {
                       </div>
                     </div>
                     <div className="select-radio_wrapper" >
-                      <label style={{float:'right'}}>C'est une match privé ?</label>
+                      <label style={{float:'right'}}>C'est un match privé?</label>
                       <div className="select-radio" style={{float:'right'}}>
                         <div style={{position:'relative'}}>
                           <input type="radio" name="private" value={true}></input>
@@ -184,6 +203,33 @@ class CreateGame extends Component {
                     </div>
                   </div>
                   
+                </div>
+                <div className="right-form-wrapper">
+                  <h4>Choisis ton terrain</h4>
+                  <div className="courts_container">
+                    {
+                      this.state.courts.map((court, key) => {
+                        return (
+                          <CourtInfos
+                            key={key}
+                            pictureSize={90}
+                            addClass={'small'}
+                            address={court.address}
+                            city={court.city}
+                            postalCode={court.postalCode}
+                            transport={court.transportStation}
+                            courtPicture={court.courtPicture.url}
+                            hoop={court.hoop}
+                            gradeCourt={court.gradeCourt}
+                            gradeCrowd={court.gradeCrowd}
+                            style={{paddingBottom:10}}
+                          />
+                          
+                        )
+                      })
+                    }
+                   
+                  </div>
                 </div>
 
               </form>

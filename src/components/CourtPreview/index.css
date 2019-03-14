@@ -105,10 +105,8 @@
 
 
 @media (max-width: 1200px){
-    .court-preview_wrapper, .court-preview_table-players {
-        width: 90%;
-    }
-  }
+
+}
 
 @media (max-width: 990px){
     .court-preview_wrapper {

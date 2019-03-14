@@ -16,6 +16,7 @@ import ProfilePicture from '../ProfilePicture';
 class CourtInfos extends Component {
 
     static propTypes = {
+        pictureSize: PropTypes.number,
         address: PropTypes.string,
         city: PropTypes.string,
         postalCode: PropTypes.string,
@@ -24,17 +25,18 @@ class CourtInfos extends Component {
         courtPicture: PropTypes.string,
         gradeCourt: PropTypes.number,
         gradeCrowd: PropTypes.number,
+        addClass: PropTypes.string,
         style: PropTypes.object,
     }
 
 
   render() {
     return (  
-      <div style={this.props.style}>
+      <div className={this.props.addClass} style={this.props.style}>
         <div className="court-infos_wrapper">
           <div className="court-infos_adress">
             <ProfilePicture 
-              size={120} 
+              size={this.props.pictureSize} 
               borderStyle={'border-small'} 
               picture={`${config.urlApi}${this.props.courtPicture}`}
               style={{paddingRight: 15}}
@@ -49,10 +51,10 @@ class CourtInfos extends Component {
             <div>
               Nombre de panier: <span>{this.props.hoop}</span>
             </div>
-            <div>
+            <div className="rating">
               Terrain:<Rate disabled allowHalf defaultValue={this.props.gradeCourt} className="rating-antd"/>
             </div>
-            <div>
+            <div className="rating">
               Affluence:<Rate disabled allowHalf defaultValue={this.props.gradeCrowd} className="rating-antd" character={<Icon type="user"/>}/>
             </div>
           </div>
