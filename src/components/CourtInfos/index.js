@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './index.css';
 import PropTypes from 'prop-types';
 
-
-import StarRatings from 'react-star-ratings';
+import { Rate, Icon } from 'antd';
 
 import config from '../../config/index';
 
@@ -19,6 +18,7 @@ class CourtInfos extends Component {
     static propTypes = {
         address: PropTypes.string,
         city: PropTypes.string,
+        postalCode: PropTypes.string,
         transport: PropTypes.string,
         hoop: PropTypes.number,
         courtPicture: PropTypes.string,
@@ -41,31 +41,19 @@ class CourtInfos extends Component {
             />
             <div>
               <div>{this.props.address}</div>
-              <div>{this.props.city}</div>
+              <div>{this.props.postalCode}, {this.props.city}</div>
               <p><img style={{width:20, paddingRight:4}} src={require(`../../img/icones/subway.png`)} alt="M"/>{this.props.transport}</p>
             </div>
           </div>
           <div className="court-infos_detail">
-            <div style={{paddingBottom: 5}}>
+            <div>
               Nombre de panier: <span>{this.props.hoop}</span>
             </div>
             <div>
-              Terrain: <StarRatings
-                rating={this.props.gradeCourt}
-                starDimension="17px"
-                starSpacing="2px"
-                starEmptyColor="rgba(255, 255, 255, 0.5)"
-                starRatedColor="#EF7E4D"
-              />
+              Terrain:<Rate disabled allowHalf defaultValue={this.props.gradeCourt} className="rating-antd"/>
             </div>
             <div>
-              Affluence: <StarRatings
-                rating={this.props.gradeCrowd}
-                starDimension="17px"
-                starSpacing="2px"
-                starEmptyColor="rgba(255, 255, 255, 0.5)"
-                starRatedColor="#EF7E4D"
-              />
+              Affluence:<Rate disabled allowHalf defaultValue={this.props.gradeCrowd} className="rating-antd" character={<Icon type="user"/>}/>
             </div>
           </div>
         </div>

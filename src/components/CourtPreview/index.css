@@ -1,5 +1,5 @@
 .court-preview_wrapper {
-    width: 80%;
+    width: 100%;
     min-height: 450px;
     /* border: 1px solid var(--white); */
     margin: 0 auto;
@@ -51,7 +51,7 @@
 
 /* TABLE */
 .court-preview_table-players {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     position: relative;
     padding-bottom: 20px;

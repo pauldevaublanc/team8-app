@@ -1,6 +1,6 @@
 .court-infos_wrapper {
     display: flex;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     align-items: center;
     justify-content: space-between;
@@ -41,6 +41,7 @@
     width: 24%;
 }
 
+
 .court-infos_detail span{
     color: var(--orange);
     font-family: var(--fontTitle);
@@ -48,9 +49,23 @@
     padding-left: 4px;
 }
 
+.rating-antd {
+    color: var(--orange);
+    margin-left: 5px;
+}
+
+.rating-antd li {
+    font-size: 16px;
+    margin-right: 4px;
+}
+
 @media (max-width: 1200px){
     .court-infos_wrapper {
         width: 90%;
+    }
+
+    .court-infos_detail div:first-child {
+        padding-bottom: 8px;
     }
 }
 
