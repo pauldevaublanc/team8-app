@@ -10,7 +10,8 @@ import Background from '../../img/background-home.jpg';
 // Components
 import Title from '../../components/Title/index';
 import IntroIcon from '../../components/IntroIcon';
-import GameCard from '../../components/GameCard';
+
+import { Carousel } from 'antd';
 
 class Home extends Component {
 
@@ -76,17 +77,14 @@ class Home extends Component {
 
           <div className="home_news-wrapper">
             <h2>Les prochains matchs</h2>
-            <div className="home_news-container">
-                <GameCard 
-                gameDay={'Dimanche'} 
-                gameMonth={'12 avril'} 
-                gameHour={'12:55'} 
-                userName={'Didier'}
-                picture={'didier.jpg'}
-                numberPlayers={'1'}
-                gameLocation={'Sèvres'}
-                availablePlace={true}/>
-              </div>
+
+            <Carousel>
+              <div><h3>1</h3></div>
+              <div><h3>2</h3></div>
+              <div><h3>3</h3></div>
+              <div><h3>4</h3></div>
+            </Carousel>
+                
           </div>
 
           <div className="home_counter">

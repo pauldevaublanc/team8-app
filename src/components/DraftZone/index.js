@@ -32,6 +32,7 @@ class DraftZone extends Component {
 
     componentDidMount() {
       this.getPlayers();
+     
     }
     
 

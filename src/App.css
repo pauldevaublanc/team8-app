@@ -211,6 +211,14 @@ img:focus {outline:0; background-color:transparent;}
   color: var(--gray);
 }
 
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  background: #364d79;
+  overflow: hidden;
+}
+
 /**** TEXT SELECTION COLOR ****/
 ::-moz-selection {
   background-color: var(--white);

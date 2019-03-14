@@ -83,12 +83,6 @@
   line-height: 38px;
 }
 
-.home_news-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
 /* Fourth part, counter part  */
 .home_counter {
   padding: 60px 20px;
