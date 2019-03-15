@@ -44,14 +44,25 @@ class PlayerCard extends Component {
                 <p>{this.props.age} ans</p>
                 <p style={{textTransform:'capitalize'}}>{this.props.city}</p>
                 <Link to={`/user/${this.props.id}`}>
+                    <Button 
+                        text={'Plus d\'infos'} 
+                        buttonStyle={'button-transparent'} 
+                        style={{
+                            padding: '10px 5px', 
+                            margin:'10px auto 5px', 
+                            fontSize:12
+                        }}
+                    />
+                </Link>
                 <Button 
-                    text={'Plus d\'infos'} 
+                    text={'Inviter'} 
                     buttonStyle={'button-transparent'} 
                     style={{
                         padding: '10px 5px', 
-                        margin:'10px auto', 
-                        fontSize:12}}
-                /></Link>
+                        margin:'5px auto 10px', 
+                        fontSize:12
+                    }}
+                />
             </div>
 
             <div className="playerCard_right-infos">

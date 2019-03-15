@@ -235,7 +235,9 @@ class CreateGame extends Component {
                 </div>
 
               </form>
+              <h3>Invitez des teammates</h3>
             </div>
+            
            
             
             
