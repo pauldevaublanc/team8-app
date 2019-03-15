@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './index.css';
 import PropTypes from 'prop-types';
 import config from '../../config/index';
+import Cookies from 'js-cookie'
 
 import 'moment/locale/fr';
 
@@ -9,23 +10,26 @@ import 'moment/locale/fr';
 // Components
 import GameCard from '../../components/GameCard';
 
-class FindGame extends Component {
+class MyGames extends Component {
 
-  state = {
+    state = {
     games: []
-  }
-
+    }
 
     static propTypes = {
         style: PropTypes.object,
     }
 
     getGames = () => {
-      fetch(`${config.urlApi}/games`)
+      fetch(`${config.urlApi}/users/me`, {
+        headers: {
+          'Authorization': `Bearer ${Cookies.get('token')}`
+        }
+      })
         .then((response) => {return response.json();})
         .then((data) => {
           this.setState({
-            games: data
+            games: data.games
           })
       });
     }
@@ -39,7 +43,7 @@ class FindGame extends Component {
     const moment = require('moment');
     
     return (
-      <div className="find-game_wrapper" style={this.props.style}>
+      <div className="my-games_wrapper" style={this.props.style}>
           {
             this.state.games.map((game, key) => {
               return (
@@ -51,7 +55,7 @@ class FindGame extends Component {
                   userName={game.OrganizerName}
                   picture={`${config.urlApi}${game.OrganizerPicture.url}`}
                   numberPlayers={game.JoueursEquipe}
-                  gameLocation={game.court.city}
+                  gameLocation={game.city}
                   availablePlace={game.availablePlace}/>
               )
             })
@@ -61,4 +65,4 @@ class FindGame extends Component {
   }
 }
 
-export default FindGame;
+export default MyGames;

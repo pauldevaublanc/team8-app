@@ -10,6 +10,7 @@ import Background from '../../img/background-home.jpg';
 import Title from '../../components/Title/index';
 import FindGame from '../../components/FindGame/index';
 import FooterT8 from '../../components/FooterT8/index';
+import MyGames from '../../components/MyGames';
 
 class Games extends Component {
   state ={
@@ -71,7 +72,7 @@ class Games extends Component {
                   }        
                 </div>
                 {
-                  this.props.match.params.list === 'mesmatchs' ? '' : this.props.match.params.list === 'recherchermatch' ? <FindGame/> : ''
+                  this.props.match.params.list === 'mesmatchs' ? <MyGames/> : this.props.match.params.list === 'recherchermatch' ? <FindGame/> : ''
                 }
               </div>
               <FooterT8/>
