@@ -176,6 +176,19 @@ input[type="radio"]:checked + label {
 }
 
 
+.button-show-more {
+    cursor: pointer;
+    text-align: center;
+    text-decoration: underline;
+    color: var(--white);
+    transition: 0.3s;
+}
+
+.button-show-more:hover {
+    color: var(--orange);
+    transition: 0.3s;
+}
+
 
 @media (max-width: 1200px){
     .create-game-wrapper{

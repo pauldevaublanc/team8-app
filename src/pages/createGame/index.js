@@ -22,8 +22,11 @@ class CreateGame extends Component {
     open: false,
     courts : [],
     active: null,
-    startDate: new Date()
+    startDate: new Date(), 
+    currentPage: 0,
+    buttonLoadMore: true
   }
+
 
   handleOpenChange = (open) => {
     this.setState({ open });
@@ -33,18 +36,33 @@ class CreateGame extends Component {
 
   
 
-  getCourts = () => {
-    fetch(`${config.urlApi}/courts`, {
+  getPage = (pageNumber) => {
+    const pageSize = 5
+
+    fetch(`${config.urlApi}/courts?_start=${pageNumber * pageSize}&_limit=${pageSize}`, {
       headers: {
         'Authorization': `Bearer ${Cookies.get('token')}`
       }
     })
       .then((response) => {return response.json();})
       .then((data) => {
+        const newCourts = [
+          ...this.state.courts,
+          ...data
+        ]
+
         this.setState({
-          courts: data
+          courts: newCourts,
+          buttonLoadMore: data.length === pageSize
         })
     });
+  }
+
+  loadNextPage = () => {
+    this.setState({
+      currentPage: this.state.currentPage + 1
+    })
+    this.getPage(this.state.currentPage)
   }
 
 
@@ -95,7 +113,10 @@ class CreateGame extends Component {
 
   componentDidMount() {
     // this.getGames()
-    this.getCourts()
+    this.getPage(this.state.currentPage)
+    this.setState({
+      currentPage: this.state.currentPage + 1
+    })
   }
 
 
@@ -229,6 +250,9 @@ class CreateGame extends Component {
                           
                         )
                       })
+                    }
+                    {
+                      this.state.buttonLoadMore && <div onClick={this.loadNextPage} className="button-show-more">voir plus</div>
                     }
                    
                   </div>
