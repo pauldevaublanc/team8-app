@@ -25,7 +25,7 @@
 
 .left-form-wrapper {
     width:40%;
-    max-width: 430px;
+    max-width: 450px;
 }
 
 .right-form-wrapper {
@@ -52,7 +52,7 @@
 .select-date_input{
     display: flex;
     justify-content: space-between;
-    
+    padding-top: 10px;
 }
 
 .create-game-detail-form textarea {
@@ -156,62 +156,24 @@ input[type="radio"]:checked + label {
 
 /* ********************************** */
 
-/***************** STYLE DATE PICKER *****************/
-
-.react-datepicker__input-container {
-    margin-top:10px;
+/* DATE PICKER */
+.large-time-picker{
+    width: 150px;
+    font-family: var(--fontTitle);
+    color: var(--white);
 }
 
-.react-datepicker {
-    background: var(--solidGray)!important;
-    font-family: var(--fontTitle)!important;
-    border-radius: 2px !important;
+.large-time-picker input{
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--gray);
 }
 
-.react-datepicker__day-name{
-   color: var(--orange)!important;
-} 
-
-.react-datepicker__day {
-    color: var(--white)!important;
+.large-time-picker input:hover{
+    box-shadow: 0px 0px 10px 1px var(--orange);
+    border: 1px solid var(--orange);
+    transition: 0.3s;
 }
-
-.react-datepicker__current-month, .react-datepicker__day:hover {
-    color: var(--black)!important;
-}
-
-.react-datepicker__day--disabled {
-    cursor: default;
-    color: var(--black)!important;
-}
-
-.react-datepicker__day--selected {
-    background-color: var(--orange)!important;
-}
-
-.react-datepicker__header {
-    background: var(--white)!important;
-    border-radius: 0px !important;
-}
-
-.react-datepicker__time {
-    background: var(--solidGray)!important;
-    border-radius: 0 !important;
-    color: var(--white)!important;
-}
-
-li.react-datepicker__time-list-item {
- padding: 5px !important;
-}
-
-li.react-datepicker__time-list-item:hover {
-    color: var(--black);
-}
-
-li.react-datepicker__time-list-item--selected {
-    background: var(--orange) !important;
-}
-/* ****************************************** */
 
 
 

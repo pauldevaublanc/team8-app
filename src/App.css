@@ -120,9 +120,125 @@ a:hover, a:active, a:focus {
   color: var(--black);
 }
 
+:focus {
+  outline: none;
+}
+
 img:focus {outline:0; background-color:transparent;}
 
 /* ANT DESIGN  */
+
+/* DATE AND TIME PICKER */
+.ant-calendar {
+  background: var(--solidGray);
+  color: var(--white);
+  font-family: var(--fontTitle);
+}
+
+.ant-calendar-input, .ant-calendar-selected-day .ant-calendar-date {
+  background: transparent;
+  color: var(--white);
+}
+
+.ant-calendar th, .ant-calendar-header a:hover  {
+  color: var(--orange);
+}
+
+.ant-calendar-selected-date .ant-calendar-date, 
+.ant-calendar-selected-start-date .ant-calendar-date, 
+.ant-calendar-selected-end-date .ant-calendar-date, 
+.ant-calendar-selected-date .ant-calendar-date:hover, 
+.ant-calendar-selected-start-date .ant-calendar-date:hover, 
+.ant-calendar-selected-end-date .ant-calendar-date:hover {
+  background: var(--orange);
+  color: var(--white);
+}
+
+.ant-calendar-picker:hover .ant-calendar-picker-input:not(.ant-input-disabled) {
+  border-color: var(--orange);
+}
+
+.ant-calendar-date:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+.ant-calendar-date, 
+.ant-calendar-header .ant-calendar-year-select, 
+.ant-calendar-header .ant-calendar-month-select{ 
+  color: var(--white);
+}
+
+.ant-calendar-today .ant-calendar-date {
+  color: var(--orange);
+  font-weight: bold;
+  border-color: var(--orange);
+}
+
+li.ant-time-picker-panel-select-option-selected {
+  font-weight: bold;
+  background: var(--orange);
+}
+
+.ant-time-picker-panel-select li:hover {
+  font-weight: bold;
+  background: var(--gray);
+  color: var(--black);
+}
+
+.time-picker-dropdown {
+  width: 152px;
+  top: 2px;
+  left: 391px;
+  max-width: none;
+}
+
+.ant-time-picker-icon .ant-time-picker-clock-icon, 
+.ant-time-picker-clear .ant-time-picker-clock-icon,
+.ant-calendar-picker-icon  {
+  color: var(--gray);
+}
+
+.ant-time-picker-panel-input {
+  background: transparent;
+}
+
+.ant-time-picker-panel-inner {
+  background: var(--solidGray);
+  border: 1px solid var(--gray);
+  color: var(--white);
+  font-family: var(--fontTitle);
+}
+
+.ant-btn-primary {
+  background-color: transparent;
+  border-color: var(--orange);
+}
+
+.ant-btn-primary:hover {
+  background-color: var(--orange);
+  border-color: var(--orange);
+}
+
+.ant-calendar-picker:focus .ant-calendar-picker-input:not(.ant-input-disabled), 
+.ant-input:focus {
+  border-color: var(--orange);
+  box-shadow: none;
+}
+
+.ant-time-picker-panel-narrow .ant-time-picker-panel-input-wrap {
+  max-width: none;
+}
+
+.ant-time-picker-panel-select ul {
+  padding: 0;
+}
+
+.ant-time-picker-panel-select {
+  width: 50%;
+}
+/* END TIME AND DATE PICKER */
+
 .ant-select-selection--single {
   height: 36px;
   background: transparent;
@@ -153,7 +269,9 @@ img:focus {outline:0; background-color:transparent;}
   color: var(--white);
 }
 
-.ant-select-selection:active, .ant-select-selection:hover, .ant-select-selection:visited {
+.ant-select-selection:active, 
+.ant-select-selection:hover, 
+.ant-select-selection:visited {
   border-color: var(--orange);
   border-right-width: 1px !important;
   outline: 0;
@@ -164,7 +282,8 @@ img:focus {outline:0; background-color:transparent;}
   border-color: var(--gray);
 }
 
-.ant-select-focused, .ant-select-selection:focus {
+.ant-select-focused, 
+.ant-select-selection:focus {
   border-color: var(--orange);
   border-right-width: 1px !important;
   outline: 0;
@@ -178,7 +297,8 @@ img:focus {outline:0; background-color:transparent;}
   box-shadow: none;
 }
 
-.ant-select-dropdown-menu-item-selected, .ant-select-dropdown-menu-item-selected:hover {
+.ant-select-dropdown-menu-item-selected, 
+.ant-select-dropdown-menu-item-selected:hover {
   color: var(--black);
   font-weight: 600;
   background-color: var(--orange);
@@ -260,8 +380,6 @@ img:focus {outline:0; background-color:transparent;}
   position: relative;
 }
 
-
-
 @media (max-width: 1280px){
   .main_container {
       width: 95%;
@@ -276,6 +394,10 @@ img:focus {outline:0; background-color:transparent;}
 @media (max-width: 680px){
   .noMobile {
     display: none !important;
+  }
+
+  .ant-calendar-picker-icon, .ant-time-picker-icon {
+    display: none;
   }
 
   .dpMobile {

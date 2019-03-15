@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-
-import { Select } from 'antd';
-
-
 import './index.css';
-
 import config from '../../config/index';
-
 import Cookies from  'js-cookie';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+
+import moment from 'moment';
 
 
+import { DatePicker, Select, TimePicker, Button } from 'antd';
 
 
 import Background from '../../img/background-home.jpg';
@@ -24,10 +19,19 @@ class CreateGame extends Component {
   
   state ={
     games : [],
+    open: false,
     courts : [],
     active: null,
     startDate: new Date()
   }
+
+  handleOpenChange = (open) => {
+    this.setState({ open });
+  }
+
+  handleClose = () => this.setState({ open: false })
+
+  
 
   getCourts = () => {
     fetch(`${config.urlApi}/courts`, {
@@ -115,24 +119,26 @@ class CreateGame extends Component {
                   <div style={{marginBottom: 30}}>
                     <label>Cliques pour choisir la date et l'heure du match</label>
                     <div className="select-date_input">
-                      <DatePicker
-                          selected={this.state.startDate}
-                          onChange={this.handleChange.bind(this)}
-                          timeCaption="Date"
-                          minDate={new Date()}
-                          showDisabledMonthNavigation
-                          dateFormat="dd/MM/yyyy"
-                          className="input-create-game"  
-                      />
-                      <DatePicker
-                        selected={this.state.startDate}
-                        onChange={this.handleChange.bind(this)}
-                        showTimeSelect
-                        showTimeSelectOnly
-                        timeIntervals={15}
-                        dateFormat="h:mm"
-                        timeCaption="Heure"
-                        className="input-create-game"
+                      <DatePicker 
+                        allowClear={false}
+                        style={{width:210}} 
+                        className="large-time-picker"
+                        dropdownClassName="time-picker-dropdown" placeholder="Choisis la date" format="dddd DD MMMM"/>
+                      <TimePicker
+                        allowClear={false}
+                        open={this.state.open}
+                        onOpenChange={this.handleOpenChange}
+                        addon={() => (
+                          <Button size="small" type="primary" onClick={this.handleClose}>
+                            Ok
+                          </Button>
+                        )}
+                        className="large-time-picker"
+                        popupClassName="time-picker-dropdown"
+                        minuteStep={5} 
+                        placeholder="Choisis l'heure"
+                        format={'HH:mm'} 
+                        defaultOpenValue={moment('0:00', 'HH:mm')} 
                       />
                     </div>
                   </div>
