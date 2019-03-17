@@ -13,7 +13,7 @@ import Background from '../../img/background-home.jpg';
 // Components
 import Title from '../../components/Title/index';
 import FooterT8 from '../../components/FooterT8/index';
-import CourtInfos from '../../components/CourtInfos/index';
+import CourtList from '../../components/CourtList';
 
 class CreateGame extends Component {
   
@@ -228,34 +228,7 @@ class CreateGame extends Component {
 
 
                 <div className="right-form-wrapper">
-                  <h4>Choisis ton terrain</h4>
-                  <div className="courts_container">
-                    {
-                      this.state.courts.map((court, key) => {
-                        return (
-                          <CourtInfos
-                            key={key}
-                            pictureSize={90}
-                            addClass={'small'}
-                            address={court.address}
-                            city={court.city}
-                            postalCode={court.postalCode}
-                            transport={court.transportStation}
-                            courtPicture={court.courtPicture.url}
-                            hoop={court.hoop}
-                            gradeCourt={court.gradeCourt}
-                            gradeCrowd={court.gradeCrowd}
-                            style={{paddingBottom:10}}
-                          />
-                          
-                        )
-                      })
-                    }
-                    {
-                      this.state.buttonLoadMore && <div onClick={this.loadNextPage} className="button-show-more">voir plus</div>
-                    }
-                   
-                  </div>
+                  <CourtList pageAmount={5}/>
                 </div>
 
               </form>
