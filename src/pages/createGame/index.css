@@ -34,21 +34,6 @@
     border-radius: 2px;
 }
 
-.right-form-wrapper h4 {
-    background: var(--gray);
-    color: var(--black);
-    font-family: var(--fontTitle);
-    padding: 5px 10px;
-    font-size: 16px;
-    border-bottom: 1px solid var(--white);
-}
-
-.courts_container {
-    max-height: 386px;
-    overflow: scroll;
-    padding: 15px 10px;
-}
-
 .select-date_input{
     display: flex;
     justify-content: space-between;

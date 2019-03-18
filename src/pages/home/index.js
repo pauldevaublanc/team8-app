@@ -88,8 +88,9 @@ class Home extends Component {
           </div>
 
           <div className="home_counter">
+              <div><span>87</span> <br/>Terrains disponibles</div>
               <div><span>104</span> <br/>Teammates inscrits</div>
-              <div><span>344</span> <br/>matchs joués</div>
+              <div><span>344</span> <br/>Matchs joués</div>
           </div>
         </div>
       </div>

@@ -4,8 +4,13 @@ import config from '../../config/index';
 import PropTypes from 'prop-types';
 import Cookies from  'js-cookie';
 
+
+import { Icon, Modal } from 'antd';
+
 // Components
 import CourtInfos from '../../components/CourtInfos/index';
+import Button from '../../components/Button/index';
+import CourtModal from '../../components/CourtModal';
 
 class CourtList extends Component {
 
@@ -17,12 +22,16 @@ class CourtList extends Component {
         courts : [],
         active: null,
         currentPage: 0,
-        buttonLoadMore: true
+        buttonLoadMore: true,
+        searchMenuOpen: false,
+        searchMenuClicked: false,
+        searchValue: null,
+        loading: false,
+        visible: false,
     }
 
   getPage = (pageNumber) => {
     const pageSize = this.props.pageAmount
-
     fetch(`${config.urlApi}/courts?_start=${pageNumber * pageSize}&_limit=${pageSize}`, {
       headers: {
         'Authorization': `Bearer ${Cookies.get('token')}`
@@ -34,13 +43,52 @@ class CourtList extends Component {
           ...this.state.courts,
           ...data
         ]
-
         this.setState({
           courts: newCourts,
           buttonLoadMore: data.length === pageSize
         })
     });
   }
+
+  getSearchCourt = (value) => {
+    fetch(`${config.urlApi}/courts?postalCode_containss=${value}`, {
+      headers: {
+        'Authorization': `Bearer ${Cookies.get('token')}`
+      }
+    })
+      .then((response) => {return response.json();})
+      .then((searchCourts) => {
+        this.setState({ courts: searchCourts })
+    });
+  }
+
+
+  //////// MODAL////////
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  }
+
+  handleOk = () => {
+    this.setState({ loading: true });
+    setTimeout(() => {
+      this.setState({ loading: false, visible: false });
+    }, 3000);
+  }
+
+  handleCancel = () => {
+    this.setState({ visible: false });
+  }
+  ////////////////////////// 
+
+  handleSubmit = () => {
+      this.getSearchCourt(this.refs['postalCodeRef'].value);
+      this.setState({
+        searchMenuOpen: false,
+        buttonLoadMore: false
+      })
+    }
 
   loadNextPage = () => {
     this.setState({
@@ -49,6 +97,18 @@ class CourtList extends Component {
     this.getPage(this.state.currentPage)
   }
 
+  handleOpenSearchMenu(){
+    this.setState({
+      searchMenuOpen: true,
+      searchMenuClicked: true
+    })
+  }
+
+  handleCloseSearchMenu(){
+    this.setState({
+      searchMenuOpen: false
+    })
+  }
 
   componentDidMount() {
     this.getPage(this.state.currentPage)
@@ -57,13 +117,34 @@ class CourtList extends Component {
     })
   }
 
-
-
   render() {
     return ( 
         <div>
-            <h4>Choisis ton terrain</h4>
+            <div className="courts_container_header">
+              <h4>Choisis ton terrain</h4>
+              <Icon onClick={()=>this.handleOpenSearchMenu()} type="search"/>
+            </div>
             <div className="courts_container">
+              <div className={`courts_selector_wrapper ${this.state.searchMenuOpen ? 'animation-slideDown' : this.state.searchMenuClicked===true ? 'animation-slideUp' : ''}`}>
+                <div className="courts_selector_input">
+                  <label>Entre le code postal</label>
+                  <input placeholder="ex: 75015" className='input-create-game' ref={'postalCodeRef'}></input>
+                </div>
+                <div className="courts_selector_action">
+                
+                  <Icon 
+                    onClick={()=>this.handleCloseSearchMenu()} 
+                    type="close"/>
+                  <Button 
+                    onClick={()=>this.handleSubmit()} 
+                    buttonStyle={'button-transparent'} 
+                    style={{
+                      height:30, 
+                      padding: '5px 10px'
+                    }} 
+                    text={'Rechercher'}/>
+                </div>
+              </div>
                 {
                     this.state.courts.map((court, key) => {
                     return (
@@ -80,14 +161,29 @@ class CourtList extends Component {
                         gradeCourt={court.gradeCourt}
                         gradeCrowd={court.gradeCrowd}
                         style={{paddingBottom:10}}
+                        onClick={this.showModal}
                         />
-                        
                     )
                     })
                 }
                 {
                     this.state.buttonLoadMore && <div onClick={this.loadNextPage} className="button-show-more">voir plus</div>
                 }
+                <Modal
+                  visible={this.state.visible}
+                  centered={true}
+                  title="Title"
+                  onOk={this.handleOk}
+                  onCancel={this.handleCancel}
+                  footer={[
+                    <Button key="back" buttonStyle={'button-transparent'} style={{height:30, padding: '5px 10px'}} text={'Annuler'} onClick={this.handleCancel}/>,
+                    <Button key="submit" buttonStyle={'button-transparent'} style={{height:30, padding: '5px 10px'}} text={'Confirmer'} loading={this.state.loading} onClick={this.handleOk}/>
+                     ,
+                  ]}
+                >
+                  <CourtModal/>
+                  
+                </Modal>
             </div>
         </div>
     );
