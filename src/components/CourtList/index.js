@@ -98,6 +98,10 @@ class CourtList extends Component {
   }
 
   handleOpenSearchMenu(){
+    this.refs.courtsList.scrollTo({
+      top: this.refs.courtsList.innerHeight - 10,
+      behavior: 'smooth'
+    });
     this.setState({
       searchMenuOpen: true,
       searchMenuClicked: true
@@ -124,7 +128,7 @@ class CourtList extends Component {
               <h4>Choisis ton terrain</h4>
               <Icon onClick={()=>this.handleOpenSearchMenu()} type="search"/>
             </div>
-            <div className="courts_container">
+            <div className="courts_container" ref={'courtsList'}>
               <div className={`courts_selector_wrapper ${this.state.searchMenuOpen ? 'animation-slideDown' : this.state.searchMenuClicked===true ? 'animation-slideUp' : ''}`}>
                 <div className="courts_selector_input">
                   <label>Entre le code postal</label>
