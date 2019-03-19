@@ -132,7 +132,7 @@ class CourtList extends Component {
               <div className={`courts_selector_wrapper ${this.state.searchMenuOpen ? 'animation-slideDown' : this.state.searchMenuClicked===true ? 'animation-slideUp' : ''}`}>
                 <div className="courts_selector_input">
                   <label>Entre le code postal</label>
-                  <input placeholder="ex: 75015" className='input-create-game' ref={'postalCodeRef'}></input>
+                  <input type='number' placeholder="ex: 75015" className='input-create-game' ref={'postalCodeRef'}></input>
                 </div>
                 <div className="courts_selector_action">
                 
@@ -176,13 +176,14 @@ class CourtList extends Component {
                 <Modal
                   visible={this.state.visible}
                   centered={true}
-                  title="Title"
+                  title="Brimborion"
                   onOk={this.handleOk}
                   onCancel={this.handleCancel}
                   footer={[
-                    <Button key="back" buttonStyle={'button-transparent'} style={{height:30, padding: '5px 10px'}} text={'Annuler'} onClick={this.handleCancel}/>,
-                    <Button key="submit" buttonStyle={'button-transparent'} style={{height:30, padding: '5px 10px'}} text={'Confirmer'} loading={this.state.loading} onClick={this.handleOk}/>
-                     ,
+                    <div style={{display:'flex', justifyContent: 'flex-end'}}>
+                      <Button key="back" buttonStyle={'button-orange'} style={{height:30, minWidth:100, padding: '5px 10px'}} text={'Annuler'} onClick={this.handleCancel}/>
+                      <Button key="submit" buttonStyle={'button-orange'} style={{height:30, minWidth:100, padding: '5px 10px', marginLeft:15}} text={'Confirmer'} loading={this.state.loading} onClick={this.handleOk}/>
+                    </div>
                   ]}
                 >
                   <CourtModal/>

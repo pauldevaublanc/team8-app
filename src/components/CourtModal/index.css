@@ -3,19 +3,109 @@
     display: flex;
 }
 
+/* LEFT PART */
+
+.court-modal_left {
+    width: 30%;
+    padding: 10px 4px 10px 10px;
+    background: var(--solidGray);
+    border-right: 3px solid var(--white);
+}
+
+.court-modal_left div {
+    font-weight: bold;
+    line-height: 14px;
+    font-size: 14px;
+}
+
+.court-modal_orange-text {
+    font-family: var(--fontTitle);
+    color: var(--orange);
+    font-size: 15px !important;
+    padding-top: 4px;
+}
+
+/* RIGHT PART */
+
+.court-modal_right {
+    width: 70%;
+    background: var(--solidGray);
+    color: var(--white);
+}
+
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    max-width: 365px;
+    max-height: 160px;
+}
+
+.court-modal_location {
+    font-family: var(--fontTitle);
+    font-size: 16px;
+    padding: 5px 10px;
+    border-top: 3px solid var(--white);
+    border-bottom: 1px solid var(--white);
+}
+
+.google-map_wrapper {
+    height: 200px;
+    width: 100%;
+}
+
+/********** ANT DESIGN **********/
+.ant-modal-content {
+    background: var(--solidGray);
+    color: var(--white);
+    border: 1px solid var(--white);
+}
+
 .ant-modal-body {
     padding: 0;
 }
 
-.court-modal_left {
-    width: 30%;
-    padding: 5px;
-    background: var(--gray);
+.ant-modal-header {
+    padding: 15px 10px;
+    color: var(--white);
+    background: var(--solidGray);
+    border-bottom: 3px solid var(--white);
 }
 
-.court-modal_right {
-    width: 70%;
-    padding: 5px;
-    background: var(--solidGray);
+.ant-modal-footer {
+    padding: 10px 15px;
     color: var(--white);
+    background: var(--solidGray);
+    border-top: 3px solid var(--white);
+}
+
+.ant-modal-close {
+    color: var(--gray);
+}
+
+.ant-modal-close:hover {
+    color: var(--white);
+}
+
+.ant-modal-title {
+    font-family: var(--fontTitle);
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    line-height: 20px;
+    color: var(--white);
+}
+
+.court-modal_wrapper .rating-antd li {
+    font-size: 16px;
+    margin-right: 2px;
+}
+
+.court-modal_wrapper  .rating-antd {
+    margin-left: 0px;
+}
+
+.court-modal_wrapper  .ant-rate {
+    line-height: 20px;
 }

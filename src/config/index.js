@@ -1,5 +1,6 @@
 export default {
     urlApi: 'http://localhost:1337',
+    googleApiKey: 'AIzaSyA6zqFf4Va0LuezFO0Xjxt-iFSjSoO7VhM',
 
     players: [
         {
