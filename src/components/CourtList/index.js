@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 import Cookies from  'js-cookie';
 
 
-import { Icon, Modal } from 'antd';
+import { Icon } from 'antd';
 
 // Components
 import CourtInfos from '../../components/CourtInfos/index';
 import Button from '../../components/Button/index';
-import CourtModal from '../../components/CourtModal';
+import CourtModalContainer from '../../containers/CourtModal';
 
 class CourtList extends Component {
 
@@ -28,6 +28,7 @@ class CourtList extends Component {
         searchValue: null,
         loading: false,
         visible: false,
+        idCourt: null
     }
 
   getPage = (pageNumber) => {
@@ -64,9 +65,10 @@ class CourtList extends Component {
 
 
   //////// MODAL////////
-  showModal = () => {
+  showModal = (id) => {
     this.setState({
       visible: true,
+      idCourt: id
     });
   }
 
@@ -165,7 +167,7 @@ class CourtList extends Component {
                         gradeCourt={court.gradeCourt}
                         gradeCrowd={court.gradeCrowd}
                         style={{paddingBottom:10}}
-                        onClick={this.showModal}
+                        onClick={()=>this.showModal(court._id)}
                         />
                     )
                     })
@@ -173,22 +175,14 @@ class CourtList extends Component {
                 {
                     this.state.buttonLoadMore && <div onClick={this.loadNextPage} className="button-show-more">voir plus</div>
                 }
-                <Modal
-                  visible={this.state.visible}
-                  centered={true}
-                  title="Brimborion"
-                  onOk={this.handleOk}
-                  onCancel={this.handleCancel}
-                  footer={[
-                    <div style={{display:'flex', justifyContent: 'flex-end'}}>
-                      <Button key="back" buttonStyle={'button-orange'} style={{height:30, minWidth:100, padding: '5px 10px'}} text={'Annuler'} onClick={this.handleCancel}/>
-                      <Button key="submit" buttonStyle={'button-orange'} style={{height:30, minWidth:100, padding: '5px 10px', marginLeft:15}} text={'Confirmer'} loading={this.state.loading} onClick={this.handleOk}/>
-                    </div>
-                  ]}
-                >
-                  <CourtModal/>
-                  
-                </Modal>
+                
+                  <CourtModalContainer 
+                    handleOk={this.handleOk} 
+                    cancel={this.handleCancel} 
+                    visible={this.state.visible} 
+                    courtId={ this.state.idCourt }
+                  />
+                
             </div>
         </div>
     );

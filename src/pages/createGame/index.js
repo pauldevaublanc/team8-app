@@ -135,8 +135,8 @@ class CreateGame extends Component {
                   </textarea>
 
                   <div className="select-option_container">
-                    <div>
-                      <label>Nombre de joueurs</label>
+                    <div style={{textAlign:'left'}}>
+                      <label >Nombre de joueurs</label>
                       <Select defaultValue="1 vs 1" style={{ width: 150, display:'block', margin:'10px auto 20px' }} dropdownClassName="styledrop">
                         <Option value="1">1 vs 1</Option>
                         <Option value="2">2 vs 2</Option>

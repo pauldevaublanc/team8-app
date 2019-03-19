@@ -101,7 +101,7 @@
 .select-radio_container {
     display: flex;
     justify-content: space-between;
-    
+    align-items: flex-end;
 }
 
 .select-radio_wrapper {
@@ -231,5 +231,11 @@ input[type="radio"]:checked + label {
 
     .create-game-wrapper h3 {
         font-size: 22px;
+    }
+
+    .left-form-wrapper label {
+        font-size: 12px;
+        line-height: 16px;
+        text-align: left;
     }
 }

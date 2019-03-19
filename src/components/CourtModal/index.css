@@ -44,8 +44,8 @@
 
 .court-modal_location {
     font-family: var(--fontTitle);
-    font-size: 16px;
-    padding: 5px 10px;
+    font-size: 13px;
+    padding: 5px 5px 5px 10px;
     border-top: 3px solid var(--white);
     border-bottom: 1px solid var(--white);
 }
@@ -62,7 +62,7 @@
     border: 1px solid var(--white);
 }
 
-.ant-modal-body {
+.ant-modal, .ant-modal-body {
     padding: 0;
 }
 
