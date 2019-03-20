@@ -61,7 +61,7 @@ class CourtModalComponent extends Component {
                     <div><img className="carousel-img" src={require(`../../img/raptors.jpg`)} alt=""/></div>
                 </Carousel>
                 <div className="court-modal_location">
-                    <div><Icon type="environment" /> {this.props.court.address}, {this.props.court.postalCode} {this.props.court.city}</div>
+                    <div><Icon type="environment" /> {this.props.court.address}, {this.props.court.zipCode} {this.props.court.city}</div>
                     <p><img style={{width:20, paddingRight:4}} src={require(`../../img/icones/subway.png`)} alt="M"/>{this.props.court.transportStation}</p>
                     
                 </div>
@@ -69,6 +69,7 @@ class CourtModalComponent extends Component {
 
                 
                     <GoogleMapReact 
+                        bootstrapURLKeys={{ key: 'AIzaSyA6zqFf4Va0LuezFO0Xjxt-iFSjSoO7VhM' }}
                         defaultCenter={this.props.center}
                         defaultZoom={this.props.zoom}>
                         <MyCursor

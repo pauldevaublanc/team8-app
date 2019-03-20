@@ -28,8 +28,8 @@ class CourtModalContainer extends Component {
 
       
     
-    getCourtDetail = () => {
-        const id = this.props.courtId;
+    getCourtDetail = (courtId) => {
+        const id = courtId;
         
         fetch(`${config.urlApi}/courts/${id}`, {
             headers: {
@@ -45,16 +45,21 @@ class CourtModalContainer extends Component {
         });
     }
 
-    componentDidMount() {
-        this.getCourtDetail();
+    
+
+    componentWillReceiveProps(nextProps) {
+      if (nextProps.courtId !== this.props.courtId) {
+        this.getCourtDetail(nextProps.courtId)
+      }
     }
+
 
 
 
   render() {
     
     return (
-        <div onClick={()=>this.getCourtDetail()}>
+        <div>
           { this.state.court &&
             <Modal
             visible={this.props.visible}
@@ -63,29 +68,29 @@ class CourtModalContainer extends Component {
             onOk={this.props.handleOk}
             onCancel={this.props.cancel}
             footer={[
-                <div style={{display:'flex', justifyContent: 'flex-end'}}>
-                <Button 
-                    key="back" 
-                    buttonStyle={'button-orange'} 
-                    style={{
-                    height:30, 
-                    minWidth:100, 
-                    padding: '5px 10px'
-                    }} 
-                    text={'Annuler'} 
-                    onClick={this.props.cancel}/>
-                <Button 
-                    key="submit" 
-                    buttonStyle={'button-orange'} 
-                    style={{
-                    height:30, 
-                    minWidth:100, 
-                    padding: '5px 10px', 
-                    marginLeft:15
-                    }} 
-                    text={'Confirmer'} 
-                    loading={this.state.loading} 
-                    onClick={this.props.handleOk}/>
+                <div key={42} style={{display:'flex', justifyContent: 'flex-end'}}>
+                  <Button 
+                      key="back" 
+                      buttonStyle={'button-orange'} 
+                      style={{
+                      height:30, 
+                      minWidth:100, 
+                      padding: '5px 10px'
+                      }} 
+                      text={'Annuler'} 
+                      onClick={this.props.cancel}/>
+                  <Button 
+                      key="submit" 
+                      buttonStyle={'button-orange'} 
+                      style={{
+                      height:30, 
+                      minWidth:100, 
+                      padding: '5px 10px', 
+                      marginLeft:15
+                      }} 
+                      text={'Confirmer'} 
+                      loading={this.state.loading} 
+                      onClick={this.props.handleOk}/>
                 </div>
             ]}
             >

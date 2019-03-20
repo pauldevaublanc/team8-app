@@ -19,10 +19,10 @@ class CourtInfos extends Component {
         pictureSize: PropTypes.number,
         address: PropTypes.string,
         city: PropTypes.string,
-        postalCode: PropTypes.string,
+        zipCode: PropTypes.string,
         transport: PropTypes.string,
         hoop: PropTypes.number,
-        courtPicture: PropTypes.string,
+        mainPicture: PropTypes.string,
         gradeCourt: PropTypes.number,
         gradeCrowd: PropTypes.number,
         addClass: PropTypes.string,
@@ -39,12 +39,12 @@ class CourtInfos extends Component {
             <ProfilePicture 
               size={this.props.pictureSize} 
               borderStyle={'border-small'} 
-              picture={`${config.urlApi}${this.props.courtPicture}`}
+              picture={`${config.urlApi}${this.props.mainPicture}`}
               style={{paddingRight: 15}}
             />
             <div>
               <div>{this.props.address}</div>
-              <div>{this.props.postalCode}, {this.props.city}</div>
+              <div>{this.props.zipCode}, {this.props.city}</div>
               <p><img style={{width:20, paddingRight:4}} src={require(`../../img/icones/subway.png`)} alt="M"/>{this.props.transport}</p>
             </div>
           </div>

@@ -52,7 +52,7 @@ class CourtList extends Component {
   }
 
   getSearchCourt = (value) => {
-    fetch(`${config.urlApi}/courts?postalCode_containss=${value}`, {
+    fetch(`${config.urlApi}/courts?zipCode_containss=${value}`, {
       headers: {
         'Authorization': `Bearer ${Cookies.get('token')}`
       }
@@ -85,7 +85,7 @@ class CourtList extends Component {
   ////////////////////////// 
 
   handleSubmit = () => {
-      this.getSearchCourt(this.refs['postalCodeRef'].value);
+      this.getSearchCourt(this.refs['zipCodeRef'].value);
       this.setState({
         searchMenuOpen: false,
         buttonLoadMore: false
@@ -134,7 +134,7 @@ class CourtList extends Component {
               <div className={`courts_selector_wrapper ${this.state.searchMenuOpen ? 'animation-slideDown' : this.state.searchMenuClicked===true ? 'animation-slideUp' : ''}`}>
                 <div className="courts_selector_input">
                   <label>Entre le code postal</label>
-                  <input type='number' placeholder="ex: 75015" className='input-create-game' ref={'postalCodeRef'}></input>
+                  <input type='number' placeholder="ex: 75015" className='input-create-game' ref={'zipCodeRef'}></input>
                 </div>
                 <div className="courts_selector_action">
                 
@@ -160,9 +160,9 @@ class CourtList extends Component {
                         addClass={'small'}
                         address={court.address}
                         city={court.city}
-                        postalCode={court.postalCode}
+                        zipCode={court.zipCode}
                         transport={court.transportStation}
-                        courtPicture={court.courtPicture.url}
+                        mainPicture={court.mainPicture.url}
                         hoop={court.hoop}
                         gradeCourt={court.gradeCourt}
                         gradeCrowd={court.gradeCrowd}

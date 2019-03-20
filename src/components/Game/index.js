@@ -72,9 +72,9 @@ class GameComponent extends Component {
               pictureSize={120}
               address={this.props.game.court.address}
               city={this.props.game.court.city}
-              postalCode={this.props.game.court.postalCode}
+              zipCode={this.props.game.court.zipCode}
               transport={this.props.game.court.transportStation}
-              courtPicture={this.props.game.court.courtPicture.url}
+              mainPicture={this.props.game.court.mainPicture.url}
               hoop={this.props.game.court.Panneaux}
               gradeCourt={this.props.game.court.gradeCourt}
               gradeCrowd={this.props.game.court.gradeCrowd}
