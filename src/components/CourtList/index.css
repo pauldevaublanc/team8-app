@@ -1,6 +1,6 @@
 
 .courts_container {
-    max-height: 425px;
+    max-height: 430px;
     overflow: scroll;
     padding: 15px 10px;
     position: relative;
@@ -20,6 +20,8 @@
 
 .courts_container_header h4 {
     color: var(--black);
+    display: flex;
+    align-items: center;
 }
 
 .courts_selector_wrapper {

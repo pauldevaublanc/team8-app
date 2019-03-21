@@ -5,7 +5,7 @@
     border-radius: 2px;
 }
 
-.create-game-wrapper h3 {
+.create-game_title {
     font-family: var(--fontTitle);
     padding: 5px 20px;
     font-size: 24px;
@@ -19,19 +19,40 @@
     display: flex;
     justify-content: space-between;
     align-content: center;
-    padding: 30px 15px;
+    padding: 30px 20px;
     border-top: 1px solid var(--white);
 }
 
 .left-form-wrapper {
-    width:40%;
-    max-width: 400px;
+    width:38%;
+    background: var(--solidGray);
+    border: 1px solid var(--gray);
+    border-radius: 2px;
+}
+
+.create-game_subtitle {
+    background: var(--gray);
+    color: var(--black);
+    font-family: var(--fontTitle);
+    padding: 5px 10px;
+    font-size: 16px;
+    border-bottom: 1px solid var(--white);
+    display: flex;
+    align-items: center;
 }
 
 .right-form-wrapper {
-    width: 65%;
+    width: 60%;
     border: 1px solid var(--gray);
     border-radius: 2px;
+}
+
+.bottom-form-wrapper {
+    margin: 0 auto;
+    margin: 0px 20px;
+    border: 1px solid var(--gray);
+    border-radius: 2px;
+    margin-bottom: 30px;
 }
 
 .select-date_input{
@@ -120,6 +141,7 @@ input[type="radio"]{
     width: 100%;
     height: 100%;
     opacity: 0;
+    left: 0;
   }
   
 .select-radio label {
@@ -160,7 +182,6 @@ input[type="radio"]:checked + label {
     transition: 0.3s;
 }
 
-
 .button-show-more {
     cursor: pointer;
     text-align: center;
@@ -174,24 +195,21 @@ input[type="radio"]:checked + label {
     transition: 0.3s;
 }
 
-
-@media (max-width: 1410px){
-    .right-form-wrapper {
-        width: 60%;
-    }
-}
-
 @media (max-width: 1200px){
     .create-game-wrapper{
         width: 100%;
     }
 
     .right-form-wrapper {
-        width: 58%;
+        width: 57%;
+    }
+
+    .left-form-wrapper {
+        width:41%;
     }
 }
 
-@media (max-width: 920px){
+@media (max-width: 950px){
     .create-game-wrapper label {
         width: 100%;
         margin-right: 0;
@@ -206,6 +224,7 @@ input[type="radio"]:checked + label {
 
     .left-form-wrapper {
         margin: 0 auto;
+        max-width: 100%;
     }
 
     .select-date_wrapper, .create-game-detail-form  {
@@ -236,11 +255,32 @@ input[type="radio"]:checked + label {
 
 @media (max-width: 700px){
     .create-game-wrapper{
-        width: 95%;
+        width: 100%;
+        border: none;
+    }
+
+    .create-game_title {
+        display: none;
+    }
+
+    .create-game-detail-form, .bottom-form-wrapper {
+        padding: 0px;
+        
+    }
+
+    .bottom-form-wrapper {
+        margin: 0;
+        border: none;
     }
 
     .create-game-wrapper h3 {
-        font-size: 22px;
+        font-size: 16px;
+        padding: 5px 10px;
+    }
+
+    .left-form-wrapper {
+        
+        padding: 0px;
     }
 
     .left-form-wrapper label {

@@ -127,7 +127,16 @@ class CourtList extends Component {
     return ( 
         <div>
             <div className="courts_container_header">
-              <h4>Selectionnes ton terrain</h4>
+              <h4>
+                <img 
+                style={{
+                  width:25, 
+                  paddingRight:6
+                }} 
+                src={require(`../../img/icones/basketball-court.png`)} 
+                alt="adress court"/>
+                Selection du terrain
+              </h4>
               <Icon onClick={()=>this.handleOpenSearchMenu()} type="search"/>
             </div>
             <div className="courts_container" ref={'courtsList'}>

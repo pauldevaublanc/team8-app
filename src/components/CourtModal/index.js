@@ -61,15 +61,23 @@ class CourtModalComponent extends Component {
                         this.props.court.pictures.map((picture, key) => {
                             return(
                                 <div key={key}><img className="carousel-img" src={`${config.urlApi}${picture.url}`} alt=""/></div>
-                            )
-                            
+                            )  
                         })
                         
                     }
                 </Carousel>
                 <div className="court-modal_location">
-                    <div><Icon type="environment" /> {this.props.court.address}, {this.props.court.zipCode} {this.props.court.city}</div>
-                    <p><img style={{width:20, paddingRight:4}} src={require(`../../img/icones/subway.png`)} alt="M"/>{this.props.court.transportStation}</p>
+                    <div><Icon type="environment"/> {this.props.court.address}, {this.props.court.zipCode} {this.props.court.city}</div>
+                    <p>
+                        <img 
+                            style={{
+                                width:16, 
+                                paddingRight:4
+                            }} 
+                            src={require(`../../img/icones/subway.png`)} 
+                            alt="M"/>
+                        {this.props.court.transportStation}
+                    </p>
                     
                 </div>
                 <div className="google-map_wrapper">
