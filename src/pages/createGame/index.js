@@ -87,11 +87,11 @@ class CreateGame extends Component {
   render() {
     const Option = Select.Option;
     return (
-      <div>
+      
         
         <div className="main_wrapper" style={{backgroundImage: `url(${Background})`}}>
           <div className="main_container">
-          <Title text={'Organiser un match'} style={{fontSize: 55, lineHeight:'60px', padding:'15px 0px 35px'}}/>
+          <Title text={'Organiser un match'} style={{padding:'15px 0px 40px'}}/>
             <div className="create-game-wrapper">
               
               <h2 className="create-game_title">Informations générales</h2>
@@ -254,7 +254,7 @@ class CreateGame extends Component {
             <FooterT8/>
           </div>
         </div>
-      </div>
+      
      
     );
   }

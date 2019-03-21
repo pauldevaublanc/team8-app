@@ -101,7 +101,7 @@ class Navbar extends Component {
               <ul>
                 <NavLink 
                   activeClassName={'activeLink'} 
-                  to={"/profile"} 
+                  to={`/user/${Cookies.get('myId')}`} 
                   exact>
                     <li 
                       style={{
@@ -112,7 +112,7 @@ class Navbar extends Component {
                   </NavLink>
                 <NavLink 
                   activeClassName={'activeLink'} 
-                  to={"/games"} 
+                  to={"/games/mesmatchs"} 
                   exact>
                     <li 
                       style={{
