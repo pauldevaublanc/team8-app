@@ -18,6 +18,10 @@
     align-items: center;
 }
 
+.courts_container_header h4 {
+    color: var(--black);
+}
+
 .courts_selector_wrapper {
     position: absolute;
     background: var(--solidGray);

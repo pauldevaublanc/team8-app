@@ -25,11 +25,11 @@
 
 .left-form-wrapper {
     width:40%;
-    max-width: 450px;
+    max-width: 400px;
 }
 
 .right-form-wrapper {
-    width: 58%;
+    width: 65%;
     border: 1px solid var(--gray);
     border-radius: 2px;
 }
@@ -175,9 +175,19 @@ input[type="radio"]:checked + label {
 }
 
 
+@media (max-width: 1410px){
+    .right-form-wrapper {
+        width: 60%;
+    }
+}
+
 @media (max-width: 1200px){
     .create-game-wrapper{
         width: 100%;
+    }
+
+    .right-form-wrapper {
+        width: 58%;
     }
 }
 

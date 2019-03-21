@@ -38,7 +38,6 @@ class CourtModalContainer extends Component {
           })
         .then((response) => {return response.json();})
         .then((data) => {
-            console.log(data)
             this.setState({
             court: data
             })
@@ -64,7 +63,7 @@ class CourtModalContainer extends Component {
             <Modal
             visible={this.props.visible}
             centered={true}
-            title="Brimborion"
+            title={this.state.court.name}
             onOk={this.props.handleOk}
             onCancel={this.props.cancel}
             footer={[

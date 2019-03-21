@@ -127,7 +127,7 @@ class CourtList extends Component {
     return ( 
         <div>
             <div className="courts_container_header">
-              <h4>Choisis ton terrain</h4>
+              <h4>Selectionnes ton terrain</h4>
               <Icon onClick={()=>this.handleOpenSearchMenu()} type="search"/>
             </div>
             <div className="courts_container" ref={'courtsList'}>

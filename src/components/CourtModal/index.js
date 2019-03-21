@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import GoogleMapReact from 'google-map-react';
 import { Rate, Icon, Carousel } from 'antd';
 
+import config from '../../config/index';
+
 
 const MyCursor = () => (
     <div style={{
@@ -25,10 +27,10 @@ class CourtModalComponent extends Component {
 
     static defaultProps = {
         center: {
-          lat: 48.866667,
-          lng: 2.333333
+          lat: 48.8587177291641,
+          lng: 2.3421980147936665
         },
-        zoom: 12
+        zoom: 10
       };
   
     
@@ -44,21 +46,26 @@ class CourtModalComponent extends Component {
                 <div style={{paddingTop:12}}>Paniers</div>
                 <div className="court-modal_orange-text">{this.props.court.hoop}</div>
                 <div style={{paddingTop:12}}>Ouverture</div>
-                <div className="court-modal_orange-text">7:45 - 18:00</div>
+                <div className="court-modal_orange-text">{this.props.court.open}</div>
                 <div style={{paddingTop:12}}>Couvert</div>
-                <div className="court-modal_orange-text">Non</div>
+                <div className="court-modal_orange-text">{this.props.court.covered ? 'Oui' : 'Non'}</div>
                 <div style={{paddingTop:12}}>Nocture</div>
-                <div className="court-modal_orange-text">Non</div>
+                <div className="court-modal_orange-text">{this.props.court.nocturnal ? 'Oui' : 'Non'}</div>
                 <div style={{paddingTop:12}}>Gratuit</div>
-                <div className="court-modal_orange-text">Oui</div>
-                
+                <div className="court-modal_orange-text">{this.props.court.free ? 'Oui' : 'Non'}</div>
             </div>
             
             <div className="court-modal_right">
                 <Carousel effect="fade" autoplay>
-                    <div><img className="carousel-img" src={require(`../../img/equipe.jpg`)} alt=""/></div>
-                    <div><img className="carousel-img" src={require(`../../img/lebron.jpg`)} alt=""/></div>
-                    <div><img className="carousel-img" src={require(`../../img/raptors.jpg`)} alt=""/></div>
+                    {
+                        this.props.court.pictures.map((picture, key) => {
+                            return(
+                                <div key={key}><img className="carousel-img" src={`${config.urlApi}${picture.url}`} alt=""/></div>
+                            )
+                            
+                        })
+                        
+                    }
                 </Carousel>
                 <div className="court-modal_location">
                     <div><Icon type="environment" /> {this.props.court.address}, {this.props.court.zipCode} {this.props.court.city}</div>
@@ -73,8 +80,8 @@ class CourtModalComponent extends Component {
                         defaultCenter={this.props.center}
                         defaultZoom={this.props.zoom}>
                         <MyCursor
-                            lat={this.props.center.lat}
-                            lng={this.props.center.lng}
+                            lat={this.props.court.lat}
+                            lng={this.props.court.lng}
                         />
                     </GoogleMapReact>    
                 </div>
