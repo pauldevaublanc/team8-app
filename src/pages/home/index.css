@@ -95,6 +95,7 @@
   font-size: 22px;
   line-height: 26px;
   margin: 0px 20px;
+  width: 33%;
 }
 
 .home_counter div span{
@@ -142,6 +143,7 @@
     line-height: 24px;
     margin: 0px;
     padding: 20px 0px;
+    width: 100%;
   }
 
   

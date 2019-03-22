@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './index.css';
 
 import Typewriter from 'typewriter-effect';
-// import config from '../../config/index';
+import config from '../../config/index';
+import Cookies from  'js-cookie';
 
 // Images
 import Background from '../../img/background-home.jpg';
@@ -15,6 +16,55 @@ import { Carousel } from 'antd';
 
 class Home extends Component {
 
+  state = {
+    courts: [],
+    users: [],
+    games: []
+  }
+  
+  
+  getCourts = () => {
+    fetch(`${config.urlApi}/courts`, {
+      headers: {
+        'Authorization': `Bearer ${Cookies.get('token')}`
+        }
+      })
+      .then((response) => {return response.json();})
+      .then((data) => {
+        this.setState({
+          courts: data
+        })
+    });
+  }
+
+  getUsers = () => {
+    fetch(`${config.urlApi}/users`, {
+      headers: {
+        'Authorization': `Bearer ${Cookies.get('token')}`
+        }
+      })
+      .then((response) => {return response.json();})
+      .then((data) => {
+        this.setState({
+          users: data
+        })
+    });
+  }
+
+  getGames= () => {
+    fetch(`${config.urlApi}/games`, {
+      headers: {
+        'Authorization': `Bearer ${Cookies.get('token')}`
+        }
+      })
+      .then((response) => {return response.json();})
+      .then((data) => {
+        this.setState({
+          games: data
+        })
+    });
+  }
+
 
   scrollOnClick() {
     window.scrollTo({
@@ -25,6 +75,9 @@ class Home extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    this.getCourts();
+    this.getUsers();
+    this.getGames();
   }
 
   render() {
@@ -88,9 +141,9 @@ class Home extends Component {
           </div>
 
           <div className="home_counter">
-              <div><span>87</span> <br/>Terrains disponibles</div>
-              <div><span>104</span> <br/>Teammates inscrits</div>
-              <div><span>344</span> <br/>Matchs joués</div>
+              <div><span>{this.state.courts.length}</span> <br/>Terrains disponibles</div>
+              <div><span>{this.state.users.length}</span> <br/>Teammates inscrits</div>
+              <div><span>{this.state.games.length}</span> <br/>Matchs joués</div>
           </div>
         </div>
       </div>

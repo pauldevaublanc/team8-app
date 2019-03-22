@@ -34,15 +34,7 @@ class CreateGame extends Component {
 
 
 
-  // getGames = () => {
-  //   fetch(`${config.urlApi}/games`)
-  //     .then((response) => {return response.json();})
-  //     .then((data) => {
-  //       this.setState({
-  //         games: data
-  //       })
-  //   });
-  // }
+
 
   // addGame = () => {
   //   fetch(`${config.urlApi}/games`, {
@@ -78,11 +70,6 @@ class CreateGame extends Component {
       startDate: date
     });
   }
-
-  componentDidMount() {
-    // this.getGames()
-  }
-
 
 
   render() {
@@ -220,7 +207,7 @@ class CreateGame extends Component {
                     alt="teammates"/>
                   Invitation des teammates
                 </h4>
-                  <DraftZone style={{margin:"15px auto"}}/>
+                  <DraftZone style={{margin:"15px auto", textAlign:'center'}}/>
               </div>
               <div className="button-form-wrapper">
                 <Button style={{minWidth:120, margin:20}} text={'Annuler'} buttonStyle={'button-transparent'}/>
