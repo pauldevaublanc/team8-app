@@ -3,7 +3,7 @@
     font-size: 55px;
     line-height: 55px;
     color: var(--white);
-    text-shadow: 1px 1px 5px var(--black), 4px 4px 0px var(--orange);
+    /* text-shadow: 1px 1px 5px var(--black), 4px 4px 0px var(--orange); */
     letter-spacing: 1px;
 }
 
@@ -17,7 +17,7 @@
     font-family: var(--fontTitle);
     line-height: 80px;
     color: var(--white);
-    text-shadow: 1px 1px 5px var(--black), 4px 4px 0px var(--orange);
+    /* text-shadow: 1px 1px 5px var(--black), 4px 4px 0px var(--orange); */
     letter-spacing: 1px;
 }
 

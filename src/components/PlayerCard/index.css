@@ -1,8 +1,8 @@
 .playerCard_wrapper {
     border: 1px solid var(--gray);
-    width: 375px;
-    max-width: 375px;
-    min-width: 340px;
+    width: 355px;
+    max-width: 355px;
+    min-width: 350px;
     display: flex;
     align-items: stretch;
     justify-content: space-between;
@@ -66,11 +66,13 @@
     padding: 10px 0px 15px;
 }
 
-.playerCard_list-stats li{
-    border: 1px solid var(--gray);
+.playerCard_list-stats:last-child{
+    border-bottom: 1px solid var(--gray);
 }
 
 .playerCard_list-stats li{
+    border: 1px solid var(--gray);
+    border-bottom: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -94,6 +96,12 @@
 
 
 @media (max-width: 800px){
+    .playerCard_wrapper {
+        max-width: 100%;
+        min-width: 100%;
+        margin: 10px 0px;
+    }
+
     .playerCard_list-stats li div:first-child{
         width: 45%;
     }

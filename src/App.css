@@ -26,6 +26,13 @@
   font-style: bold;
 }
 
+@font-face {
+  font-family: 'freshmarker';
+  src: url('./fonts/graffFont/freshmarker.ttf') format('truetype');
+  font-weight: 800;
+  font-style: bold;
+}
+
 /****COLORS****/
 
 :root {
@@ -41,6 +48,7 @@
   --fontTitle: 'Kanit';
   --fontText: 'Westeinde';
   --fontNumber: 'Old-sport';
+  --fontGraff: 'freshmarker';
 }
 
 body {
@@ -380,7 +388,7 @@ li.ant-time-picker-panel-select-option-selected {
   position: relative;
 }
 
-@media (max-width: 1280px){
+@media (max-width: 1302px){
   .main_container {
       width: 95%;
       padding: 20px 10px;

@@ -8,7 +8,6 @@ import StarRatings from 'react-star-ratings';
 // COMPONENTS
 import ProfilePicture from '../ProfilePicture';
 import Button from '../Button';
-import ActionPlayerIcon from '../ActionPlayerIcon';
 
 class PlayerCard extends Component {
 
@@ -32,9 +31,7 @@ class PlayerCard extends Component {
 
   render() {
     return (
-      <div className="playerCard_wrapper" style={this.props.style}>
-        <ActionPlayerIcon icon={this.props.icon}/>
-           
+        <div className="playerCard_wrapper" style={this.props.style}>
             <div className="playerCard_left-infos">
                 <div className="playerCard_grade">
                     <div>{this.props.grade}<br/><span>GEN</span></div>
@@ -48,7 +45,7 @@ class PlayerCard extends Component {
                         text={'Plus d\'infos'} 
                         buttonStyle={'button-transparent'} 
                         style={{
-                            padding: '10px 5px', 
+                            padding: '10px 4px', 
                             margin:'10px auto 5px', 
                             fontSize:12
                         }}
@@ -58,7 +55,7 @@ class PlayerCard extends Component {
                     text={'Inviter'} 
                     buttonStyle={'button-transparent'} 
                     style={{
-                        padding: '10px 5px', 
+                        padding: '10px 4px', 
                         margin:'5px auto 10px', 
                         fontSize:12
                     }}
@@ -89,7 +86,7 @@ class PlayerCard extends Component {
                         // rating={this.state.rating}
                         // changeRating={this.changeRating}
                         rating={this.props.stars}
-                        starDimension="17px"
+                        starDimension="14px"
                         starSpacing="2px"
                         starEmptyColor="rgba(255, 255, 255, 0.5)"
                         // starHoverColor= "#EF7E4D"

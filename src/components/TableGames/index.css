@@ -91,4 +91,10 @@
     }
   }
 
+
+  @media (max-width: 450px){
+    .tabs-games-container {
+      border: none;
+    }
+  }
   

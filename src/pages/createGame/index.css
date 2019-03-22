@@ -3,6 +3,7 @@
     margin: 0 auto;
     border: 2px solid var(--gray);
     border-radius: 2px;
+    border-bottom: 2px solid var(--white);
 }
 
 .create-game_title {
@@ -49,10 +50,20 @@
 
 .bottom-form-wrapper {
     margin: 0 auto;
-    margin: 0px 20px;
-    border: 1px solid var(--gray);
+    border-top: 1px solid var(--gray);
+    border-bottom: 2px solid var(--gray);
     border-radius: 2px;
-    margin-bottom: 30px;
+    border-bottom: 1px solid var(--white);
+}
+
+.button-form-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: var(--gray);
+    margin: 0 auto;
+    padding: 30px 0px;
+    
 }
 
 .select-date_input{

@@ -5,7 +5,7 @@ import './index.css';
 import moment from 'moment';
 
 
-import { DatePicker, Select, TimePicker, Button } from 'antd';
+import { DatePicker, Select, TimePicker } from 'antd';
 
 
 import Background from '../../img/background-home.jpg';
@@ -14,6 +14,7 @@ import Title from '../../components/Title/index';
 import FooterT8 from '../../components/FooterT8/index';
 import CourtList from '../../components/CourtList';
 import DraftZone from '../../components/DraftZone';
+import Button from '../../components/Button';
 
 class CreateGame extends Component {
   
@@ -125,9 +126,8 @@ class CreateGame extends Component {
                           open={this.state.open}
                           onOpenChange={this.handleOpenChange}
                           addon={() => (
-                            <Button size="small" type="primary" onClick={this.handleClose}>
-                              Ok
-                            </Button>
+                            <Button style={{padding:5}} text={'Ok'} buttonStyle={'button-transparent'} onClick={this.handleClose}/>
+                            
                           )}
                           className="large-time-picker"
                           popupClassName="time-picker-dropdown"
@@ -220,9 +220,12 @@ class CreateGame extends Component {
                     alt="teammates"/>
                   Invitation des teammates
                 </h4>
-                  <DraftZone style={{width:'98%', margin:"15px auto"}}/>
+                  <DraftZone style={{margin:"15px auto"}}/>
               </div>
-              
+              <div className="button-form-wrapper">
+                <Button style={{minWidth:120, margin:20}} text={'Annuler'} buttonStyle={'button-transparent'}/>
+                <Button style={{minWidth:120, margin:20}} text={'Creer Match'} buttonStyle={'button-transparent'}/>
+              </div>
             </div>
             
            
