@@ -25,36 +25,42 @@ class UserComponent extends Component {
         
     <div>
         <ActionPlayerIcon icon={'cross.png'} style={{right:20, top:15}} styleImg={{width:25}}/>
-        <Title text={'Mon Joueur'} style={{fontSize: 55, lineHeight:'60px', padding:'15px 0px 35px'}}/>
+        <Title text={'Mon Joueur'} style={{padding:'15px 0px 35px'}}/>
         
-        <ProfilePicture size={180} picture={`${config.urlApi}${this.props.user.picture.url}`} borderStyle={'border-small'}/>
+        
             
             
             <div className="user_description-wrapper">
-                <h2>{this.props.user.username}</h2>
-                <p className="user_description-text">{this.props.user.description}</p>
-                <div className="user_button-wrapper">
-                    <Link 
-                    to={"/teammates"}>
-                        <Button 
-                        text={'Ajouter des teammates'} 
-                        buttonStyle={'button-transparent'} 
-                        style={{
-                            width:'96%', 
-                            margin:'10px 5px'
-                        }}/>
-                    </Link>
-                    <Link 
-                    to={"/games"}>
-                        <Button 
-                        text={'Rechercher un match'} 
-                        buttonStyle={'button-transparent'} 
-                        style={{
-                            width:'96%', 
-                            margin:'10px 5px'
-                        }}/>
-                    </Link>
+                <div className="user_info-wrapper">
+                    <ProfilePicture size={160} picture={`${config.urlApi}${this.props.user.picture.url}`} borderStyle={'border-small'}/>
+                    <div style={{padding:20}}>
+                        <h2>{this.props.user.username}</h2>
+                        <p className="user_description-text">{this.props.user.description}</p>
+                        <div className="user_button-wrapper">
+                            <Link 
+                            to={"/teammates"}>
+                                <Button 
+                                text={'Rechercher des teammates'} 
+                                buttonStyle={'button-transparent'} 
+                                style={{
+                                    width:'98%', 
+                                    margin:'0px 5px 0px 0px'
+                                }}/>
+                            </Link>
+                            <Link 
+                            to={"/games"}>
+                                <Button 
+                                text={'Rechercher un match'} 
+                                buttonStyle={'button-transparent'} 
+                                style={{
+                                    width:'98%', 
+                                    margin:'0px 5px'
+                                }}/>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
+                
                 <div className="user_results-wrapper">
                 <p><span>5</span><br/>Victoires</p>
                 <p><span>{this.props.user.mvp}</span><br/>MVP</p>

@@ -1,13 +1,21 @@
 .user_button-wrapper {
     display: flex;
-    justify-content: center;
-    max-width: 655px;
-    margin: 15px auto;
+    justify-content: flex-start;
+    max-width: 670px;
+    margin: 10px auto;
 }
 
 .user_description-wrapper {
-    max-width: 655px;
+    max-width: 690px;
     margin: 10px auto;
+}
+
+.user_info-wrapper {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    width: 95%;
+    margin: 0 auto;
 }
 
 .user_description-wrapper h2{
@@ -18,16 +26,10 @@
 }
 
 .user_description-text {
-    padding:5px 15px; 
+    padding:5px 0px; 
     font-size: 16px;
     line-height: 22px;
     word-break: normal;
-}
-
-.user_description-text:before,  .user_description-text:after{
-    content: ' " ';
-    font-size: 24px;
-    line-height: 26px;
 }
 
 .user_results-wrapper {
@@ -158,6 +160,11 @@
   @media (max-width: 900px){
     .user_infos-wrapper {
         flex-direction: column;
+    }
+
+    .user_info-wrapper {
+       flex-direction: column;
+       text-align: center;
     }
 
     .user_infos-user, .user_infos-games {

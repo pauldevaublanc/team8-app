@@ -143,7 +143,7 @@ class Home extends Component {
           <div className="home_counter">
               <div><span>{this.state.courts.length}</span> <br/>Terrains disponibles</div>
               <div><span>{this.state.users.length}</span> <br/>Teammates inscrits</div>
-              <div><span>{this.state.games.length}</span> <br/>Matchs joués</div>
+              <div><span>{this.state.games.length}</span> <br/>Matchs organisés</div>
           </div>
         </div>
       </div>
