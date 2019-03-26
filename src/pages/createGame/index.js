@@ -5,7 +5,7 @@ import './index.css';
 import moment from 'moment';
 
 
-import { DatePicker, Select, TimePicker } from 'antd';
+import { DatePicker, Select, TimePicker, Form, Radio, Input } from 'antd';
 
 
 import Background from '../../img/background-home.jpg';
@@ -15,6 +15,8 @@ import FooterT8 from '../../components/FooterT8/index';
 import CourtList from '../../components/CourtList';
 import DraftZone from '../../components/DraftZone';
 import Button from '../../components/Button';
+
+const { TextArea } = Input;
 
 class CreateGame extends Component {
   
@@ -31,10 +33,6 @@ class CreateGame extends Component {
   }
 
   handleClose = () => this.setState({ open: false })
-
-
-
-
 
   // addGame = () => {
   //   fetch(`${config.urlApi}/games`, {
@@ -85,7 +83,7 @@ class CreateGame extends Component {
               <h2 className="create-game_title">Informations générales</h2>
               
               
-              <form className="create-game-detail-form">
+              <div className="create-game-detail-form">
               
                 <div className="left-form-wrapper">
                   <h4 className="create-game_subtitle">
@@ -98,95 +96,117 @@ class CreateGame extends Component {
                       alt="match details"/>
                     Conditions du match
                   </h4>
-                  <div style={{padding:'20px 15px 9px'}}>
                   
-                    <div style={{marginBottom: 30}}>
-                      <label>Cliques pour choisir la date et l'heure</label>
-                      <div className="select-date_input">
-                        <DatePicker 
-                          allowClear={false}
-                          style={{width:210}} 
-                          className="large-time-picker"
-                          dropdownClassName="time-picker-dropdown" placeholder="Choisis la date" format="dddd DD MMMM"/>
-                        <TimePicker
-                          allowClear={false}
-                          open={this.state.open}
-                          onOpenChange={this.handleOpenChange}
-                          addon={() => (
-                            <Button style={{padding:5}} text={'Ok'} buttonStyle={'button-transparent'} onClick={this.handleClose}/>
-                            
-                          )}
-                          className="large-time-picker"
-                          popupClassName="time-picker-dropdown"
-                          minuteStep={5} 
-                          placeholder="Choisis l'heure"
-                          format={'HH:mm'} 
-                          defaultOpenValue={moment('0:00', 'HH:mm')} 
-                        />
-                      </div>
-                    </div>
-                    <label>Apportes des précisions sur ton match</label>
-                    <textarea 
-                      placeholder="ex: objectif de la rencontre, durée du match, besoin d'equipement..." 
-                      maxLength="155" 
-                      rows="3" 
-                      type="text" 
-                      className="input-create-game">
-                    </textarea>
-
-                    <div className="select-option_container">
-                      <div style={{textAlign:'left'}}>
-                        <label >Nombre de joueurs</label>
-                        <Select defaultValue="1 vs 1" style={{ width: 150, display:'block', margin:'10px auto 20px' }} dropdownClassName="styledrop">
-                          <Option value="1">1 vs 1</Option>
-                          <Option value="2">2 vs 2</Option>
-                          <Option value="3">3 vs 3</Option>
-                          <Option value="4">4 vs 4</Option>
-                          <Option value="5">5 vs 5</Option>
-                        </Select>
-                      </div>
+                  <Form onSubmit={this.handleSubmit}>
+                    <div style={{padding:'20px 15px 9px'}}>
                       <div>
-                        <label>Niveau de la rencontre</label>
-                        <Select defaultValue="Rookie" style={{ width: 150, display:'block', margin:'10px auto 20px' }} dropdownClassName="styledrop">
-                          <Option value="Rookie">Rookie</Option>
-                          <Option value="Pro">Pro</Option>
-                          <Option value="Expert">Expert</Option>
-                          <Option value="All Star">All Star</Option>
-                          <Option value="Hall of Fame">Hall of Fame</Option>
-                        </Select>
+                        <label>Cliques pour choisir la date et l'heure</label>
+                        <div className="select-date_input">
+                          <Form.Item>
+                            <DatePicker 
+                              allowClear={false}
+                              className="large-time-picker"
+                              dropdownClassName="time-picker-dropdown" 
+                              placeholder="Choisis la date" 
+                              format="dddd DD MMMM"/>
+                          </Form.Item>
+                          <Form.Item>
+                            <TimePicker
+                              allowClear={false}
+                              open={this.state.open}
+                              onOpenChange={this.handleOpenChange}
+                              addon={() => (
+                                <Button style={{padding:5}} 
+                                  text={'Ok'} 
+                                  buttonStyle={'button-transparent'} 
+                                  onClick={this.handleClose}/>
+                              )}
+                              className="large-time-picker"
+                              popupClassName="time-picker-dropdown"
+                              minuteStep={5} 
+                              placeholder="Choisis l'heure"
+                              format={'HH:mm'} 
+                              defaultOpenValue={moment('0:00', 'HH:mm')} 
+                            />
+                          </Form.Item>
+                        </div>
                       </div>
-                    </div>
 
-                    
-                    <div className="select-radio_container" style={{textAlign:'left'}}>
-                      <div className="select-radio_wrapper">
-                        <label>Je ramène une balle?</label>
-                        <div className="select-radio" style={{justifyContent:'flex-start'}}>
-                          <div style={{position:'relative', marginRight:12}}>
-                            <input type="radio" name="ball" value={true}></input>
-                            <label>Oui</label>
-                          </div>
-                          <div style={{position:'relative'}}>
-                            <input type="radio" name="ball" value={false}></input>
-                            <label>Non</label>
-                          </div>
+                      <label>Apportes des précisions sur ton match</label>
+                      <Form.Item> 
+                        <TextArea rows={4} placeholder="ex: objectif de la rencontre, durée du match, besoin d'equipement..."/>
+                      </Form.Item>
+
+                      <div className="select-option_container">
+                        <div style={{textAlign:'left'}}>
+                          <label >Nombre de joueurs</label>
+                          <Form.Item>
+                            <Select 
+                              defaultValue="1" 
+                              style={{ 
+                                width: 150, 
+                                display:'block', 
+                                margin:'10px auto 20px' 
+                              }} 
+                              dropdownClassName="styledrop">
+                              <Option value="1">1 vs 1</Option>
+                              <Option value="2">2 vs 2</Option>
+                              <Option value="3">3 vs 3</Option>
+                              <Option value="4">4 vs 4</Option>
+                              <Option value="5">5 vs 5</Option>
+                            </Select>
+                          </Form.Item>
+                        </div>
+
+                        <div>
+                          <label>Niveau de la rencontre</label>
+                          <Form.Item>
+                            <Select 
+                              defaultValue="Rookie" 
+                              style={{ 
+                                width: 150, 
+                                display:'block', 
+                                margin:'10px auto 20px' 
+                              }} 
+                              dropdownClassName="styledrop">
+                              <Option value="Rookie">Rookie</Option>
+                              <Option value="Pro">Pro</Option>
+                              <Option value="Expert">Expert</Option>
+                              <Option value="All Star">All Star</Option>
+                              <Option value="Hall of Fame">Hall of Fame</Option>
+                            </Select>
+                          </Form.Item>
                         </div>
                       </div>
-                      <div className="select-radio_wrapper" style={{textAlign:'right'}}>
-                        <label>C'est un match privé?</label>
-                        <div className="select-radio" style={{float:'right', justifyContent:'flex-end'}}>
-                          <div style={{position:'relative'}}>
-                            <input type="radio" name="private" value={true}></input>
-                            <label>Oui</label>
+
+                      
+                      <div className="select-radio_container" style={{textAlign:'left'}}>
+                        <div className="select-radio_wrapper">
+                          <label>Je ramène une balle?</label>
+                          <div style={{justifyContent:'flex-start'}}>
+                            <Form.Item>
+                                <Radio.Group>
+                                  <Radio.Button value={true}>Oui</Radio.Button>
+                                  <Radio.Button value={false}>Non</Radio.Button>
+                                </Radio.Group>
+                            </Form.Item>
                           </div>
-                          <div style={{position:'relative', marginLeft:12}}>
-                            <input type="radio" name="private" value={false}></input>
-                            <label>Non</label>
+                        </div>
+
+                        <div className="select-radio_wrapper" style={{textAlign:'right'}}>
+                          <label>C'est un match privé?</label>
+                          <div style={{justifyContent:'flex-end', display:'flex'}}>
+                            <Form.Item>
+                                <Radio.Group>
+                                  <Radio.Button value={true}>Oui</Radio.Button>
+                                  <Radio.Button value={false}>Non</Radio.Button>
+                                </Radio.Group>
+                            </Form.Item>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Form>
                 </div>
 
 
@@ -194,7 +214,7 @@ class CreateGame extends Component {
                   <CourtList pageAmount={5}/>
                 </div>
                   
-              </form>
+              </div>
 
               <div className="bottom-form-wrapper">
                 <h4 className="create-game_subtitle">

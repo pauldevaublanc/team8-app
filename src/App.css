@@ -247,6 +247,15 @@ li.ant-time-picker-panel-select-option-selected {
 }
 /* END TIME AND DATE PICKER */
 
+.ant-form-item {
+  margin-bottom: 15px;
+}
+
+.ant-form label {
+  font-size: 14px;
+  color: var(--white);
+}
+
 .ant-select-selection--single {
   height: 36px;
   background: transparent;
@@ -318,6 +327,42 @@ li.ant-time-picker-panel-select-option-selected {
   font-weight: bold;
 }
 
+form textarea.ant-input {
+  background: transparent;
+  border: 1px solid var(--gray);
+}
+
+form textarea.ant-input:hover {
+  box-shadow: 0px 0px 10px 1px var(--orange);
+  border: 1px solid var(--orange);
+}
+
+.ant-radio-button-wrapper {
+  background: transparent;
+  font-family: var(--fontTitle);
+  color: var(--white);
+  width: 50%;
+  text-align: center;
+  border: 1px solid var(--gray);
+}
+
+.ant-radio-group {
+  min-width: 150px;
+  width: 150px;
+}
+
+.ant-radio-button-wrapper:hover {
+  color: var(--white);
+  border: 1px solid var(--orange);
+}
+
+.ant-radio-button-wrapper-checked:first-child, .ant-radio-button-wrapper-checked, .ant-radio-button-wrapper-checked:hover {
+  color: var(--white);
+  border-color: var(--gray);
+  background-color: var(--orange);
+  box-shadow: -1px 0 0 0 var(--orange);
+}
+
 .ant-select-dropdown-menu {
   border: 1px solid var(--gray);
   border-radius: 2px;
@@ -343,7 +388,7 @@ li.ant-time-picker-panel-select-option-selected {
   text-align: center;
   height: 160px;
   line-height: 160px;
-  background: #364d79;
+  background: var(--gray);
   overflow: hidden;
 }
 
@@ -386,6 +431,8 @@ li.ant-time-picker-panel-select-option-selected {
   border-radius: 2px;
   background: linear-gradient(to right, rgba(72, 74, 77, 0.8), rgba(35, 37, 38, 0.8));
   position: relative;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
 }
 
 @media (max-width: 1302px){
@@ -396,7 +443,15 @@ li.ant-time-picker-panel-select-option-selected {
 }
 
 @media (max-width: 960px){
+  .ant-radio-group {
+    display: flex;
+  }
 
+  .ant-radio-button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 680px){

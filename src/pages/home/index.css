@@ -72,7 +72,7 @@
 /* Third part of the home page, news part with the next game coming up */
 
 .home_news-wrapper {
-  padding: 55px 20px 70px;
+  padding: 55px 0px 70px;
   background-color: var(--black);
   border-bottom: 1px solid var(--white);
 }
