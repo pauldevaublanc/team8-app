@@ -12,7 +12,7 @@ import StarRatings from 'react-star-ratings';
 import Title from '../../components/Title/index';
 import Button from '../../components/Button/index';
 import TableGames from '../../components/TableGames/index';
-import ActionPlayerIcon from '../../components/ActionPlayerIcon/index';
+// import ActionPlayerIcon from '../../components/ActionPlayerIcon/index';
 
 class UserComponent extends Component {
 
@@ -24,7 +24,7 @@ class UserComponent extends Component {
     return (
         
     <div>
-        <ActionPlayerIcon icon={'cross.png'} style={{right:20, top:15}} styleImg={{width:25}}/>
+        {/* <ActionPlayerIcon icon={'cross.png'} style={{right:20, top:15}} styleImg={{width:25}}/> */}
         <Title text={'Mon Joueur'} style={{padding:'15px 0px 35px'}}/>
         
         
@@ -32,8 +32,8 @@ class UserComponent extends Component {
             
             <div className="user_description-wrapper">
                 <div className="user_info-wrapper">
-                    <ProfilePicture size={160} picture={`${config.urlApi}${this.props.user.picture.url}`} borderStyle={'border-small'}/>
-                    <div style={{padding:20}}>
+                    <ProfilePicture size={150} picture={`${config.urlApi}${this.props.user.picture.url}`} borderStyle={'border-small'}/>
+                    <div className="user_description-container">
                         <h2>{this.props.user.username}</h2>
                         <p className="user_description-text">{this.props.user.description}</p>
                         <div className="user_button-wrapper">
@@ -64,12 +64,12 @@ class UserComponent extends Component {
                 <div className="user_results-wrapper">
                 <p><span>5</span><br/>Victoires</p>
                 <p><span>{this.props.user.mvp}</span><br/>MVP</p>
-                <p><span>2</span><br/>Matchs annulés</p>
+                <p><span>2</span><br/>Matchs</p>
                 </div>
             </div>
             
             
-            <div className="user_infos-wrapper">
+            <div className="user_infos-table-wrapper">
                 <div className="user_infos-user">
                     <ul>
                         <li>
@@ -104,7 +104,7 @@ class UserComponent extends Component {
                             <div>5</div>
                         </li>
                         <li>
-                            <div>Teammates</div>
+                            <div>Terrains pratiqués</div>
                             <div>{this.props.user.friends.length}</div>
                         </li>
                         <li>

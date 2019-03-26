@@ -81,13 +81,17 @@
       flex: 0 0 33.32%;
     }
 
-    
-    
+    .table_next-game td {
+      padding: 8px 3px 8px 5px;
+      font-size: 12px;
+      line-height: 14px;
+      font-weight: bold;
+    }
   }
 
   @media (max-width: 700px){
     .tabs-games-menu h3 {
-      font-size: 12px;
+      font-size: 14px;
     }
   }
 

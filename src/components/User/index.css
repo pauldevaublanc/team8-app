@@ -10,6 +10,10 @@
     margin: 10px auto;
 }
 
+.user_description-container {
+    padding: 20px;
+}
+
 .user_info-wrapper {
     display: flex;
     text-align: left;
@@ -34,7 +38,7 @@
 
 .user_results-wrapper {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     padding: 10px 0px 20px;
 }
 
@@ -52,12 +56,13 @@
     line-height: 48px;
 }
 
-.user_infos-wrapper {
+.user_infos-table-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     margin: 0 auto;
+    max-width: 1000px;
 }
 
 
@@ -66,10 +71,6 @@
 
 .user_infos-user, .user_infos-games, .user_infos-grade {
     width: 42%;
-}
-
-.user_infos-grade {
-    width: 20%;
 }
 
 .user_infos-user ul li, .user_infos-games ul li{
@@ -156,10 +157,25 @@
         padding: 20px 10px;
     }
   }
+
+
   
   @media (max-width: 900px){
-    .user_infos-wrapper {
+
+    .user_results-wrapper {
+        padding: 5px 0px 10px;
+    }
+
+    .user_button-wrapper {
+        justify-content: center;
+    }
+
+    .user_infos-table-wrapper {
         flex-direction: column;
+    }
+
+    .user_description-container {
+        padding: 10px 0px;
     }
 
     .user_info-wrapper {
@@ -170,24 +186,54 @@
     .user_infos-user, .user_infos-games {
         width: 90%;
         order: 1;
-        padding: 12px 0px;
-
+        padding-top: 15px;
     }
 
     .user_results-wrapper p {
-        font-size: 18px;
-        line-height: 20px;
+        font-size: 14px;
+        line-height: 18px;
+        padding: 5px 2px;
     }
     
     .user_results-wrapper p span{
-        font-size: 38px;
-        line-height: 40px;
+        font-size: 34px;
+        line-height: 38px;
     }
 
     .user_description-text {
-        font-size: 14px;
-        line-height: 20px;
+        font-size: 12px;
+        line-height: 18px;
     }
+
+    .user_infos-grade {
+        box-shadow: 0px 0px 0px 14px var(--orange);
+        margin: 18px 20px 0px;
+        height: 120px;
+        width: 120px;
+        min-width: 120px;
+        margin: 20px;
+    }
+    
+    .user_infos-grade div {
+        font-size: 55px;
+        line-height: 25px;
+    }
+
+    .user_infos-user ul li div, .user_infos-games ul li div {
+        padding: 3px 5px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .user_infos-user ul li div:first-child, .user_infos-games ul li div:first-child {
+        width: 50%;
+    }
+
+    .user_games-wrapper h2{
+        font-size: 22px;
+        padding: 0px 0px 5px 5px;
+    }
+
 
     
     
