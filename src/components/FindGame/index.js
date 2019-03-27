@@ -48,8 +48,8 @@ class FindGame extends Component {
                   gameDay={moment(game.date).locale('fr').format("dddd")}
                   gameMonth={moment(game.date).format("Do MMMM")}
                   gameHour={moment(game.date).format("H : mm")}
-                  userName={game.OrganizerName}
-                  picture={`${config.urlApi}${game.OrganizerPicture.url}`}
+                  userName={game.host.username}
+                  picture={`${config.urlApi}${game.host.picture.url}`}
                   numberPlayers={game.JoueursEquipe}
                   gameLocation={game.court.city}
                   availablePlace={game.availablePlace}/>

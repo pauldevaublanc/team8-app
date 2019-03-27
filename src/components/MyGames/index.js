@@ -13,7 +13,7 @@ import GameCard from '../../components/GameCard';
 class MyGames extends Component {
 
     state = {
-    games: []
+      games: []
     }
 
     static propTypes = {
@@ -52,8 +52,8 @@ class MyGames extends Component {
                   gameDay={moment(game.date).locale('fr').format("dddd")}
                   gameMonth={moment(game.date).format("Do MMMM")}
                   gameHour={moment(game.date).format("H : mm")}
-                  userName={game.OrganizerName}
-                  picture={`${config.urlApi}${game.OrganizerPicture.url}`}
+                  userName={game.host.username}
+                  picture={`${config.urlApi}${game.host.picture.url}`}
                   numberPlayers={game.JoueursEquipe}
                   gameLocation={game.city}
                   availablePlace={game.availablePlace}/>

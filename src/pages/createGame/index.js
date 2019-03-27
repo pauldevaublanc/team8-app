@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './index.css';
+import PropTypes from 'prop-types';
+import config from '../../config/index';
+import Cookies from  'js-cookie';
 
 
 import moment from 'moment';
 
-
+// Components ant-design
 import { DatePicker, Select, TimePicker, Form, Radio, Input } from 'antd';
-
-
+//Images
 import Background from '../../img/background-home.jpg';
 // Components
 import Title from '../../components/Title/index';
@@ -19,6 +21,10 @@ import Button from '../../components/Button';
 const { TextArea } = Input;
 
 class CreateGame extends Component {
+
+  static propTypes = {
+    form: PropTypes.object
+  }
   
   state ={
     games : [],
@@ -27,41 +33,26 @@ class CreateGame extends Component {
     startDate: new Date(), 
   }
 
-
-  handleOpenChange = (open) => {
-    this.setState({ open });
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        this.addGame(values)
+      }
+    });
   }
 
-  handleClose = () => this.setState({ open: false })
+  handleOpenChange = (open) => {
+    this.setState({ 
+      open 
+    });
+  }
 
-  // addGame = () => {
-  //   fetch(`${config.urlApi}/games`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       'Content-Type': 'application/json',
-  //       'Authorization': `Bearer ${Cookies.get('token')}`,
-  //     },
-  //     body: JSON.stringify({
-  //       description: this.refs['descriptionRef'].value, 
-  //     })
-  //   })
-  //   .then((response) => { return response.json(); })
-  //   .then((data) => {
-  //     const newGames = this.state.games
-  //     newGames.push(data)
-  //     this.setState({
-  //       games: newGames
-  //     })
-      
-  //   });
-  // }
-
-  // handleChangeTitle = (e) => {
-  //   this.setState({
-  //     description: e.target.value
-  //   });
-  // }
+  handleClose = () => {
+    this.setState({ 
+      open: false 
+    });
+  }
 
   handleChange(date) {
     this.setState({
@@ -69,20 +60,47 @@ class CreateGame extends Component {
     });
   }
 
+  addGame = (value) => {
+    fetch(`${config.urlApi}/games`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${Cookies.get('token')}`,
+      },
+      body: JSON.stringify({
+        datePicker: value.datePicker, 
+        timePicker: value.timePicker, 
+        description: value.description, 
+        players: value.players,
+        level: value.level,
+        ball: value.ball,
+        private: value.private
+
+      })
+    })
+    .then((response) => { return response.json(); })
+    .then((data) => {
+      const newGames = this.state.games
+      newGames.push(data)
+      this.setState({
+        games: newGames
+      }) 
+    });
+  }
 
   render() {
+    
     const Option = Select.Option;
+    const { getFieldDecorator } = this.props.form;
+    
     return (
-      
-        
+
         <div className="main_wrapper" style={{backgroundImage: `url(${Background})`}}>
           <div className="main_container">
           <Title text={'Organiser un match'} style={{padding:'15px 0px 40px'}}/>
             <div className="create-game-wrapper">
-              
-              <h2 className="create-game_title">Informations générales</h2>
-              
-              
+              <h2 className="create-game_title">Informations générales</h2> 
               <div className="create-game-detail-form">
               
                 <div className="left-form-wrapper">
@@ -103,14 +121,21 @@ class CreateGame extends Component {
                         <label>Cliques pour choisir la date et l'heure</label>
                         <div className="select-date_input">
                           <Form.Item>
+                            {getFieldDecorator('datePicker', {
+                              rules: [{ required: true, message: 'Choisis la date du match' }],
+                            })(
                             <DatePicker 
                               allowClear={false}
                               className="large-time-picker"
                               dropdownClassName="time-picker-dropdown" 
                               placeholder="Choisis la date" 
                               format="dddd DD MMMM"/>
+                              )}
                           </Form.Item>
                           <Form.Item>
+                            {getFieldDecorator('timePicker', {
+                              rules: [{ required: true, message: 'Choisis l\'heure du match' }],
+                            })(
                             <TimePicker
                               allowClear={false}
                               open={this.state.open}
@@ -128,21 +153,30 @@ class CreateGame extends Component {
                               format={'HH:mm'} 
                               defaultOpenValue={moment('0:00', 'HH:mm')} 
                             />
+                            )}
                           </Form.Item>
                         </div>
                       </div>
 
                       <label>Apportes des précisions sur ton match</label>
                       <Form.Item> 
-                        <TextArea rows={4} placeholder="ex: objectif de la rencontre, durée du match, besoin d'equipement..."/>
+                        {getFieldDecorator('description', {
+                            rules: [{ required: true, message: 'Ajoute des précisions sur ton match' }],
+                          })(
+                            <TextArea rows={4} placeholder="ex: objectif de la rencontre, durée du match, besoin d'equipement..."/>
+                          )}
                       </Form.Item>
 
                       <div className="select-option_container">
                         <div style={{textAlign:'left'}}>
                           <label >Nombre de joueurs</label>
                           <Form.Item>
+                            {getFieldDecorator('players', {
+                              rules: [
+                                { required: true, message: 'Selectionnes le nombre de joueurs' },
+                              ],
+                            })(
                             <Select 
-                              defaultValue="1" 
                               style={{ 
                                 width: 150, 
                                 display:'block', 
@@ -155,26 +189,32 @@ class CreateGame extends Component {
                               <Option value="4">4 vs 4</Option>
                               <Option value="5">5 vs 5</Option>
                             </Select>
+                            )}
                           </Form.Item>
                         </div>
 
                         <div>
                           <label>Niveau de la rencontre</label>
                           <Form.Item>
-                            <Select 
-                              defaultValue="Rookie" 
-                              style={{ 
-                                width: 150, 
-                                display:'block', 
-                                margin:'10px auto 20px' 
-                              }} 
-                              dropdownClassName="styledrop">
-                              <Option value="Rookie">Rookie</Option>
-                              <Option value="Pro">Pro</Option>
-                              <Option value="Expert">Expert</Option>
-                              <Option value="All Star">All Star</Option>
-                              <Option value="Hall of Fame">Hall of Fame</Option>
-                            </Select>
+                            {getFieldDecorator('level', {
+                                rules: [
+                                  { required: true, message: 'Selectionnes le niveau de jeu souhaité' },
+                                ],
+                              })(
+                              <Select 
+                                style={{ 
+                                  width: 150, 
+                                  display:'block', 
+                                  margin:'10px auto 20px' 
+                                }} 
+                                dropdownClassName="styledrop">
+                                <Option value="Rookie">Rookie</Option>
+                                <Option value="Pro">Pro</Option>
+                                <Option value="Expert">Expert</Option>
+                                <Option value="All Star">All Star</Option>
+                                <Option value="Hall of Fame">Hall of Fame</Option>
+                              </Select>
+                              )}
                           </Form.Item>
                         </div>
                       </div>
@@ -185,10 +225,16 @@ class CreateGame extends Component {
                           <label>Je ramène une balle?</label>
                           <div style={{justifyContent:'flex-start'}}>
                             <Form.Item>
+                              {getFieldDecorator('ball', {
+                                rules: [
+                                  { required: true, message: 'Précise si tu ramènes une balle'},
+                                ],
+                              })(
                                 <Radio.Group>
                                   <Radio.Button value={true}>Oui</Radio.Button>
                                   <Radio.Button value={false}>Non</Radio.Button>
                                 </Radio.Group>
+                              )}
                             </Form.Item>
                           </div>
                         </div>
@@ -197,10 +243,16 @@ class CreateGame extends Component {
                           <label>C'est un match privé?</label>
                           <div style={{justifyContent:'flex-end', display:'flex'}}>
                             <Form.Item>
+                            {getFieldDecorator('private', {
+                                rules: [
+                                  { required: true, message: 'Précise si le match est privé'},
+                                ],
+                              })(
                                 <Radio.Group>
                                   <Radio.Button value={true}>Oui</Radio.Button>
                                   <Radio.Button value={false}>Non</Radio.Button>
                                 </Radio.Group>
+                              )}
                             </Form.Item>
                           </div>
                         </div>
@@ -231,7 +283,7 @@ class CreateGame extends Component {
               </div>
               <div className="button-form-wrapper">
                 <Button style={{minWidth:120, margin:20}} text={'Annuler'} buttonStyle={'button-transparent'}/>
-                <Button style={{minWidth:120, margin:20}} text={'Creer Match'} buttonStyle={'button-transparent'}/>
+                <Button type={'submit'} onClick={this.handleSubmit} style={{minWidth:120, margin:20}} text={'Creer Match'} buttonStyle={'button-transparent'}/>
               </div>
             </div>
             
@@ -270,4 +322,4 @@ class CreateGame extends Component {
   }
 }
 
-export default CreateGame;
+export default Form.create({ name: 'register' })(CreateGame);

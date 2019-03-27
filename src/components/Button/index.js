@@ -8,14 +8,15 @@ class Button extends Component {
     text: PropTypes.string,
     buttonStyle: PropTypes.string,
     onClick: PropTypes.func,
+    type: PropTypes.string,
     style: PropTypes.object,
 }
 
   render() {
     return (
-      <div className={`btn ${ this.props.buttonStyle }`} style={this.props.style} onClick={this.props.onClick}>
+      <button type={this.props.type} className={`btn ${ this.props.buttonStyle }`} style={this.props.style} onClick={this.props.onClick}>
         {this.props.text}
-      </div>
+      </button>
     );
   }
 }

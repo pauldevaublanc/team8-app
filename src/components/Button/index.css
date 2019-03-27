@@ -10,6 +10,7 @@
     text-align: center;
     border: 2px solid var(--orange);
     font-weight: bold;
+    width: 100%;
 }
   
 .btn:hover, .btn:focus {

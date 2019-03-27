@@ -41,16 +41,16 @@ class GameComponent extends Component {
           <div className="game-infos-wrapper">
             <div className="game-organizer-infos">
               <ProfilePicture 
-                    size={120} 
-                    borderStyle={'border-small'} 
-                    picture={`${config.urlApi}${this.props.game.OrganizerPicture.url}`}
-                    style={{paddingRight: 15}}
-                />
-                <div>
-                  <div>{this.props.game.JoueursEquipe} vs {this.props.game.JoueursEquipe}</div>
-                  <div>Organisé par <span>{this.props.game.OrganizerName}</span></div>
-                  <p>{this.props.game.description}</p>
-                </div>
+                size={120} 
+                borderStyle={'border-small'} 
+                picture={`${config.urlApi}${this.props.game.host.picture.url}`}
+                style={{paddingRight: 15}}
+              />
+              <div>
+                <div>{this.props.game.JoueursEquipe} vs {this.props.game.JoueursEquipe}</div>
+                <div>Organisé par <span>{this.props.game.host.username}</span></div>
+                <p>{this.props.game.description}</p>
+              </div>
             </div>
             <div className="game-date-infos">
                 <div>{moment(this.props.game.date).locale('fr').format("dddd")}</div>

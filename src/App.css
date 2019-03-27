@@ -98,6 +98,7 @@ ul {
 
 p {
   font-size: 13px;
+  line-height: 15px;
   margin: 0;
   font-weight: bold;
 }
@@ -330,6 +331,8 @@ li.ant-time-picker-panel-select-option-selected {
 form textarea.ant-input {
   background: transparent;
   border: 1px solid var(--gray);
+  color: var(--white);
+  font-weight: bold;
 }
 
 form textarea.ant-input:hover {
