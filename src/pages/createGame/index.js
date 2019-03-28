@@ -309,7 +309,8 @@ class CreateGame extends Component {
               <div className="button-form-wrapper">
                 <Button 
                   style={{
-                    minWidth:120, 
+                    minWidth:120,
+                    maxWidth: 200, 
                     margin:20
                   }} 
                   text={'Annuler'} 
@@ -320,9 +321,10 @@ class CreateGame extends Component {
                   onClick={this.handleSubmit} 
                   style={{
                     minWidth:120, 
+                    maxWidth: 200,
                     margin:20
                   }} 
-                  text={'Creer Match'} 
+                  text={'Créer Match'} 
                   buttonStyle={'button-transparent'}
                 />
               </div>

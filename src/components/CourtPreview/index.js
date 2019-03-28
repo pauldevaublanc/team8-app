@@ -22,9 +22,7 @@ class CourtPreview extends Component {
     }
 
     createTable = () => {
-    let table = []
-
-    // Outer loop to create parent
+    let table = [];
     for (let i = 0; i < this.props.numberTeamPlayer; i++) {
         table.push(
             <div className="court-preview_line" key={ i }>
@@ -122,7 +120,7 @@ class CourtPreview extends Component {
 
   render() {
     return (  
-        <div>
+        <div className="court-preview_container">
             <div className="court-preview_wrapper">
                 <div className="court-preview_line-middle-court"></div>
                 <div className="court-preview_half-circle" ></div>
@@ -136,7 +134,7 @@ class CourtPreview extends Component {
                             .map((player, key) => {
                                 return(
                                     <ProfilePicture key={key}
-                                    size={this.state.isMobile && this.props.numberTeamPlayer>3 ? 60 : this.state.isMobile ? 70 : 90} 
+                                    size={this.state.isMobile && this.props.numberTeamPlayer>3 ? 60 : this.state.isMobile ? 70 : 80} 
                                     borderStyle={player.border} 
                                     picture={require(`../../img/profile-default.jpg`)}
                                     style={{
@@ -154,12 +152,17 @@ class CourtPreview extends Component {
             </div>
             <div className="court-preview_table-players">
                                 
-                <div className="court-preview_separator">vs</div>     
-                           
+                <div className="court-preview_separator">vs</div>    
+
+                <div className="court-preview_line">
+                    <div className="court-preview_column header-column" style={{background:'#EF7E4D'}}>
+                        Team 1
+                    </div>
+                    <div className="court-preview_column header-column" style={{background:'#ebebeb', color:'#1d1d1d'}}>
+                        Team 2
+                    </div>
+                </div>          
                 {this.createTable()}
-                            
-                       
-                
             </div>
         </div>
     );
