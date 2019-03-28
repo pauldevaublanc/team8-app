@@ -24,8 +24,6 @@ class CourtModalContainer extends Component {
         court: null,
         loading: false,
       }
-
-      
     
     getCourtDetail = (courtId) => {
         const id = courtId;
@@ -50,8 +48,6 @@ class CourtModalContainer extends Component {
         this.getCourtDetail(nextProps.courtId)
       }
     }
-
-
 
 
   render() {

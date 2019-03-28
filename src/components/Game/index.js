@@ -47,7 +47,7 @@ class GameComponent extends Component {
                 style={{paddingRight: 15}}
               />
               <div>
-                <div>{this.props.game.JoueursEquipe} vs {this.props.game.JoueursEquipe}</div>
+                <div>{this.props.game.playersCounter} vs {this.props.game.playersCounter}</div>
                 <div>Organisé par <span>{this.props.game.host.username}</span></div>
                 <p>{this.props.game.description}</p>
               </div>
@@ -89,7 +89,7 @@ class GameComponent extends Component {
                 alt="adress court"/>
                 Equipes
             </div>
-           <CourtPreview numberTeamPlayer={this.props.game.JoueursEquipe}/>
+           <CourtPreview numberTeamPlayer={this.props.game.playersCounter}/>
 
            <Button 
             text={'Participer à ce match'} 

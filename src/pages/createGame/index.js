@@ -81,7 +81,7 @@ class CreateGame extends Component {
         private: value.private,
         host: Cookies.get('myId'),
         court: this.state.currentCourtId,
-        players: ['5c6e7f1f387934fdd16c2038', '5c70379cf2f08202f995bcdf']
+        players: this.state.playersId
 
       })
     })
@@ -98,6 +98,12 @@ class CreateGame extends Component {
   handleSelectCourt = (currentCourtId) => {
     this.setState({
       currentCourtId: currentCourtId
+    })
+  }
+
+  handleInvitePlayers = (playersId) => {
+    this.setState({
+      playersId: playersId
     })
   }
 
@@ -293,7 +299,12 @@ class CreateGame extends Component {
                     alt="teammates"/>
                   Invitation des teammates
                 </h4>
-                  <DraftZone style={{margin:"15px auto", textAlign:'center'}}/>
+                  <DraftZone 
+                    onInvitePlayers={(selectedPlayer) => this.handleInvitePlayers(selectedPlayer)}
+                    style={{
+                      margin:"15px auto", 
+                      textAlign:'center'
+                    }}/>
               </div>
               <div className="button-form-wrapper">
                 <Button 
@@ -316,32 +327,6 @@ class CreateGame extends Component {
                 />
               </div>
             </div>
-            
-           
-            
-            
-            
-            
-            
-            {/* <div className="games_wrapper">
-              <ul>
-                {
-                  this.state.games.map((game, key) => {
-                    return (
-                      <li key={key}>{game.description}</li>
-                    )
-                })
-                }
-              </ul>
-              <h2>Organiser un match</h2>
-              <form>
-                <input type="text" placeholder="description" name="description" ref={'descriptionRef'}/>
-                <button type="button" value="Submit" onClick={this.addGame}>Envoyer</button>
-              </form>
-            </div> */}
-
-
-
 
             <FooterT8/>
           </div>

@@ -54,7 +54,7 @@ class MyGames extends Component {
                   gameHour={moment(game.date).format("H : mm")}
                   userName={game.host.username}
                   picture={`${config.urlApi}${game.host.picture.url}`}
-                  numberPlayers={game.JoueursEquipe}
+                  numberPlayers={game.playersCounter}
                   gameLocation={game.city}
                   availablePlace={game.availablePlace}/>
               )

@@ -14,7 +14,7 @@ class GameCard extends Component {
     gameHour: PropTypes.string,
     userName: PropTypes.string,
     picture: PropTypes.string,
-    numberPlayers: PropTypes.string,
+    numberPlayers: PropTypes.number,
     gameLocation: PropTypes.string,
     availablePlace: PropTypes.bool,
     style: PropTypes.object,

@@ -11,63 +11,78 @@ import PlayerCard from '../../components/PlayerCard';
 class DraftZone extends Component {
 
   state = {
-    teammates: []
+    teammates: [],
+    playersId: []
+  }
+
+  static propTypes = {
+      style: PropTypes.object,
+      onInvitePlayers: PropTypes.func,
+  }
+
+  getPlayers = () => {
+    fetch(`${config.urlApi}/users`)
+      .then((response) => {return response.json();})
+      .then((data) => {
+        this.setState({
+          teammates: data
+        })
+    });
   }
 
 
-    static propTypes = {
-        style: PropTypes.object,
+  getInvitationPlayerId = (playerId) => {
+    
+    
+    const newPlayer = this.state.playersId.slice()
+    
+    if (this.state.playersId.indexOf(playerId) === -1 ){
+      newPlayer.push(playerId)
+      this.setState({
+        playersId: newPlayer
+      }, () => {this.props.onInvitePlayers(this.state.playersId)})
     }
+    
+  }
 
-    getPlayers = () => {
-      // requete ajax pour recuperer la listes des joueurs
-      fetch(`${config.urlApi}/users`)
-        .then((response) => {return response.json();})
-        .then((data) => {
-          this.setState({
-            teammates: data
-          })
-      });
-    }
-
-    componentDidMount() {
-      this.getPlayers();
-     
-    }
+  componentDidMount() {
+    this.getPlayers();
+  }
     
 
   render() {
     
     return (
-        <div className="draft_wrapper" style={this.props.style}>
-
-            {
-              this.state.teammates
-                .filter((user, key) => {
-                  return (user._id !== Cookies.get('myId'))
-                })
-                .map((user, key) => {
-
-                return (
-                  <PlayerCard key={key}
-                  id={user._id}
-                  lastName={user.username}
-                  picture={`${config.urlApi}${user.picture.url}`}
-                  grade={user.generalGrade}
-                  poste={user.position}
-                  level={user.generalLevel}
-                  age={user.age}
-                  city={user.city}
-                  matchPlayed={18}
-                  wins={1}
-                  mvp={user.mvp}
-                  stars={user.fairplayGrade}
-                  icon={'add.png'}/>
-                )
+      <div className="draft_wrapper" style={this.props.style}>
+        {
+          this.state.teammates
+            .filter((user, key) => {
+              return (user._id !== Cookies.get('myId'))
             })
-            }
-            
-        </div>
+            .map((user, key) => {
+
+            return (
+              <PlayerCard 
+                key={key}
+                id={user._id}
+                lastName={user.username}
+                picture={`${config.urlApi}${user.picture.url}`}
+                grade={user.generalGrade}
+                poste={user.position}
+                level={user.generalLevel}
+                age={user.age}
+                city={user.city}
+                matchPlayed={18}
+                wins={1}
+                mvp={user.mvp}
+                stars={user.fairplayGrade}
+                icon={'add.png'}
+                onClick={()=>this.getInvitationPlayerId(user._id)}
+              />
+            )
+          })
+        }   
+      </div>
     );
   }
 }

@@ -14,7 +14,7 @@ import ProfilePicture from '../ProfilePicture';
 class CourtPreview extends Component {
 
     static propTypes = {
-        numberTeamPlayer: PropTypes.string,
+        numberTeamPlayer: PropTypes.number,
     }
 
     state = {

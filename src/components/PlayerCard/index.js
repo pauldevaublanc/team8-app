@@ -26,6 +26,7 @@ class PlayerCard extends Component {
     mvp: PropTypes.number,
     stars: PropTypes.number,
     icon: PropTypes.string,
+    onClick: PropTypes.func,
     style: PropTypes.object,
 }
 
@@ -54,6 +55,7 @@ class PlayerCard extends Component {
                 <Button 
                     text={'Inviter'} 
                     buttonStyle={'button-transparent'} 
+                    onClick={this.props.onClick}
                     style={{
                         padding: '10px 4px', 
                         margin:'5px auto 10px', 

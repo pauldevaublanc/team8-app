@@ -165,28 +165,33 @@ class CourtList extends Component {
                 </div>
               </div>
                 {
-                    this.state.courts.map((court, key) => {
+                  this.state.courts.map((court, key) => {
                     return (
-                        <CourtInfos
-                        key={key}
-                        pictureSize={90}
-                        addClass={`small ${court._id === this.state.idCourt ? 'courtSelected' : 'courtNotSelected'}`}
-                        address={court.address}
-                        city={court.city}
-                        zipCode={court.zipCode}
-                        transport={court.transportStation}
-                        mainPicture={court.mainPicture.url}
-                        hoop={court.hoop}
-                        gradeCourt={court.gradeCourt}
-                        gradeCrowd={court.gradeCrowd}
-                        style={{marginBottom:10}}
-                        onClick={()=>this.showModal(court._id)}
-                        />
+                      <CourtInfos
+                      key={key}
+                      pictureSize={90}
+                      addClass={`small ${court._id === this.state.idCourt ? 'courtSelected' : 'courtNotSelected'}`}
+                      address={court.address}
+                      city={court.city}
+                      zipCode={court.zipCode}
+                      transport={court.transportStation}
+                      mainPicture={court.mainPicture.url}
+                      hoop={court.hoop}
+                      gradeCourt={court.gradeCourt}
+                      gradeCrowd={court.gradeCrowd}
+                      style={{marginBottom:10}}
+                      onClick={()=>this.showModal(court._id)}
+                      />
                     )
-                    })
+                  })
                 }
                 {
-                    this.state.buttonLoadMore && <div onClick={this.loadNextPage} className="button-show-more">voir plus</div>
+                  this.state.buttonLoadMore && 
+                  <div 
+                    onClick={this.loadNextPage} 
+                    className="button-show-more">
+                    voir plus
+                  </div>
                 }
                 
                   <CourtModalContainer 
