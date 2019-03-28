@@ -16,6 +16,7 @@ class CourtList extends Component {
 
     static propTypes = {
         pageAmount : PropTypes.number,
+        onChangeSelectedCourt: PropTypes.func
     }
   
     state = {
@@ -26,7 +27,6 @@ class CourtList extends Component {
         searchMenuOpen: false,
         searchMenuClicked: false,
         searchValue: null,
-        loading: false,
         visible: false,
         idCourt: null
     }
@@ -72,11 +72,15 @@ class CourtList extends Component {
     });
   }
 
-  handleOk = () => {
-    this.setState({ loading: true });
-    setTimeout(() => {
-      this.setState({ loading: false, visible: false });
-    }, 3000);
+  handleOk = (currentCourtId) => {
+
+    this.setState({ 
+      visible: false,
+      idCourt: currentCourtId
+    });
+
+    this.props.onChangeSelectedCourt(this.state.idCourt)
+    
   }
 
   handleCancel = () => {
@@ -166,7 +170,7 @@ class CourtList extends Component {
                         <CourtInfos
                         key={key}
                         pictureSize={90}
-                        addClass={'small'}
+                        addClass={`small ${court._id === this.state.idCourt ? 'courtSelected' : 'courtNotSelected'}`}
                         address={court.address}
                         city={court.city}
                         zipCode={court.zipCode}
@@ -175,7 +179,7 @@ class CourtList extends Component {
                         hoop={court.hoop}
                         gradeCourt={court.gradeCourt}
                         gradeCrowd={court.gradeCrowd}
-                        style={{paddingBottom:10}}
+                        style={{marginBottom:10}}
                         onClick={()=>this.showModal(court._id)}
                         />
                     )
@@ -186,12 +190,11 @@ class CourtList extends Component {
                 }
                 
                   <CourtModalContainer 
-                    handleOk={this.handleOk} 
+                    handleOk={()=>this.handleOk(this.state.idCourt)} 
                     cancel={this.handleCancel} 
                     visible={this.state.visible} 
                     courtId={ this.state.idCourt }
                   />
-                
             </div>
         </div>
     );

@@ -38,6 +38,15 @@
     z-index: 2;
 }
 
+.courtNotSelected {
+  border: 2px solid var(--gray);
+}
+
+.courtSelected {
+  border: 2px solid var(--orange);
+  box-shadow: 0px 0px 2px 1px var(--orange);
+}
+
 .animation-slideDown {
     animation: 1s slideDown forwards;
 }

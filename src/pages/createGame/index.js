@@ -30,7 +30,8 @@ class CreateGame extends Component {
     games : [],
     open: false,
     active: null,
-    startDate: new Date(), 
+    startDate: new Date(),
+    currentCourtId: null
   }
 
   handleSubmit = (e) => {
@@ -61,6 +62,9 @@ class CreateGame extends Component {
   }
 
   addGame = (value) => {
+    
+    const dateFromatted = moment(value.datePicker.format('YYYY-MM-DD') + ' ' + value.timePicker.format('HH:mm'))
+    
     fetch(`${config.urlApi}/games`, {
       method: 'POST',
       headers: {
@@ -69,13 +73,15 @@ class CreateGame extends Component {
         'Authorization': `Bearer ${Cookies.get('token')}`,
       },
       body: JSON.stringify({
-        datePicker: value.datePicker, 
-        timePicker: value.timePicker, 
+        date: dateFromatted.valueOf(),        
         description: value.description, 
-        players: value.players,
+        playersCounter: value.playersCounter,
         level: value.level,
         ball: value.ball,
-        private: value.private
+        private: value.private,
+        host: Cookies.get('myId'),
+        court: this.state.currentCourtId,
+        players: ['5c6e7f1f387934fdd16c2038', '5c70379cf2f08202f995bcdf']
 
       })
     })
@@ -89,8 +95,13 @@ class CreateGame extends Component {
     });
   }
 
+  handleSelectCourt = (currentCourtId) => {
+    this.setState({
+      currentCourtId: currentCourtId
+    })
+  }
+
   render() {
-    
     const Option = Select.Option;
     const { getFieldDecorator } = this.props.form;
     
@@ -169,9 +180,9 @@ class CreateGame extends Component {
 
                       <div className="select-option_container">
                         <div style={{textAlign:'left'}}>
-                          <label >Nombre de joueurs</label>
+                          <label>Nombre de joueurs</label>
                           <Form.Item>
-                            {getFieldDecorator('players', {
+                            {getFieldDecorator('playersCounter', {
                               rules: [
                                 { required: true, message: 'Selectionnes le nombre de joueurs' },
                               ],
@@ -208,11 +219,11 @@ class CreateGame extends Component {
                                   margin:'10px auto 20px' 
                                 }} 
                                 dropdownClassName="styledrop">
-                                <Option value="Rookie">Rookie</Option>
-                                <Option value="Pro">Pro</Option>
-                                <Option value="Expert">Expert</Option>
-                                <Option value="All Star">All Star</Option>
-                                <Option value="Hall of Fame">Hall of Fame</Option>
+                                <Option value="rookie">Rookie</Option>
+                                <Option value="pro">Pro</Option>
+                                <Option value="expert">Expert</Option>
+                                <Option value="allstar">All Star</Option>
+                                <Option value="halloffame">Hall of Fame</Option>
                               </Select>
                               )}
                           </Form.Item>
@@ -263,7 +274,10 @@ class CreateGame extends Component {
 
 
                 <div className="right-form-wrapper">
-                  <CourtList pageAmount={5}/>
+                  <CourtList 
+                    onChangeSelectedCourt={(selectedCourt) => this.handleSelectCourt(selectedCourt)} 
+                    pageAmount={5}
+                  />
                 </div>
                   
               </div>
@@ -282,8 +296,24 @@ class CreateGame extends Component {
                   <DraftZone style={{margin:"15px auto", textAlign:'center'}}/>
               </div>
               <div className="button-form-wrapper">
-                <Button style={{minWidth:120, margin:20}} text={'Annuler'} buttonStyle={'button-transparent'}/>
-                <Button type={'submit'} onClick={this.handleSubmit} style={{minWidth:120, margin:20}} text={'Creer Match'} buttonStyle={'button-transparent'}/>
+                <Button 
+                  style={{
+                    minWidth:120, 
+                    margin:20
+                  }} 
+                  text={'Annuler'} 
+                  buttonStyle={'button-transparent'}
+                />
+                <Button 
+                  type={'submit'} 
+                  onClick={this.handleSubmit} 
+                  style={{
+                    minWidth:120, 
+                    margin:20
+                  }} 
+                  text={'Creer Match'} 
+                  buttonStyle={'button-transparent'}
+                />
               </div>
             </div>
             

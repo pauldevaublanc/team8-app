@@ -17,7 +17,6 @@ class CourtModalContainer extends Component {
     static propTypes = {
       courtId: PropTypes.string,
       visible: PropTypes.bool,
-      cancel: PropTypes.func,
       handleOk: PropTypes.func,
     }
 
@@ -69,31 +68,22 @@ class CourtModalContainer extends Component {
             footer={[
                 <div key={42} style={{display:'flex', justifyContent: 'flex-end'}}>
                   <Button 
-                      key="back" 
-                      buttonStyle={'button-orange'} 
-                      style={{
-                      height:30, 
-                      minWidth:100, 
-                      padding: '5px 10px'
-                      }} 
-                      text={'Annuler'} 
-                      onClick={this.props.cancel}/>
-                  <Button 
                       key="submit" 
                       buttonStyle={'button-orange'} 
                       style={{
                       height:30, 
+                      width: 100,
                       minWidth:100, 
                       padding: '5px 10px', 
                       marginLeft:15
                       }} 
-                      text={'Confirmer'} 
+                      text={'Ok'} 
                       loading={this.state.loading} 
                       onClick={this.props.handleOk}/>
                 </div>
             ]}
             >
-                <CourtModalComponent court={ this.state.court }/>
+              <CourtModalComponent court={ this.state.court }/>
             </Modal>
           }
         </div>
