@@ -95,8 +95,8 @@ class GameComponent extends Component {
             text={'Participer à ce match'} 
             buttonStyle={'button-transparent'} 
             style={{
-                width:'300px', 
-                margin:'20px auto'
+                width:'250px', 
+                margin:'70px auto 0px'
             }}/>
         </div>
     );

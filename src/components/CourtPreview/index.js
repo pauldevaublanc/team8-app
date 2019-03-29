@@ -3,10 +3,6 @@ import './index.css';
 import PropTypes from 'prop-types';
 
 
-
-// Images
-import ImgCenterCourt from '../../img/1v1.png';
-
 // Components
 import ProfilePicture from '../ProfilePicture';
 
@@ -125,7 +121,7 @@ class CourtPreview extends Component {
                 <div className="court-preview_line-middle-court"></div>
                 <div className="court-preview_half-circle" ></div>
                 <div className="court-preview_half-circle circle-right"></div>
-                <div className="court-preview_round-middle-court" style={{backgroundImage: `url(${ImgCenterCourt})`}}></div>
+                <div className="court-preview_round-middle-court"></div>
 
                 <div className="court-preview_wrapper-players">  
                     {
@@ -151,18 +147,24 @@ class CourtPreview extends Component {
                 
             </div>
             <div className="court-preview_table-players">
-                                
-                <div className="court-preview_separator">vs</div>    
+                <div style={{height:'70%'}}>               
+                    <div className="court-preview_separator">vs</div>    
 
-                <div className="court-preview_line">
-                    <div className="court-preview_column header-column" style={{background:'#EF7E4D'}}>
-                        Team 1
-                    </div>
-                    <div className="court-preview_column header-column" style={{background:'#ebebeb', color:'#1d1d1d'}}>
-                        Team 2
-                    </div>
-                </div>          
-                {this.createTable()}
+                    <div className="court-preview_line">
+                        <div className="court-preview_column header-column" style={{background:'#EF7E4D'}}>
+                            Team 1
+                        </div>
+                        <div className="court-preview_column header-column" style={{background:'#ebebeb', color:'#1d1d1d'}}>
+                            Team 2
+                        </div>
+                    </div>          
+                    {this.createTable()}
+                </div>
+                
+                <div className="court-preview_counter_wrapper">
+                    <div>Invités <span>3</span></div>
+                    <div>Places restantes <span>3</span></div>
+                </div>
             </div>
         </div>
     );

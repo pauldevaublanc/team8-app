@@ -4,7 +4,7 @@
 
 .court-preview_wrapper {
     width: 60%;
-    min-height: 450px;
+    min-height: 350px;
     border: 4px solid var(--gray);
     margin: 0 auto;
     position: relative;
@@ -23,24 +23,25 @@
 
 .court-preview_half-circle {
     position: absolute;
-    height: 90%;
-    width: 430px;
+    height: 95%;
+    width: 400px;
     border: 4px solid var(--gray);
     border-radius: 50%;
     transform: translateX(-50%);
-    top: 5%;
+    top: 3%;
+    left: -20px;
 }
 
 .circle-right {
-    left: 100%;
+    left: 103%;
 }
 
 .court-preview_round-middle-court {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     transform: translate(-50%, -50%);
     border-radius: 50%;
     border: 4px solid var(--gray);
@@ -58,8 +59,7 @@
     width: 40%;
     margin: 0 auto;
     position: relative;
-    padding-bottom: 20px;
-    height: 50%;
+    min-height: 350px;
 }
 
 .header-column {
@@ -73,9 +73,9 @@
 
 .court-preview_separator {
     position: absolute;
-    top: 7%;
+    top: -12px;
     left: 50%;
-    transform: translate(-50%, -65%);
+    transform: translate(-50%, 0%);
     font-family: var(--fontNumber);
     font-size: 30px;
     line-height: 30px;
@@ -119,6 +119,34 @@
     line-height: 18px;
 }
 
+.court-preview_counter_wrapper {
+    font-family: var(--fontTitle);
+    font-size: 16px;
+    text-transform: uppercase;
+    border-bottom: 3px solid var(--gray);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 30%;
+    justify-content: space-around;
+}
+
+.court-preview_counter_wrapper div {
+    border: 1px solid var(--gray);
+    width: 100%;
+    height: 50%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    justify-content: space-between;
+}
+
+.court-preview_counter_wrapper div span{
+    color: var(--orange);
+    font-size: 20px;
+}
+
 
 @media (max-width: 1200px){
     .court-preview_container {
@@ -130,7 +158,8 @@
     }
 
     .court-preview_separator {
-        top: 12%;
+        top: 9%;
+        transform: translate(-50%, -65%);
     }
 }
 
