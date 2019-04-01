@@ -25,7 +25,6 @@ class GameComponent extends Component {
 
   render() {
     const moment = require('moment');
-    console.log(this.props.game)
     return (  
         <div>
           <Title text={'Feuille de match'} style={{padding:'15px 0px 55px'}}/>

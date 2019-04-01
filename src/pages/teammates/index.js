@@ -13,7 +13,7 @@ import Title from '../../components/Title/index';
 import FooterT8 from '../../components/FooterT8/index';
 import MyTeammates from '../../components/MyTeammates';
 import DraftZone from '../../components/DraftZone';
-import TableTopPlayers from '../../components/TableTopPlayers';
+import TableTopPlayers from '../../containers/TableTopPlayers';
 
 class Teammates extends Component {
 

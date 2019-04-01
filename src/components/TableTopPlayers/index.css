@@ -1,59 +1,68 @@
 .table-top-players_wrapper {
     width: 95%;
     margin: 10px auto;
+    text-transform: capitalize;
 }
 
-.table-top-players_wrapper table{
-    width: 100%;
-    border: 1px solid var(--gray);
-    border-collapse: collapse;
+.table-top-players_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--gray);
+    color: var(--black);
+    font-family: var(--fontTitle);
     text-align: left;
+    border-top: 1px solid var(--white);
 }
 
-.table-top-players_wrapper table tbody tr{
-    cursor: pointer;
-    border: 2px solid var(--gray);
+.table-top-players_body {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    align-items: center;
+    font-family: var(--fontText);
     transition: 0.3s;
 }
 
-.table-top-players_wrapper table tbody tr:hover{
-    border: 2px solid var(--white);
+.table-top-players_body:hover {
     background: var(--orange);
     transition: 0.3s;
 }
 
-.table-top-players_wrapper table td:first-child {
-    width: 10%;
+.table-top-players_header p{
+    font-size: 16px;
+ }
+
+.text-column {
+   width: 35%;
+   padding: 10px;
+   border: 1px solid var(--white);
+   border-top: none;
 }
 
-.table-top-players_wrapper table td:nth-last-child(-n+2){
-    width: 15%;
-    font-weight: bold;
-}
-
-.table-top-players_wrapper table tr:nth-last-child(odd){
-    background: var(--black);
-}
-
-.table-top-players_wrapper table thead th{
+.number-column {
     font-family: var(--fontTitle);
-    background: var(--white);
-    color: var(--black);
+    width: 10%;
+    padding: 10px;
+    border: 1px solid var(--white);
+    text-align: center;
+    border-top: none;
 }
-
-.table-top-players_wrapper tr td, .table-top-players_wrapper tr th{
-    /* border: 2px solid var(--gray); */
-    padding: 5px;
-}
-
 
   
-  @media (max-width: 960px){
-    .table-top-players_wrapper {
-        width: 100%;
-    }
+@media (max-width: 960px){
 
-    .table-top-players_wrapper table td:nth-child(3), .table-top-players_wrapper table th:nth-child(3){
-        display: none;
-    }
-  }
+    .table-top-players_header p{
+        font-size: 13px;
+     }
+
+    .text-column {
+        width: 30%;
+        padding: 10px 5px;
+     }
+     
+     .number-column {
+         width: 23.33%;
+         padding: 10px 5px;
+     }
+}

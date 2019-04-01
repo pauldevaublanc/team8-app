@@ -2,72 +2,52 @@ import React, { Component } from 'react';
 import './index.css';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
 
 
-
-class TableTopPlayers extends Component {
+class TableTopPlayersComponent extends Component {
 
     static propTypes = {
-        style: PropTypes.object,
+        topPlayers: PropTypes.array,
     }
     
 
   render() {
     return (
         <div className="table-top-players_wrapper" style={this.props.style}>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Place</th>
-                        <th>Prénom/nom</th> 
-                        <th>Ville</th>
-                        <th>Générale</th>
-                        <th>Victoires</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>John Smith</td>
-                        <td>Issy-les-moulineaux</td>
-                        <td>98</td>
-                        <td>50</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Mickael Jackson</td>
-                        <td>Fontainbleau</td>
-                        <td>97</td>
-                        <td>43</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Herve Matthoux</td>
-                        <td>Paris 15ème</td>
-                        <td>97</td>
-                        <td>43</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Gustave Eiffel</td>
-                        <td>Paris 18ème</td>
-                        <td>94</td>
-                        <td>40</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Marry Poppins</td>
-                        <td>Paris 20ème</td>
-                        <td>94</td>
-                        <td>34</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
+            
+            <div className="table-top-players_header"> 
+                <p style={{textAlign:'left'}} className="number-column">N°</p>
+                <p className="text-column">Nom</p> 
+                <p className="text-column noMobile">Ville</p>
+                <p className="number-column">Générale</p>
+                <p className="number-column">Victoires</p>
+            </div>
+            
+            {
+                this.props.topPlayers.sort((a, b) => {
+                    return (
+                        b.generalGrade - a.generalGrade
+                    )
+                }).slice(0 , 10).map((player, key) => {
+                    return (
+                        <Link key={key} to={`/user/${player._id}`}>
+                            <div className="table-top-players_body">
+                                <p style={{textAlign:'left', paddingLeft:10}} className="number-column">{key + 1}</p>
+                                <p className="text-column">{player.username}</p>
+                                <p className="text-column noMobile">{player.city}</p>
+                                <p className="number-column">{player.generalGrade}</p>
+                                <p className="number-column">a faire</p>
+                            </div>
+                        </Link>
+                    ) 
+                })
+            } 
+                
+            
         </div>
     );
   }
 }
 
-export default TableTopPlayers;
+export default TableTopPlayersComponent;
