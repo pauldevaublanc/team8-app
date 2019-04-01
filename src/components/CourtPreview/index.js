@@ -11,6 +11,7 @@ class CourtPreview extends Component {
 
     static propTypes = {
         numberTeamPlayer: PropTypes.number,
+        guests: PropTypes.number
     }
 
     state = {
@@ -66,25 +67,25 @@ class CourtPreview extends Component {
         {
             teamPlayer:2,
             top: '65%',
-            left: '12%',
+            left: '14%',
             border: 'border-small-orange'
         }, 
         {
             teamPlayer:2,
             top: '65%',
-            left: '88%',
+            left: '86%',
             border: 'border-small'
         }, 
         {
             teamPlayer:3,
             top: '35%',
-            left: '12%',
+            left: '11%',
             border: 'border-small-orange'        
         }, 
         {
             teamPlayer:3,
             top: '35%',
-            left: '88%',
+            left: '89%',
             border: 'border-small'
         }, 
         {
@@ -130,7 +131,7 @@ class CourtPreview extends Component {
                             .map((player, key) => {
                                 return(
                                     <ProfilePicture key={key}
-                                    size={this.state.isMobile && this.props.numberTeamPlayer>3 ? 60 : this.state.isMobile ? 70 : 80} 
+                                    size={this.state.isMobile && this.props.numberTeamPlayer>3 ? 55 : this.state.isMobile ? 70 : 80} 
                                     borderStyle={player.border} 
                                     picture={require(`../../img/profile-default.jpg`)}
                                     style={{
@@ -162,7 +163,7 @@ class CourtPreview extends Component {
                 </div>
                 
                 <div className="court-preview_counter_wrapper">
-                    <div>Invités <span>3</span></div>
+                    <div>Invités <span>{this.props.guests}</span></div>
                     <div>Places restantes <span>3</span></div>
                 </div>
             </div>

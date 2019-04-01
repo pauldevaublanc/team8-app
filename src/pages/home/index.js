@@ -86,7 +86,7 @@ class Home extends Component {
         <div className="home_wrapper">
           <div className="home_introduction-wrapper" style={{backgroundImage: `url(${Background})`}}>
             <Title text={'Bienvenue sur'} addClass={'home-subtitle'}/>
-            <Title text={'Team8'}/>
+            <h1>Team<span>8</span></h1>
             <p className="home_introduction-text">Le seul club de basket qui te permet de choisir,</p>
             <div className="home_introduction-typing-text">
               <Typewriter

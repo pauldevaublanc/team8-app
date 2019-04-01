@@ -16,6 +16,16 @@
   border-bottom: 1px solid var(--white);
 }
 
+.home_introduction-wrapper h1 {
+  font-family: var(--fontTitle);
+  font-size: 80px;
+  line-height: 70px;
+}
+
+.home_introduction-wrapper h1 span{
+  color: var(--orange);
+}
+
 /* First part of the home page, with the background image */
 .home_introduction-text {
   font-family: var(--fontText);
@@ -114,6 +124,11 @@
   .home_presentation-wrapper {
     padding: 20px 10px 15px;
  }
+
+ .home_introduction-wrapper h1 {
+  font-size: 70px;
+  line-height: 60px;
+}
 
   .home_news-wrapper {
     padding: 20px;

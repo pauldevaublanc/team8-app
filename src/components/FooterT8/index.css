@@ -5,18 +5,19 @@
 }
 
 .footerT8_wrapper hr{
-    width:86%;
+    width:85%;
     position: absolute;
     bottom: 34px;
-    opacity: 0.5;
+    opacity: 0.4;
 }
 
 .footerT8_wrapper img {
-    width: 12%;
+    width: 10%;
+    max-width: 100px;
     position: absolute;
-    bottom: 23px;
-    right: -12px;
-    opacity: 0.5;
+    bottom: 12px;
+    right: 25px;
+    opacity: 0.4;
 }
 
 
@@ -27,8 +28,9 @@
     }
     
     .footerT8_wrapper img {
-        width: 20%;
-        bottom: 15px;
+        width: 18%;
+        bottom: 14px;
+        right: 5px;
     }
     
 }

@@ -434,8 +434,8 @@ form textarea.ant-input:hover {
   border-radius: 2px;
   background: linear-gradient(to right, rgba(72, 74, 77, 0.8), rgba(35, 37, 38, 0.8));
   position: relative;
-  border-top-left-radius: 100px;
-  border-top-right-radius: 100px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 @media (max-width: 1302px){

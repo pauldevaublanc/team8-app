@@ -24,16 +24,16 @@
 .court-preview_half-circle {
     position: absolute;
     height: 95%;
-    width: 400px;
+    width: 350px;
     border: 4px solid var(--gray);
     border-radius: 50%;
     transform: translateX(-50%);
-    top: 3%;
-    left: -20px;
+    top: 2.5%;
+    left: 5px;
 }
 
 .circle-right {
-    left: 103%;
+    left: 100%;
 }
 
 .court-preview_round-middle-court {
@@ -123,7 +123,8 @@
     font-family: var(--fontTitle);
     font-size: 16px;
     text-transform: uppercase;
-    border-bottom: 3px solid var(--gray);
+    border: 3px solid var(--gray);
+    border-left: none;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -160,6 +161,10 @@
     .court-preview_separator {
         top: 9%;
         transform: translate(-50%, -65%);
+    }
+
+    .court-preview_counter_wrapper {
+        border: none;
     }
 }
 

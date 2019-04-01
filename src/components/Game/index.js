@@ -25,6 +25,7 @@ class GameComponent extends Component {
 
   render() {
     const moment = require('moment');
+    console.log(this.props.game)
     return (  
         <div>
           <Title text={'Feuille de match'} style={{padding:'15px 0px 55px'}}/>
@@ -78,6 +79,7 @@ class GameComponent extends Component {
               hoop={this.props.game.court.Panneaux}
               gradeCourt={this.props.game.court.gradeCourt}
               gradeCrowd={this.props.game.court.gradeCrowd}
+              style={{border:'1px solid var(--gray)', borderTop: '1px solid var(--white)'}}
             />
             <div className="game-infos-subtitle">
               <img 
@@ -89,14 +91,17 @@ class GameComponent extends Component {
                 alt="adress court"/>
                 Equipes
             </div>
-           <CourtPreview numberTeamPlayer={this.props.game.playersCounter}/>
+           <CourtPreview 
+            numberTeamPlayer={this.props.game.playersCounter}
+            guests={this.props.game.players.length}
+            />
 
            <Button 
             text={'Participer à ce match'} 
             buttonStyle={'button-transparent'} 
             style={{
                 width:'250px', 
-                margin:'70px auto 0px'
+                margin:'50px auto 0px'
             }}/>
         </div>
     );
