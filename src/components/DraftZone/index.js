@@ -65,7 +65,8 @@ class DraftZone extends Component {
               <PlayerCard 
                 key={key}
                 id={user._id}
-                lastName={user.username}
+                description={user.description}
+                username={user.username}
                 picture={`${config.urlApi}${user.picture.url}`}
                 grade={user.generalGrade}
                 poste={user.position}

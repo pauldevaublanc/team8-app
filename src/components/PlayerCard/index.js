@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import './index.css';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Modal } from 'antd';
 
 import StarRatings from 'react-star-ratings';
 
 // COMPONENTS
 import ProfilePicture from '../ProfilePicture';
 import Button from '../Button';
+import PlayerModalComponent from '../../components/PlayerModal/index';
 
 class PlayerCard extends Component {
 
+  state = { 
+    visible: false 
+  }
+
   static propTypes = {
     id: PropTypes.string,
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
+    username: PropTypes.string,
+    description: PropTypes.string,
     picture: PropTypes.string,
     grade: PropTypes.number,
     poste: PropTypes.string,
@@ -30,6 +35,24 @@ class PlayerCard extends Component {
     style: PropTypes.object,
 }
 
+showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  }
+
+  handleOk = (e) => {
+    this.setState({
+      visible: false,
+    });
+  }
+
+  handleCancel = (e) => {
+    this.setState({
+      visible: false,
+    });
+  }
+
   render() {
     return (
         <div className="playerCard_wrapper" style={this.props.style}>
@@ -37,21 +60,21 @@ class PlayerCard extends Component {
                 <div className="playerCard_grade">
                     <div>{this.props.grade}<br/><span>GEN</span></div>
                 </div>
-                <h3>{this.props.poste}</h3>
-                <p style={{textTransform:'capitalize'}}>{this.props.level}</p>
-                <p>{this.props.age} ans</p>
-                <p style={{textTransform:'capitalize'}}>{this.props.city}</p>
-                <Link to={`/user/${this.props.id}`}>
-                    <Button 
-                        text={'Plus d\'infos'} 
-                        buttonStyle={'button-transparent'} 
-                        style={{
-                            padding: '10px 4px', 
-                            margin:'10px auto 5px', 
-                            fontSize:12
-                        }}
-                    />
-                </Link>
+                <h3 style={{paddingTop:15}}>{this.props.poste}</h3>
+                <p style={{textTransform:'capitalize', paddingBottom:15}}>{this.props.level}</p>
+                
+                
+                <Button 
+                    onClick={this.showModal}
+                    text={'Plus d\'infos'} 
+                    buttonStyle={'button-transparent'} 
+                    style={{
+                        padding: '10px 4px', 
+                        margin:'10px auto 5px', 
+                        fontSize:12
+                    }}
+                />
+                
                 <Button 
                     text={'Inviter'} 
                     buttonStyle={'button-transparent'} 
@@ -67,7 +90,7 @@ class PlayerCard extends Component {
             <div className="playerCard_right-infos">
                 <ProfilePicture size={100} picture={this.props.picture} borderStyle={'border-small'}/>
                 <div className="playerCard_name">
-                    <h2>{this.props.firstName} {this.props.lastName}</h2>
+                    <h2>{this.props.firstName} {this.props.username}</h2>
                 </div>
                 <ul className="playerCard_list-stats">
                     <li>
@@ -85,18 +108,55 @@ class PlayerCard extends Component {
                     <li>
                         <div>Fair-play</div>
                         <StarRatings
-                        // rating={this.state.rating}
-                        // changeRating={this.changeRating}
                         rating={this.props.stars}
                         starDimension="14px"
                         starSpacing="2px"
                         starEmptyColor="rgba(255, 255, 255, 0.5)"
-                        // starHoverColor= "#EF7E4D"
                         starRatedColor="#EF7E4D"
                         />
                     </li>
                 </ul>
             </div>
+            <Modal
+            title={this.props.username}
+            centered={true}
+            visible={this.state.visible}
+            onOk={this.handleOk}
+            onCancel={this.handleCancel}
+            footer={[
+              <div key={42} style={{display:'flex', justifyContent: 'flex-end'}}>
+                <Button 
+                    key="submit" 
+                    buttonStyle={'button-orange'} 
+                    style={{
+                    height:30, 
+                    width: 100,
+                    minWidth:100, 
+                    padding: '5px 10px', 
+                    marginLeft:15
+                    }} 
+                    text={'Ok'} 
+                    loading={this.state.loading} 
+                    onClick={this.handleOk}/>
+              </div>
+          ]}
+            >
+              <PlayerModalComponent 
+                player={{
+                  generalGrade:this.props.grade,
+                  age:this.props.age, 
+                  level:this.props.level, 
+                  position:this.props.poste,
+                  picture: this.props.picture,
+                  description: this.props.description,
+                  matchPlayed: this.props.matchPlayed,
+                  mvp: this.props.mvp,
+                  wins: this.props.wins,
+                  fairPlay: this.props.stars,
+                  city: this.props.city
+                }}
+              />
+            </Modal>
       </div>
     );
   }
