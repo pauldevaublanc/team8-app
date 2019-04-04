@@ -300,6 +300,7 @@ class CreateGame extends Component {
                   Invitation des teammates
                 </h4>
                   <DraftZone 
+                  pageAmount={4}
                     onInvitePlayers={(selectedPlayer) => this.handleInvitePlayers(selectedPlayer)}
                     style={{
                       margin:"15px auto", 

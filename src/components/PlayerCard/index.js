@@ -32,6 +32,8 @@ class PlayerCard extends Component {
     stars: PropTypes.number,
     icon: PropTypes.string,
     onClick: PropTypes.func,
+    inviteButtonText: PropTypes.string,
+    addClass: PropTypes.string,
     style: PropTypes.object,
 }
 
@@ -55,7 +57,7 @@ showModal = () => {
 
   render() {
     return (
-        <div className="playerCard_wrapper" style={this.props.style}>
+        <div className={`playerCard_wrapper ${this.props.addClass}`} style={this.props.style}>
             <div className="playerCard_left-infos">
                 <div className="playerCard_grade">
                     <div>{this.props.grade}<br/><span>GEN</span></div>
@@ -76,7 +78,7 @@ showModal = () => {
                 />
                 
                 <Button 
-                    text={'Inviter'} 
+                    text={this.props.inviteButtonText} 
                     buttonStyle={'button-transparent'} 
                     onClick={this.props.onClick}
                     style={{

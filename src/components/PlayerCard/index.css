@@ -12,6 +12,11 @@
     border-radius: 2px;
 }
 
+.playerCard-active {
+    border: 1px solid var(--orange);
+    box-shadow: 0px 0px 4px 3px var(--orange);
+}
+
 .playerCard_left-infos {
     width: 30%;
     background: var(--gray); 

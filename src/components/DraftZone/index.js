@@ -12,7 +12,8 @@ class DraftZone extends Component {
 
   state = {
     teammates: [],
-    playersId: []
+    playersId: [],
+    currentPlayerId: null
   }
 
   static propTypes = {
@@ -32,16 +33,25 @@ class DraftZone extends Component {
 
 
   getInvitationPlayerId = (playerId) => {
-    
-    
     const newPlayer = this.state.playersId.slice()
-    
-    if (this.state.playersId.indexOf(playerId) === -1 ){
+    const indexPlayer = this.state.playersId.indexOf(playerId)
+
+    if (indexPlayer === -1){
       newPlayer.push(playerId)
       this.setState({
-        playersId: newPlayer
+        playersId: newPlayer,
       }, () => {this.props.onInvitePlayers(this.state.playersId)})
+    } else if (indexPlayer !== -1){
+      newPlayer.splice(indexPlayer, 1)
+      this.setState({
+        playersId: newPlayer,
+      }, () => {this.props.onInvitePlayers(this.state.playersId)})
+      
     }
+
+    this.setState({
+      currentPlayerId: playerId
+    })
     
   }
 
@@ -60,7 +70,6 @@ class DraftZone extends Component {
               return (user._id !== Cookies.get('myId'))
             })
             .map((user, key) => {
-
             return (
               <PlayerCard 
                 key={key}
@@ -77,12 +86,14 @@ class DraftZone extends Component {
                 wins={1}
                 mvp={user.mvp}
                 stars={user.fairplayGrade}
-                icon={'add.png'}
+                inviteButtonText= {`${this.state.playersId.includes(user._id) ? 'Annuler' : 'Inviter'}`}
+                addClass={`${this.state.playersId.includes(user._id) ? 'playerCard-active' : ''}`}
                 onClick={()=>this.getInvitationPlayerId(user._id)}
               />
             )
           })
         }   
+        
       </div>
     );
   }
