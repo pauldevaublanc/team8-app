@@ -303,7 +303,8 @@ class CreateGame extends Component {
                   pageAmount={4}
                     onInvitePlayers={(selectedPlayer) => this.handleInvitePlayers(selectedPlayer)}
                     style={{
-                      margin:"15px auto", 
+                      margin:"0px auto",
+                      padding: "15px 0px", 
                       textAlign:'center'
                     }}/>
               </div>

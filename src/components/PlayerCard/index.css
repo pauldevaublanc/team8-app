@@ -13,8 +13,22 @@
 }
 
 .playerCard-active {
-    border: 1px solid var(--orange);
-    box-shadow: 0px 0px 4px 3px var(--orange);
+    /* border: 1px solid var(--orange); */
+    /* box-shadow: 0px 0px 4px 3px var(--orange); */
+    background: var(--lightOrange);
+}
+
+.playerCard-checked-wrapper {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: none;
+    transition: 0.3s;
+}
+
+.playerCard-checked{
+    display: block;
+    transition: 0.3s;
 }
 
 .playerCard_left-infos {

@@ -26,7 +26,6 @@
 
 .courts_selector_wrapper {
     position: absolute;
-    background: var(--solidGray);
     width: 100%;
     top: -100px;
     left: 0;
@@ -40,11 +39,13 @@
 
 .courtNotSelected {
   border: 2px solid var(--gray);
+  background: var(--solidGray);
 }
 
 .courtSelected {
   border: 2px solid var(--orange);
-  box-shadow: 0px 0px 2px 1px var(--orange);
+  /* box-shadow: 0px 0px 2px 1px var(--orange); */
+  background: var(--lightOrange);
 }
 
 .animation-slideDown {

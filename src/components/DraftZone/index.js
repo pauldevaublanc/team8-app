@@ -70,6 +70,7 @@ class DraftZone extends Component {
               return (user._id !== Cookies.get('myId'))
             })
             .map((user, key) => {
+              const isInvite = this.state.playersId.includes(user._id)
             return (
               <PlayerCard 
                 key={key}
@@ -86,8 +87,8 @@ class DraftZone extends Component {
                 wins={1}
                 mvp={user.mvp}
                 stars={user.fairplayGrade}
-                inviteButtonText= {`${this.state.playersId.includes(user._id) ? 'Annuler' : 'Inviter'}`}
-                addClass={`${this.state.playersId.includes(user._id) ? 'playerCard-active' : ''}`}
+                inviteButtonText= {`${isInvite ? 'Annuler' : 'Inviter'}`}
+                addClass={`${isInvite ? 'playerCard-active' : ''}`}
                 onClick={()=>this.getInvitationPlayerId(user._id)}
               />
             )

@@ -60,7 +60,6 @@
 
 .small .court-infos_wrapper {
     padding: 10px;
-    background: var(--solidGray);
     cursor: pointer;
     transition: 0.3s;
 }
