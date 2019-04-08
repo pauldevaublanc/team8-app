@@ -75,7 +75,7 @@ class Navbar extends Component {
               <NavLink className="noMobile" activeClassName={'activeLink'} to={"/"} exact><p>Accueil</p></NavLink>
               <NavLink activeClassName={'activeLink'} to={`/user/${Cookies.get('myId')}`} exact><p>Profil</p></NavLink>
               <NavLink activeClassName={'activeLink'} to={"/games/mesmatchs"} exact><p>Saison</p></NavLink>
-              <NavLink activeClassName={'activeLink'} to={"/teammates/mesteammates"} exact><p>Teammates</p></NavLink>
+              <NavLink activeClassName={'activeLink'} to={"/teammates/draftzone"} exact><p>Teammates</p></NavLink>
               <NavLink activeClassName={'active-button'} to={"/createGame"} exact><Button text={'Organiser un match'} buttonStyle={'button-orange'}/></NavLink>
             </div>
           }

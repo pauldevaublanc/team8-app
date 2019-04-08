@@ -427,7 +427,7 @@ form textarea.ant-input:hover {
 .main_container {
   border: 2px solid var(--gray);
   width: 90%;
-  min-height: 80vh;
+  min-height: calc(100vh - 120px);
   max-width: 1300px;
   margin: 0 auto;
   padding: 20px 20px 60px;

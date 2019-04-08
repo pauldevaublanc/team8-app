@@ -11,7 +11,7 @@ import Background from '../../img/background-home.jpg';
 // Components
 import Title from '../../components/Title/index';
 import FooterT8 from '../../components/FooterT8/index';
-import MyTeammates from '../../components/MyTeammates';
+// import MyTeammates from '../../components/MyTeammates';
 import DraftZone from '../../components/DraftZone';
 import TableTopPlayers from '../../containers/TableTopPlayers';
 
@@ -29,7 +29,7 @@ class Teammates extends Component {
   }
 
 
-  menuElements = ['Mes Teammates', 'Draft Zone', 'Top Players'];
+  menuElements = ['Draft Zone', 'Top Players'];
 
   render() {
 
@@ -66,7 +66,7 @@ class Teammates extends Component {
                 
               </div>
               {
-                this.props.match.params.panel === 'mesteammates' ? <MyTeammates/> : this.props.match.params.panel === 'draftzone' ?<DraftZone inviteButton={false}/> : <TableTopPlayers/>
+                this.props.match.params.panel === 'draftzone' ? <DraftZone inviteButton={false}/> : <TableTopPlayers/>
               }   
             </div>
             
