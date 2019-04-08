@@ -66,7 +66,7 @@ class Teammates extends Component {
                 
               </div>
               {
-                this.props.match.params.panel === 'mesteammates' ? <MyTeammates/> : this.props.match.params.panel === 'draftzone' ?<DraftZone/> : <TableTopPlayers/>
+                this.props.match.params.panel === 'mesteammates' ? <MyTeammates/> : this.props.match.params.panel === 'draftzone' ?<DraftZone inviteButton={false}/> : <TableTopPlayers/>
               }   
             </div>
             

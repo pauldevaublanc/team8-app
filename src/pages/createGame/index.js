@@ -302,6 +302,7 @@ class CreateGame extends Component {
                   <DraftZone 
                   pageAmount={4}
                     onInvitePlayers={(selectedPlayer) => this.handleInvitePlayers(selectedPlayer)}
+                    inviteButton={true}
                     style={{
                       margin:"0px auto",
                       padding: "15px 0px", 

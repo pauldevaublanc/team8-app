@@ -19,6 +19,7 @@ class DraftZone extends Component {
   static propTypes = {
       style: PropTypes.object,
       onInvitePlayers: PropTypes.func,
+      inviteButton: PropTypes.bool
   }
 
   getPlayers = () => {
@@ -87,9 +88,11 @@ class DraftZone extends Component {
                 wins={1}
                 mvp={user.mvp}
                 stars={user.fairplayGrade}
+                inviteButton={this.props.inviteButton}
                 inviteButtonText= {`${isInvite ? 'Annuler' : 'Inviter'}`}
                 addClass={`${isInvite ? 'playerCard-active' : ''}`}
                 onClick={()=>this.getInvitationPlayerId(user._id)}
+
               />
             )
           })

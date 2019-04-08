@@ -32,6 +32,7 @@ class PlayerCard extends Component {
     stars: PropTypes.number,
     icon: PropTypes.string,
     onClick: PropTypes.func,
+    inviteButton: PropTypes.bool,
     inviteButtonText: PropTypes.string,
     addClass: PropTypes.string,
     style: PropTypes.object,
@@ -62,7 +63,7 @@ showModal = () => {
                 <div className="playerCard_grade">
                     <div>{this.props.grade}<br/><span>GEN</span></div>
                 </div>
-                <h3 style={{paddingTop:15}}>{this.props.poste}</h3>
+                <h3 style={{paddingTop:this.props.inviteButton === true ? '15px' : '30px'}}>{this.props.poste}</h3>
                 <p style={{textTransform:'capitalize', paddingBottom:15}}>{this.props.level}</p>
                 
                 
@@ -72,12 +73,15 @@ showModal = () => {
                     buttonStyle={'button-transparent'} 
                     style={{
                         padding: '10px 4px', 
-                        margin:'10px auto 5px', 
-                        fontSize:12
+                        margin:`10px auto 5px`, 
+                        fontSize:12,
+                        marginTop: this.props.inviteButton === true ? '20px' : '40px'
                     }}
                 />
-                
-                <Button 
+
+                {
+                  this.props.inviteButton && 
+                  <Button 
                     text={this.props.inviteButtonText} 
                     buttonStyle={'button-transparent'} 
                     onClick={this.props.onClick}
@@ -87,6 +91,8 @@ showModal = () => {
                         fontSize:12
                     }}
                 />
+                }
+                
             </div>
 
             <div className="playerCard_right-infos">
