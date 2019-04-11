@@ -4,6 +4,7 @@ import './App.css';
 import './index.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import { connect } from 'react-redux'
 
 
 
@@ -15,13 +16,37 @@ import Games from './pages/games/index';
 import Teammates from './pages/teammates/index';
 import CreateGame from './pages/createGame/index';
 import Navbar from './components/Navbar';
+import { getCourtsAction } from './store/actions/courtAction';
+
+/* 
+ * mapDispatchToProps
+*/
+const mapDispatchToProps = dispatch => ({
+  getCourtsAction: () => dispatch(getCourtsAction()),
+})
+
+/* 
+ * mapStateToProps
+*/
+const mapStateToProps = state => {
+  return {
+    courts: state.court.courts
+  }
+}
 
 class App extends Component {
+  
+  getCourtsAction = (event) => {
+    this.props.getCourtsAction();
+  }
   render() {
+    console.log(this.props.courts)
     return (
       <Router history={ createBrowserHistory() }>   
          
-          <div>
+        <div>
+            
+            {/* <button onClick={this.getCourtsAction}>Test redux action</button> */}
           <Navbar/>
             <Route exact path="/" component={Home} />
             {/* <Route exact path="/profile" component={User} /> */}
@@ -42,4 +67,4 @@ class App extends Component {
     );
   }
 }
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
