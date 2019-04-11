@@ -40,7 +40,6 @@ class App extends Component {
     this.props.getCourtsAction();
   }
   render() {
-    console.log(this.props.courts)
     return (
       <Router history={ createBrowserHistory() }>   
          

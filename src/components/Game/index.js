@@ -92,7 +92,8 @@ class GameComponent extends Component {
             </div>
            <CourtPreview 
             numberTeamPlayer={this.props.game.playersCounter}
-            guests={this.props.game.players.length}
+            guests={this.props.game.players}
+            hostPicture={this.props.game.host.picture.url}
             />
 
            <Button 

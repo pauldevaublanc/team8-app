@@ -16,11 +16,17 @@
     border: 2px solid var(--white);
 }
 
-.border-small-orange {
-    border: 2px solid var(--orange);
-    box-shadow: 0px 0px 0px 2px var(--orange);
-}
-
 .border-large {
     box-shadow: 0px 0px 0px 15px var(--orange);
 }
+
+.border-small-white {
+    border: 0px solid var(--white);
+    box-shadow: 0px 0px 0px 4px var(--white);
+}
+
+.border-small-orange {
+    border: 0px solid var(--orange);
+    box-shadow: 0px 0px 0px 4px var(--orange);
+}
+

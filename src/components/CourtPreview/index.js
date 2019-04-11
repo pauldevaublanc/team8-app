@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './index.css';
 import PropTypes from 'prop-types';
+import config from '../../config/index';
 
 
 // Components
@@ -11,7 +12,9 @@ class CourtPreview extends Component {
 
     static propTypes = {
         numberTeamPlayer: PropTypes.number,
-        guests: PropTypes.number
+        guests: PropTypes.array,
+        hostPicture: PropTypes.string,
+        guestPicture: PropTypes.string,
     }
 
     state = {
@@ -56,49 +59,56 @@ class CourtPreview extends Component {
             teamPlayer:1,
             top: '50%',
             left: '35%',
-            border: 'border-small-orange'
+            border: 'border-small-orange',
+            picture: `${config.urlApi}${this.props.hostPicture}`
         }, 
         {
             teamPlayer:1,
             top: '50%',
             left: '65%',
-            border: 'border-small'
+            border: 'border-small-white',
+            picture: `${config.urlApi}${this.props.guests[0].picture.url}`
         }, 
         {
             teamPlayer:2,
             top: '65%',
             left: '14%',
-            border: 'border-small-orange'
+            border: 'border-small-orange',
+            picture: `${config.urlApi}${this.props.guests[1].picture.url}`
         }, 
         {
             teamPlayer:2,
             top: '65%',
             left: '86%',
-            border: 'border-small'
+            border: 'border-small-white',
+            picture: `${config.urlApi}${this.props.guests[2].picture.url}`
         }, 
         {
             teamPlayer:3,
             top: '35%',
             left: '11%',
-            border: 'border-small-orange'        
+            border: 'border-small-orange',
+            picture: `${config.urlApi}${this.props.guests[3].picture.url}`        
         }, 
         {
             teamPlayer:3,
             top: '35%',
             left: '89%',
-            border: 'border-small'
+            border: 'border-small-white',
+            picture: `${config.urlApi}${this.props.guests[4].picture.url}`
         }, 
         {
             teamPlayer:4,
             top: '15%',
             left: '26%',
-            border: 'border-small-orange'
+            border: 'border-small-orange',
+            
         }, 
         {
             teamPlayer:4,
             top: '15%',
             left: '74%',
-            border: 'border-small'
+            border: 'border-small-white'
         }, 
         {
             teamPlayer:5,
@@ -110,12 +120,16 @@ class CourtPreview extends Component {
             teamPlayer:5,
             top: '85%',
             left: '74%',
-            border: 'border-small'
+            border: 'border-small-white'
         }, 
     ];
 
+    
+
+
 
   render() {
+      console.log(`${config.urlApi}${this.props.guests[4].picture.url}`)
     return (  
         <div className="court-preview_container">
             <div className="court-preview_wrapper">
@@ -131,9 +145,10 @@ class CourtPreview extends Component {
                             .map((player, key) => {
                                 return(
                                     <ProfilePicture key={key}
-                                    size={this.state.isMobile && this.props.numberTeamPlayer>3 ? 55 : this.state.isMobile ? 70 : 80} 
+                                    size={this.state.isMobile && this.props.numberTeamPlayer > 3 ? 55 : this.state.isMobile ? 70 : 80} 
                                     borderStyle={player.border} 
-                                    picture={require(`../../img/profile-default.jpg`)}
+                                    picture={player.picture === undefined ? `${require('../../img/profile-default.jpg')}` : player.picture }
+                                    // picture={require(`../../img/profile-default.jpg`)}
                                     style={{
                                         position:'absolute',
                                         transform: 'translate(-50%, -50%)',
@@ -163,7 +178,7 @@ class CourtPreview extends Component {
                 </div>
                 
                 <div className="court-preview_counter_wrapper">
-                    <div>Invités <span>{this.props.guests}</span></div>
+                    <div>Invités <span>{this.props.guests.length}</span></div>
                     <div>Places restantes <span>3</span></div>
                 </div>
             </div>
