@@ -4,7 +4,7 @@
 
 .court-preview_wrapper {
     width: 60%;
-    min-height: 350px;
+    min-height: 400px;
     border: 4px solid var(--gray);
     margin: 0 auto;
     position: relative;
@@ -52,6 +52,13 @@
 
 .court-preview_wrapper-players {
     max-width: 100%;
+}
+
+.court-preview_player-name {
+    font-family: var(--fontText);
+    font-weight: bolder;
+    padding-top: 3px;
+    text-transform: capitalize;
 }
 
 /* TABLE */
@@ -185,12 +192,13 @@
 
 @media (max-width: 700px){
     .court-preview_wrapper {
-        width: 95%;
-        min-height: 315px;
+        width: 100%;
+        min-height: 330px;
+        border: 1px solid var(--gray);
     }
 
     .court-preview_table-players {
-        width: 95%;
+        width: 100%;
     }
 
     .court-preview_half-circle {

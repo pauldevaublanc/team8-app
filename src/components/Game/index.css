@@ -35,6 +35,7 @@
 
 .game-organizer-infos span{
     color: var(--orange);
+    text-transform: capitalize;
 }
 
 .game-organizer-infos div{
@@ -86,11 +87,11 @@
 
 @media (max-width: 700px){
     .game-infos-wrapper{
-        width: 95%;
+        width: 100%;
     }
 
     .game-infos-subtitle {
-        width: 95%;
+        width: 100%;
         font-size: 22px;
     }
 

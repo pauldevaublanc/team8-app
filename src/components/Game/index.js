@@ -94,6 +94,7 @@ class GameComponent extends Component {
             numberTeamPlayer={this.props.game.playersCounter}
             guests={this.props.game.players}
             hostPicture={this.props.game.host.picture.url}
+            hostName={this.props.game.host.username}
             />
 
            <Button 
